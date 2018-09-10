@@ -15,6 +15,7 @@ Tasks completed since last meeting [1-2 minutes]
 Tasks worked upon but not completed since last meeting [2-4 minutes]
 	* (Replace with tasks that are still being worked upon)
 	   - (Also document any significant discussions of ideas or actions to make progress on these item)
+	(Some weeks, including the first week your group meets, this will be blank)
 
 Goals for the next meeting [20+ minutes]
 	* (List tasks that will be worked upon in the coming week)
