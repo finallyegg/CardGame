@@ -37,6 +37,8 @@ public class Deck {
 		deck.remove(z);
 	}
 	
+
+	
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
