@@ -25,6 +25,18 @@ public class Deck {
 		return c;
 	}
 	
+	public void removeCard(Card s) {
+		int z = 0;
+		for(int i = 0; i < deck.size(); i++) {
+			if(deck.get(i).getRank().equals(s.getRank())) {
+				if(deck.get(i).getSuit().equals(s.getSuit())) {
+					z = i;
+				}
+			}
+		}
+		deck.remove(z);
+	}
+	
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
@@ -38,5 +50,13 @@ public class Deck {
 				deck.add(c);
 			}
 		}
+	}
+	
+	public int size() {
+		int i = 0;
+		for(Card z: deck) {
+			i++;
+		}
+		return i;
 	}
 }

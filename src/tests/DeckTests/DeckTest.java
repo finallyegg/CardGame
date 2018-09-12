@@ -1,5 +1,6 @@
 package tests.DeckTests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -37,6 +38,21 @@ class DeckTest {
 		}
 		assertEquals(d2.size() == 52, true);
 
+	}
+	
+	@Test
+	public void removeCardTest() {
+		Deck d = new Deck();
+		Card c = new Card(Card.Ranks.ACE, Card.Suits.DIAMONDS);
+		d.removeCard(c);
+		assertEquals("Testing if Card is removed.", 51, d.size());
+	}
+	
+	@Test
+	public void sizeTest() {
+		Deck d = new Deck();
+		int o = d.size();
+		assertEquals("Testing if Size method works", 52, o);
 	}
 
 }
