@@ -1,8 +1,12 @@
-package code.Deck;
+package tests.DeckTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import code.Deck.Card;
+import code.Deck.Card.Ranks;
+import code.Deck.Card.Suits;
 
 class CardTest {
 
