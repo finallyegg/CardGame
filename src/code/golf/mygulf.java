@@ -11,4 +11,5 @@ public class mygulf {
 	Card [] homeCellPile= new Card[1];
 	Card [] stockPile = new Card[1];
 
+
 }
