@@ -61,4 +61,8 @@ public class Deck {
 		}
 		return i;
 	}
+	
+	public ArrayList<Card> getCards(){
+		return this.deck;
+	}
 }
