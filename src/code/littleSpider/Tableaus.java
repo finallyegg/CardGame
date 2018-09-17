@@ -7,7 +7,7 @@ import code.Deck.Deck;
 public class Tableaus extends Deck{
 	
 	private ArrayList<Card> cardStack;
-	private Card a;
+	private int cardsInStack;
 
 	//everytime you deal a would be equal to that card delt
 	public Tableaus(Card a, Card b, Card c, Card d, Card e, Card f) {
@@ -17,15 +17,15 @@ public class Tableaus extends Deck{
 		cardStack.add(d);
 		cardStack.add(e);
 		cardStack.add(f);	
-		
-		a = deal();
+		cardsInStack = cardStack.size();
 	}
 		
 	
-	//this method checks the card numbers to see if the delt card is either greater than the Tableaus first card by one or less than the Tableaus first card 
-	//by one. If it is then it will take that card a and put it into the Tableaus and become the first card.(I don't think we need a add card or remove
-	//card since a = deal() which returns a card which means it removes a card from a deck and returns a card and this method checks that card and adds
-	//it into the Tableaus. it would deal a new card and Card a would be that new value
+	/*this method checks the card numbers to see if the delt card is either greater than the Tableaus first card by one or less than the Tableaus first card 
+	* by one. If it is then it will take that card a and put it into the Tableaus and become the first card.(I don't think we need a add card or remove
+	* card since a = deal() which returns a card which means it removes a card from a deck and returns a card and this method checks that card and adds
+	* it into the Tableaus. it would deal a new card and Card a would be that new value
+	*/
 	public boolean checkNumber() {
 		if(cardStack.get(0).value() - 1 == a.value()  || cardStack.get(0).value() + 1 == a.value()) {
 			cardStack.add(a);
@@ -34,7 +34,7 @@ public class Tableaus extends Deck{
 		}
 		else {
 		return false;
-	}
+		}
 	}
 	
 	public boolean checkEmpty() {
