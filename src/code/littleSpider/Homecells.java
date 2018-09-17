@@ -10,9 +10,11 @@ public class Homecells {
 	
 	public Homecells(Card s) {
 		card = s;
+	
 		cardStack.add(s);
 		
 	}
+	
 	//this gets the first card and checks to see if the suits match
 	public boolean checkSuit() {
 		

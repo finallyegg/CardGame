@@ -17,8 +17,11 @@ public class Tableaus extends Deck{
 		cardStack.add(d);
 		cardStack.add(e);
 		cardStack.add(f);	
+		
 		a = deal();
 	}
+		
+	
 	//this method checks the card numbers to see if the delt card is either greater than the Tableaus first card by one or less than the Tableaus first card 
 	//by one. If it is then it will take that card a and put it into the Tableaus and become the first card.(I don't think we need a add card or remove
 	//card since a = deal() which returns a card which means it removes a card from a deck and returns a card and this method checks that card and adds
