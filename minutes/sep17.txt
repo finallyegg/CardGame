@@ -10,21 +10,21 @@ Meeting Attendance: (list all students who were present) [1 minute]
 	
 Tasks completed since last meeting [1-2 minutes]
 	* (Replace with tasks that were completed in the last week)
-	  (Some weeks, including the first week your group meets, this will be blank)
+Defines Deck class which creates 52 Card instances. Each Card instance has unique combination of suit & rank [6 points]
+Defines class representing a Golf game. Each game instance has 7 tableau piles, 1 homecell pile, and 1 stock pile [4 points]
+Defines class representing a Little Spider game. Each game instance has 8 tableau piles, 4 homecell piles, and 0 stock piles [4 points]
+	Are all Done.
+	  
 	First Meeting
 Tasks worked upon but not completed since last meeting [2-4 minutes]
-	* (Replace with tasks that are still being worked upon)
-	   - (Also document any significant discussions of ideas or actions to make progress on these item)
-	(Some weeks, including the first week your group meets, this will be blank)
+	
 
 Goals for the next meeting [20+ minutes]
-	* (List tasks that will be worked upon in the coming week)
-	   - (Discuss what each person will do to complete that task)
-	Jake - Define Deck Class (for tuesday sept 10th) 
-	YingWi, Kexin, Define little spider Class. By next meeting 
-	Deyana, Zeping, Define Golf Class. By next meeting 
+	 
+	YingWi, Kexin, Complete all check marks for little spider. 
+	Deyana, Zeping, Jake, complete all check marks for the Golf.
 	
 Schedule for the next week's set of pair programming meetings [3-4 minutes]
-	* (Pair programming sessions should be two hours long (no more, no less))
-	  (Every team member should participate in two sessions each week, with each session including a different team member)
-	We will all meet again next monday after cs class. 
+	
+	Merge next monday. 
+	
