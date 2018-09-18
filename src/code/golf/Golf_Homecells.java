@@ -18,7 +18,9 @@ public class Golf_Homecells {
 	}
 	
 	public void addCard (Card x) {
-		Card top = Golf_Tableaus.getTablestack().get(0);
+		Homecellstack.add(x);
+		
+		/*Card top = Golf_Tableaus.getTablestack().get(0);
 		ArrayList<Card> optionalChoice = new ArrayList<>();
 		for (Card i : Golf.getAllTableausCard()) {
 			if (Math.abs(i.value() - top.value()) == 1) {
@@ -30,7 +32,7 @@ public class Golf_Homecells {
 		}
 		if (optionalChoice.contains(x)) {
 			Homecellstack.add(x);
-		}
+		}*/
 	}
 
 	public ArrayList<Card> getHomecellstack() {

@@ -20,8 +20,8 @@ public class Golf_Stock {
 		StockStack = stockStack;
 	}
 	
-	public void RemoveCard() {
-		StockStack.remove(0);
+	public Card RemoveCard() {
+		return StockStack.remove(0);
 	}
 	
 	public boolean AddCard() {

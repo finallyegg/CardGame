@@ -28,56 +28,49 @@ public class Golf {
 		ArrayList<Card> removelist = new ArrayList<>();
 		
 		this.t1 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t2 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t3 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t4 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t5 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i <  5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t6 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
 		removelist.clear();
 		
 		this.t7 = new Golf_Tableaus(d.getCards().get(0),d.getCards().get(1),d.getCards().get(2),d.getCards().get(3),d.getCards().get(4));
-		for (int i = 0; i <= 5; i++) {
-			Golf.AllTableausCard.get(i);
+		for (int i = 0; i < 5; i++) {
 			removelist.add(d.getCards().get(i));
 		}
 		d.getCards().removeAll(removelist);
@@ -94,6 +87,31 @@ public class Golf {
 		return AllTableausCard;
 	}
 
+	public Golf_Stock getStockPile() {
+		return s1;
+	}
 	
+	public Golf_Homecells getHomeCell() {
+		return h1;
+	}
 	
+	public Golf_Tableaus getTableau(int t) {
+		switch(t) {
+		case 1:
+			return t1;
+		case 2:
+			return t2;
+		case 3:
+			return t3;
+		case 4:
+			return t4;
+		case 5:
+			return t5;
+		case 6:
+			return t6;
+		case 7:
+			return t7;
+		}
+		return null;
+	}
 }
