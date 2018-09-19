@@ -3,6 +3,8 @@ package tests.littleSpiderTests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 import code.Deck.Card;
@@ -14,15 +16,21 @@ class TableausTest {
 
 	
 	@Test
-	void testCheckNumber() {
+	public void testCheckNumber() {
 		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
 		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
 		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
 		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
 		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
 		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
-		
-		Tableaus group1 = new Tableaus(a1, a2, a3, a4, a5, a6);
+		ArrayList<Card> lol = new ArrayList<>();
+		lol.add(a1);
+		lol.add(a2);
+		lol.add(a3);
+		lol.add(a4);
+		lol.add(a5);
+		lol.add(a6);
+		Tableaus group1 = new Tableaus(lol);
 		Card t1 = new Card(Ranks.EIGHT, Suits.CLUBS);
 		/*Tested to see if its legal to put a eight on top of a Ace and it returned false which is correct. 
 		 */
@@ -44,79 +52,102 @@ class TableausTest {
 	}
 //problems
 	@Test
-	void testCheckEmpty() {
-		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
-		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
-		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
-		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
-		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
-		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
+	public void testCheckEmpty() {
 		
-		Tableaus group1 = new Tableaus(a1, a2, a3, a4, a5, a6);
-		boolean a = group1.checkEmpty(group1.getCardSize());
+		ArrayList<Card> lol = new ArrayList<>();
+		
+		Tableaus group1 = new Tableaus(lol);
+		boolean a = group1.checkEmpty();
 		assertEquals("cardStack is not full",a, false);
-		group1.removeCard(a1);
-		group1.removeCard(a2);
-		group1.removeCard(a3);
-		group1.removeCard(a4);
-		group1.removeCard(a5);
-		group1.removeCard(a6);
-		boolean b = group1.checkEmpty(group1.getCardSize());
 		
+		group1.removeTest();
+		group1.removeTest();
+		group1.removeTest();
+		group1.removeTest();
+		group1.removeTest();
+		group1.removeTest();
+		boolean b = group1.checkEmpty();
+
 		assertEquals("cardStack is not Empty",b, true );
 		
 	}
-/*Testing if removing the card from the tableaus would change the Tableaus size.
+/*Testing if it is legal to remove card and check the size if it decreased
  * 
  */
 	@Test
-	void testRemoveCard() {
+	public void testRemoveCard() {
+		//since lol has 6 random cards I couldn't test it so I just added 6 cards to test so if it removes it will have a total of 11 cards
 		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
 		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
 		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
 		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
 		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
 		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
-		/*Tested correctly I removed a card and the tableaus size reduced by one.
-		 * 
-		 */
-		Card a7 = new Card(Ranks.KING, Suits.CLUBS);
-		Tableaus group1 = new Tableaus(a1, a2, a3, a4, a5, a6);
-		group1.removeCard(a7);
-		int t1 = group1.getCardSize();
-		assertEquals(t1, 5);
-	}
-// problems
-	@Test
-	void testAddCard() {
-		Card a1 = new Card( Ranks.FIVE, Suits.CLUBS);
-		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
-		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
-		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
-		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
-		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
-		Tableaus group1 = new Tableaus(a1, a2, a3, a4, a5, a6);
-		Tableaus group2 = new Tableaus(a1, a2, a3, a4, a5, a6);
+		ArrayList<Card> lol = new ArrayList<>();
+		lol.add(a1);
+		lol.add(a2);
+		lol.add(a3);
+		lol.add(a4);
+		lol.add(a5);
+		lol.add(a6);
 		
-		Card test1 = new Card(Ranks.FOUR, Suits.SPADES);
-		group2.addCard(test1);
+		Tableaus group1 = new Tableaus(lol);
+		Card test1 = new Card(Ranks.KING, Suits.CLUBS);
+		group1.removeCard(test1);
 		
 		
-		assertEquals(group1.getCardSize(), 7);
+		
+			
+		assertEquals(group1.getCardSize(), 11);
+		
+		
+		
+		
 		
 	}
+// test if it is legal to add the card and check if the size increased
 	@Test
-	void testTableausSize() {
+	public void testAddCard() {
+//since lol has 6 random cards I couldn't test it so I just added 6 cards to test so if it adds it will have a total of 13 cards
 		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
 		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
 		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
 		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
 		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
 		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
-	
-		Tableaus t1 = new Tableaus(a1, a2, a3, a4, a5, a6);
+		ArrayList<Card> lol = new ArrayList<>();
+		lol.add(a1);
+		lol.add(a2);
+		lol.add(a3);
+		lol.add(a4);
+		lol.add(a5);
+		lol.add(a6);
+		Tableaus group1 = new Tableaus(lol);
+		
+		
+		Card test1 = new Card(Ranks.KING, Suits.SPADES);
+		group1.addCard(test1);
+		
+		assertEquals(group1.getCardSize(), 13);
+		
+		
+	}
+	@Test
+	public void testTableausSize() {
+		
+		ArrayList<Card> lol = new ArrayList<>();
+		
+
+		Tableaus t1 = new Tableaus(lol);
 		assertEquals(t1.getCardSize(), 6);
 		
+	}
+	@Test
+	public void testRemoveTest() {
+		ArrayList<Card> lol = new ArrayList<>();
+		Tableaus t1 = new Tableaus(lol);
+		t1.removeTest();
+		assertEquals(t1.getCardSize(), 5);
 	}
 
 }

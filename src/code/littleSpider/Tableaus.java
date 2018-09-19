@@ -7,27 +7,26 @@ import code.Deck.Deck;
 public class Tableaus extends Deck{
 	
 	private ArrayList<Card> cardStack;
-	private int cardsInStack;
 	private Card card = new Card(null, null);
 	
 
-	//everytime you deal a would be equal to that card delt
-	public Tableaus(Card a, Card b, Card c, Card d, Card e, Card f) {
-		cardStack = new ArrayList<Card>();
-		cardStack.add(a);
-		cardStack.add(b);
-		cardStack.add(c);
-		cardStack.add(d);
-		cardStack.add(e);
-		cardStack.add(f);	
-		cardsInStack = cardStack.size();
+	/*Should prob change the parameter to an arrayList of cards and initialize it by adding 6 cards to start out with so there you can actually change 
+	 * the amount of cards in it when you add and remove cards.
+	 * 
+	 */
+	public Tableaus(ArrayList<Card> lol) {
+		cardStack = lol;
+		cardStack.add(deal());
+		cardStack.add(deal());
+		cardStack.add(deal());
+		cardStack.add(deal());
+		cardStack.add(deal());
+		cardStack.add(deal());
+		
 	}
 		
 	
-	/*this method checks the card numbers to see if the delt card is either greater than the Tableaus first card by one or less than the Tableaus first card 
-	* by one. If it is then it will take that card a and put it into the Tableaus and become the first card.(I don't think we need a add card or remove
-	* card since a = deal() which returns a card which means it removes a card from a deck and returns a card and this method checks that card and adds
-	* it into the Tableaus. it would deal a new card and Card a would be that new value
+	/*Checks the card to see if its legal to move it
 	*/
 	public boolean checkNumber(Card  a) {
 		card = a;
@@ -38,10 +37,12 @@ public class Tableaus extends Deck{
 		return false;
 		}
 	}
-	
-	public boolean checkEmpty(int a) {
+	/*
+	 * check to see if the Tableaus is empty or not
+	 */
+	public boolean checkEmpty() {
 		
-		if(a == 0) {
+		if(cardStack.size() == 0) {
 			return true;
 		}
 		else {
@@ -49,31 +50,32 @@ public class Tableaus extends Deck{
 		return false;
 		}
 	}
-	
+	/* 
+	 * removes a card if it is legal to move it
+	 */
 	public void removeCard(Card a) {
-		
 		if(checkNumber(a) == true) {
-			cardStack.remove(card);
-			cardsInStack = cardsInStack -1;	
-		}
-		
-	
-		
-		
-		
+		cardStack.remove(0);		
 	}
+	}
+	/*
+	 * adds a card if it is legal to move it
+	 */
 	public void addCard(Card a) {
 		
 		if(checkNumber(a) == true) {
 			cardStack.add(a);
-			cardsInStack = cardsInStack + 1;
-			
 		}
 		
-		
+		/*
+		 * returns the amount of cards in the Tableaus
+		 */
 	}
 	public int getCardSize() {
-		return cardsInStack;
+		return cardStack.size();
+	}
+	public void removeTest() {
+		cardStack.remove(0);
 	}
 
 }
