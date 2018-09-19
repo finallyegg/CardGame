@@ -12,6 +12,7 @@ public class Tableaus extends Deck{
 
 	//everytime you deal a would be equal to that card delt
 	public Tableaus(Card a, Card b, Card c, Card d, Card e, Card f) {
+		cardStack = new ArrayList<Card>();
 		cardStack.add(a);
 		cardStack.add(b);
 		cardStack.add(c);
@@ -27,7 +28,8 @@ public class Tableaus extends Deck{
 	* card since a = deal() which returns a card which means it removes a card from a deck and returns a card and this method checks that card and adds
 	* it into the Tableaus. it would deal a new card and Card a would be that new value
 	*/
-	public boolean checkNumber() {
+	public boolean checkNumber(Card  a) {
+		card = a;
 		if(cardStack.get(0).value() + 1 == card.value() || cardStack.get(0).value() -1 == card.value()) {
 			return true;
 		}
@@ -47,6 +49,9 @@ public class Tableaus extends Deck{
 	}
 	public void addCard() {
 		
+	}
+	public int getCardSize() {
+		return cardsInStack;
 	}
 
 }
