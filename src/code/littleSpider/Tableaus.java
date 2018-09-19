@@ -9,6 +9,7 @@ public class Tableaus extends Deck{
 	private ArrayList<Card> cardStack;
 	private int cardsInStack;
 	private Card card = new Card(null, null);
+	
 
 	//everytime you deal a would be equal to that card delt
 	public Tableaus(Card a, Card b, Card c, Card d, Card e, Card f) {
@@ -38,16 +39,37 @@ public class Tableaus extends Deck{
 		}
 	}
 	
-	public boolean checkEmpty() {
+	public boolean checkEmpty(int a) {
+		
+		if(a == 0) {
+			return true;
+		}
+		else {
 		
 		return false;
+		}
 	}
 	
-	public void removeCard() {
+	public void removeCard(Card a) {
+		
+		if(checkNumber(a) == true) {
+			cardStack.remove(card);
+			cardsInStack = cardsInStack -1;	
+		}
+		
+	
+		
 		
 		
 	}
-	public void addCard() {
+	public void addCard(Card a) {
+		
+		if(checkNumber(a) == true) {
+			cardStack.add(a);
+			cardsInStack = cardsInStack + 1;
+			
+		}
+		
 		
 	}
 	public int getCardSize() {
