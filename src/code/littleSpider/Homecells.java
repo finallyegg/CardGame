@@ -34,7 +34,7 @@ public class Homecells {
 		}
 		else {
 		return false;
-	}
+		}
 	}
 	
 	public boolean checkFinished() {

@@ -8,6 +8,7 @@ public class Tableaus extends Deck{
 	
 	private ArrayList<Card> cardStack;
 	private int cardsInStack;
+	private Card card = new Card(null, null);
 
 	//everytime you deal a would be equal to that card delt
 	public Tableaus(Card a, Card b, Card c, Card d, Card e, Card f) {
@@ -27,9 +28,7 @@ public class Tableaus extends Deck{
 	* it into the Tableaus. it would deal a new card and Card a would be that new value
 	*/
 	public boolean checkNumber() {
-		if(cardStack.get(0).value() - 1 == a.value()  || cardStack.get(0).value() + 1 == a.value()) {
-			cardStack.add(a);
-			a = deal();
+		if(cardStack.get(0).value() + 1 == card.value() || cardStack.get(0).value() -1 == card.value()) {
 			return true;
 		}
 		else {
