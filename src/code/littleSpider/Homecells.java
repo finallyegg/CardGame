@@ -48,15 +48,43 @@ public class Homecells {
 	}
 	
 	public boolean checkFinished() {
-		return false;
+		if(cardStack.get(0).value() == 14) {
+			if((cardStack.get(cardStack.size() - 1).value() == 13) && (cardStack.get(0).getSuit() == cardStack.get(cardStack.size() - 1).getSuit())) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else if(cardStack.get(0).value() == 13) {
+			if((cardStack.get(cardStack.size() - 1).value() == 14) && (cardStack.get(0).getSuit() == cardStack.get(cardStack.size() - 1).getSuit())) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public void removeCard() {
-		
+		if(cardStack.size() > 1) {
+			cardStack.remove(cardStack.size() - 1);
+		}
+	}
+	
+	public void addCard(Card c) {
+		cardStack.add(c);
 	}
 
 	public int size() {
 		return cardStack.size();
+	}
+	
+	public Card getCard(int index) {
+		return cardStack.get(index);
 	}
 	
 	public static void main(String[] args) {

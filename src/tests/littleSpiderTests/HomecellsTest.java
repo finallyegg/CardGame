@@ -1,5 +1,8 @@
 package tests.littleSpiderTests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -31,39 +34,43 @@ public class HomecellsTest {
 	
 	@Test
 	public void testInitialSetup() {
-		assertEquals(1, h.size());
+		assertEquals("Tests that a homecell starts with one card", 1, h.size());
 	}
 	
 	@Test
 	public void testCheckSuit() {
-		boolean b1 = h.checkSuit(c2);
-		boolean b2 = h.checkSuit(c3);
-		boolean b3 = h.checkSuit(c4);
-		boolean b4 = h.checkSuit(c5);
-		assertTrue(b1);
-		assertFalse(b2);
-		assertFalse(b3);
-		assertFalse(b4);
+		assertTrue("Comparing the correct suit", h.checkSuit(c2));
+		assertFalse("Checking a different suit 1", h.checkSuit(c3));
+		assertFalse("Checking a different suit 2", h.checkSuit(c4));
+		assertFalse("Checking a different suit 3", h.checkSuit(c5));
 	}
 
 	@Test
 	public void testCheckNumber() {
-		boolean b1 = h.checkNumber(c2);
-		boolean b2 = h.checkNumber(c3);
-		boolean b3 = h.checkNumber(c7);
-		assertTrue(b1);
-		assertFalse(b2);
-		assertFalse(b3);
+		assertTrue("Comparing a working number", h.checkNumber(c2));
+		assertFalse("Comparing a wrong number", h.checkNumber(c3));
+		assertFalse("Comparing the same number", h.checkNumber(c7));
 	}
 
 	@Test
 	public void testCheckFinished() {
-		
+		h.addCard(c9);
+		h4.addCard(c7);
+		assertTrue("Testing a homecell starting with Ace of Hearts", h.checkFinished());
+		assertTrue("Testing a homecell starting with King of Clubs", h4.checkFinished());
+		assertFalse("Testing that it correctly identifies an incomplete homecell", h2.checkFinished());
 	}
 
 	@Test
 	public void testRemoveCard() {
-		
+		Homecells h5 = new Homecells(c1);
+		h5.removeCard();
+		assertEquals("Testing that the first card can't be removed", 1, h5.size());
+		h5.addCard(c2);
+		Card c = h5.getCard(0);
+		h5.removeCard();
+		assertEquals("Testing that a card was removed", 1, h5.size());
+		assertEquals("Testing that the top card was the one removed", c, h5.getCard(0));
 	}
 
 }
