@@ -29,7 +29,7 @@ class GolfTest {
 
 		
 		// Golf Stack initially holds 17 cards [2 pts]
-		assertEquals(Golf_Stock.getStockStack().size(), 52-7*5);
+		assertEquals(g.getStockPile().getStockStack().size(), 52-7*5);
 		
 		// * Golf stock pile correctly returns if adding a specific card is legal or illegal (e.g., the method should always return false) [2 points]
 		assertEquals(g.getStockPile().AddCard(), false);
@@ -38,7 +38,7 @@ class GolfTest {
 		// * Removing card from Golf's stock pile decreases its number of cards and results in following card being the new top card [2 points
 
 		c = g.getStockPile().RemoveCard();
-		assertEquals(Golf_Stock.getStockStack().size(), 16);
+		assertEquals(g.getStockPile().getStockStack().size(), 16);
 		
 
 		// * Golf stock pile correctly returns if removing top card is legal or illegal (e.g., if the stock pile is NOT empty) [2 points]

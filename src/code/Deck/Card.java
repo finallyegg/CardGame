@@ -37,4 +37,7 @@ public class Card {
 	public int value() {
 		return myrank.ordinal() + 2;
 	}
+	public String toString() {
+		return this.myrank.toString() + " " + this.mysuit.toString();
+	}
 }

@@ -6,7 +6,7 @@ import code.Deck.Card;
 
 public class Golf_Tableaus {
 	
-	private static ArrayList<Card> Tablestack;
+	final private ArrayList<Card> Tablestack;
 	
 	public Golf_Tableaus () {
 		Tablestack = new ArrayList<Card>();
@@ -21,26 +21,32 @@ public class Golf_Tableaus {
 		Tablestack.add(e);
 	}
 	
-	public void RemoveCard () {
-		Tablestack.remove(0);
+	public boolean RemoveCard (Card i) {
+		if (this.Tablestack.isEmpty() == true) {
+			return false;
+		}
+		if (i.equals(Tablestack.get(0))){
+			Tablestack.remove(0);
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public boolean addCard () {
 		return false;
 	}
 
-	public boolean addCard (Card c) {
-		// need to deal with logic regarding not being
-		// allowed to add a card once game is setup
-		return Tablestack.add(c);
-	}
+//	public boolean addCard (Card c) {
+//		// need to deal with logic regarding not being
+//		// allowed to add a card once game is setup
+//		return Tablestack.add(c);
+//	}
 	
-	public static ArrayList<Card> getTablestack() {
+	public ArrayList<Card> getTablestack() {
 		return Tablestack;
 	}
 
-	public void setTablestack(ArrayList<Card> tablestack) {
-		Tablestack = tablestack;
-	}
+	
 
 }

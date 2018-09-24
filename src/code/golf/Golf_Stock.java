@@ -6,13 +6,13 @@ import code.Deck.Card;
 
 public class Golf_Stock {
 	
-	private static ArrayList<Card> StockStack; 
+	private ArrayList<Card> StockStack; 
 	
 	public Golf_Stock(ArrayList<Card> Cardlist) {
-		Golf_Stock.StockStack = Cardlist;
+		StockStack = Cardlist;
 	}
 
-	public static ArrayList<Card> getStockStack() {
+	public ArrayList<Card> getStockStack() {
 		return StockStack;
 	}
 
@@ -27,4 +27,6 @@ public class Golf_Stock {
 	public boolean AddCard() {
 		return false;
 	}
+	
+	
 }
