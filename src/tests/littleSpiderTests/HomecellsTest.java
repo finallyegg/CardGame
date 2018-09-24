@@ -5,12 +5,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 import code.Deck.Card;
 import code.Deck.Card.Ranks;
 import code.Deck.Card.Suits;
 import code.littleSpider.Homecells;
+import code.littleSpider.Tableaus;
 
 public class HomecellsTest {
 
@@ -71,6 +74,24 @@ public class HomecellsTest {
 		h5.removeCard();
 		assertEquals("Testing that a card was removed", 1, h5.size());
 		assertEquals("Testing that the top card was the one removed", c, h5.getCard(0));
+	}
+	
+	@Test
+	public void testCheckMoveToTableau() {
+		Card c = new Card(Ranks.SIX, Suits.DIAMONDS);
+		Card c2 = new Card(Ranks.SEVEN, Suits.DIAMONDS);
+		Card c3 = new Card(Ranks.SIX, Suits.CLUBS);
+		ArrayList<Card> a = new ArrayList<Card>();
+		ArrayList<Card> a1 = new ArrayList<Card>();
+		a.add(c);
+		a1.add(c3);
+		Homecells h6 = new Homecells(c);
+		Tableaus t = new Tableaus(a);
+		Tableaus t1 = new Tableaus(a1);
+		assertFalse("Testing that the bottom card can't be removed", h6.checkMoveToTableau(t));
+		h6.addCard(c2);
+		assertTrue("Testing that the card can move if valid (a lower number)", h6.checkMoveToTableau(t));
+		assertTrue("Testing that the card can move if valid (a higher number and different suit)", h6.checkMoveToTableau(t1));
 	}
 
 }

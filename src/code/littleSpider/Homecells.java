@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import code.Deck.Card;
 import code.Deck.Card.Ranks;
 import code.Deck.Card.Suits;
+import code.littleSpider.Tableaus;
 
 public class Homecells {
 	
@@ -85,6 +86,21 @@ public class Homecells {
 	
 	public Card getCard(int index) {
 		return cardStack.get(index);
+	}
+	
+	public boolean checkMoveToTableau(Tableaus t) {
+		if(cardStack.size() > 1)
+		{
+			if(t.checkNumber(cardStack.get(cardStack.size() - 1))) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {
