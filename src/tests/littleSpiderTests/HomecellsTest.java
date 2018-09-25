@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import code.Deck.Card;
 import code.Deck.Card.Ranks;
 import code.Deck.Card.Suits;
+import code.Deck.Deck;
 import code.littleSpider.Homecells;
 import code.littleSpider.Tableaus;
 
@@ -78,6 +79,7 @@ public class HomecellsTest {
 	
 	@Test
 	public void testCheckMoveToTableau() {
+		Deck qwe = new Deck();
 		Card c = new Card(Ranks.SIX, Suits.DIAMONDS);
 		Card c2 = new Card(Ranks.SEVEN, Suits.DIAMONDS);
 		Card c3 = new Card(Ranks.SIX, Suits.CLUBS);
@@ -86,8 +88,8 @@ public class HomecellsTest {
 		a.add(c);
 		a1.add(c3);
 		Homecells h6 = new Homecells(c);
-		Tableaus t = new Tableaus(a);
-		Tableaus t1 = new Tableaus(a1);
+		Tableaus t = new Tableaus(a,qwe);
+		Tableaus t1 = new Tableaus(a1,qwe);
 		assertFalse("Testing that the bottom card can't be removed", h6.checkMoveToTableau(t));
 		h6.addCard(c2);
 		assertTrue("Testing that the card can move if valid (a lower number)", h6.checkMoveToTableau(t));
