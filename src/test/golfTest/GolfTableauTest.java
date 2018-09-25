@@ -6,29 +6,29 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 import code.Deck.Card;
 import code.Deck.Deck;
-import code.golf.ProGolf;
+import code.FinalGolf.Golf_Main;
 
 public class GolfTableauTest {
 			
 	@Test
 	public void Golf_InitialHoldTest() {
-		new ProGolf();
+		new Golf_Main();
 		for (int i = 0; i < 7; i++) {
-			assertEquals(5,ProGolf.getTableaus(i).getTablestack().size(),0.01);
+			assertEquals(5,Golf_Main.getTableaus(i).getTablestack().size(),0.01);
 		}
 	}
 	
 	@Test 
 	public void Golf_AddCardTest() {
-		new ProGolf();
+		new Golf_Main();
 		for (int i = 0; i < 7; i++) {
-			assertFalse(ProGolf.getTableaus(i).addCard());
+			assertFalse(Golf_Main.getTableaus(i).addCard());
 		}
 	}
 	
 	@Test
 	public void Golf_RemoveCardTest() {
-		new ProGolf();
+		new Golf_Main();
 		Card topCard = null;
 		Card notTopCard = null;
 		Deck d = new Deck();
@@ -36,21 +36,21 @@ public class GolfTableauTest {
 		
 		for (int i = 0; i < 7; i++) {
 			d.getCards().remove(topCard);
-			topCard = ProGolf.getTableaus(i).getTablestack().get(0);
-			assertTrue(ProGolf.getTableaus(i).RemoveCard(topCard));
+			topCard = Golf_Main.getTableaus(i).getTablestack().get(0);
+			assertTrue(Golf_Main.getTableaus(i).RemoveCard(topCard));
 			notTopCard = d.deal();
-			assertFalse(ProGolf.getTableaus(i).RemoveCard(notTopCard));
+			assertFalse(Golf_Main.getTableaus(i).RemoveCard(notTopCard));
 		}
 		
 		//  * Test when Golf_Tableaus is empty
-		new ProGolf();
+		new Golf_Main();
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 5; j++) {
-				topCard = ProGolf.getTableaus(i).getTablestack().get(0);
-				ProGolf.getTableaus(i).RemoveCard(topCard);
+				topCard = Golf_Main.getTableaus(i).getTablestack().get(0);
+				Golf_Main.getTableaus(i).RemoveCard(topCard);
 				
 			}
-		assertFalse(ProGolf.getTableaus(i).RemoveCard(d.getCards().get(0)));
+		assertFalse(Golf_Main.getTableaus(i).RemoveCard(d.getCards().get(0)));
 		}
 		
 	}

@@ -1,12 +1,16 @@
-package code.golf;
+package code.FinalGolf;
 
 import java.util.ArrayList;
 
 import code.Deck.Card;
 import code.Deck.Deck;
-@SuppressWarnings("unused")
-
-public class ProGolf {
+/**
+ * @author Zeping and Dinana
+ *
+ */
+public class Golf_Main {
+	
+	/* 5 Field, Tableaus array, Homecell, Stock and Deck and a list for all Tableaus Card (since its an array of 7) */
 	private Deck d; 
 	
 	private static Golf_Tableaus t[]; 
@@ -14,7 +18,8 @@ public class ProGolf {
 	private static Golf_Stock s1;
 	private static ArrayList<Card> allTableausCard;
 	
-	public ProGolf() {
+	/* constructor for initializing   */
+	public Golf_Main() {
 		this.d = new Deck();
 		d.shuffle();
 		allTableausCard = new ArrayList<>();

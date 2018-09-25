@@ -1,4 +1,4 @@
-package code.golf;
+package code.FinalGolf;
 
 import java.util.ArrayList;
 
