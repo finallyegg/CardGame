@@ -1,5 +1,11 @@
+/**
+ * @author Jake
+ *
+ */
 package code.Deck;
-
+/*
+ * Enum create card
+ */
 public class Card {
 	public enum Suits {
 		SPADES,
@@ -7,7 +13,7 @@ public class Card {
 		DIAMONDS,
 		HEARTS;
 	}
-		
+	
 	public enum Ranks {
 		TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,	
 		JACK, QUEEN, KING, ACE;
@@ -15,16 +21,22 @@ public class Card {
 		
 	private Ranks myrank;
 	private Suits mysuit;
-	
+	/*
+	 * constructor creates card for given rank/suite pass to constructor 
+	 */
 	public Card(Ranks r, Suits s) {
 		myrank = r;
 		mysuit = s;
 	}
-	
+	/*
+	 *  gets rank
+	 */
 	public Ranks getRank() {
 		return myrank;
 	}
-	
+	/*
+	 * gets suit 
+	 */
 	public Suits getSuit() {
 		return mysuit;
 	}

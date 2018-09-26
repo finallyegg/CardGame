@@ -1,3 +1,7 @@
+/**
+ * @author Jake
+ *
+ */
 package code.Deck;
 
 import java.util.ArrayList;
@@ -8,8 +12,10 @@ import code.Deck.Card.*;
 public class Deck {
 	
 	private ArrayList<Card> deck;
-	
-	public Deck() {
+	/*
+	 * This makes a new deck of cards.
+	 */
+	public Deck() { 
 		deck = new ArrayList<Card>();
 		
 		for(Suits s : Suits.values()) {
@@ -19,12 +25,16 @@ public class Deck {
 			}
 		}
 	}
-	
+	/*
+	 * This removes one card from deck and returns it. 
+	 */
 	public Card deal() {
 		Card c = deck.remove(0);
 		return c;
 	}
-	
+	/*
+	 * This removes a given card from the deck.
+	 */
 	public void removeCard(Card s) {
 		int z = 0;
 		for(int i = 0; i < deck.size(); i++) {
@@ -38,14 +48,20 @@ public class Deck {
 	}
 	
 
-	
+	/*
+	 * Shuffles Deck.
+	 */
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
-	
+	/*
+	 * Resets Deck
+	 */
 	public void reset() {
 		deck = new ArrayList<Card>();
-		
+		/*
+		 * Creates card and suit and adds to deck.
+		 */
 		for(Suits s : Suits.values()) {
 			for(Ranks r : Ranks.values()) { 
 				Card c = new Card(r, s);
@@ -53,7 +69,9 @@ public class Deck {
 			}
 		}
 	}
-	
+	/*
+	 * Returns current size of deck. 
+	 */
 	public int size() {
 		int i = 0;
 		for(Card z: deck) {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import code.Deck.Card;
 import code.Deck.Deck;
 /**
- * @author Zeping and Dinana
+ * @author Zeping and Dinana and Jake
  *
  */
 public class Golf_Main {
