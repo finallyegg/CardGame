@@ -6,24 +6,32 @@ import code.Deck.Card;
 
 public class Golf_Homecells{
 	
-	private ArrayList<Card> optionalChoice;
 	
 	private ArrayList<Card> Homecellstack;
 	
-	private ArrayList<Card> TableausTopCardlist;
 	
 	public Golf_Homecells () {
 		this.Homecellstack = new ArrayList<Card>();
-		optionalChoice = new ArrayList<Card>();
-		TableausTopCardlist = new ArrayList<>();
+		
 		
 	}
 	
+	/**
+	 * @param x
+	 * @return Nope, you cannot
+	 */
 	public boolean RemoveCard(Card x) {
 		return false;
 	}
 	
+	/**
+	 * @param x;   It is only legal to add a card of any suit from the tableau pile to the homecell pile if the tableau pile's card has a rank just above or just below the homecell's top card
+	 * @return
+	 */
 	public boolean addCard (Card x) {
+//		some container that have card from other piles
+		ArrayList<Card> optionalChoice = new ArrayList<Card>();
+		ArrayList<Card> TableausTopCardlist = new ArrayList<>();
 		if (!Golf_Main.getStockPile().getStockStack().isEmpty()) {
 			optionalChoice.add(Golf_Main.getStockPile().getStockStack().get(0));
 		}
@@ -49,21 +57,17 @@ public class Golf_Homecells{
 			this.Homecellstack.add(x);
 			return true;
 		}
-		
+		optionalChoice.clear();
+		TableausTopCardlist.clear();
 		return false;
 	}
-
+//get method
 	public ArrayList<Card> getHomecellstack() {
 		return Homecellstack;
 	}
-	public ArrayList<Card> getoptionalChoice(){
-		return this.optionalChoice;
-	}
-	public ArrayList<Card> gettableautopCardlist(){
-		return this.TableausTopCardlist;
-	}
+	
 
-	public void setHomecellstack(ArrayList<Card> homecellstack) {
-		Homecellstack = homecellstack;
-	}
+//	public void setHomecellstack(ArrayList<Card> homecellstack) {
+//		Homecellstack = homecellstack;
+//	}
 }

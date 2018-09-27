@@ -6,20 +6,33 @@ import code.Deck.Card;
 
 public class Golf_Stock {
 	
+	/**
+	 *  Card stack
+	 */
 	private ArrayList<Card> StockStack; 
 	
+	/**
+	 * @param contstructor takes the rest cards as a list, store in field.
+	 */
 	public Golf_Stock(ArrayList<Card> Cardlist) {
 		StockStack = Cardlist;
 	}
 
+	/**
+	 * @return get stock card stack
+	 */
 	public ArrayList<Card> getStockStack() {
 		return StockStack;
 	}
 
-	public void setStockStack(ArrayList<Card> stockStack) {
-		StockStack = stockStack;
-	}
+//	public void setStockStack(ArrayList<Card> stockStack) {
+//		StockStack = stockStack;
+//	}
 	
+	/**
+	 * @param x
+	 * @return check if the stack is empty and card is the top one
+	 */
 	public boolean RemoveCard(Card x) {
 		if(this.StockStack.isEmpty()) {
 			return false;
@@ -33,6 +46,10 @@ public class Golf_Stock {
 		}
 	}
 	
+	/**
+	 * @param x
+	 * @return Nope, you can not
+	 */
 	public boolean AddCard(Card x) {
 		return false;
 	}
