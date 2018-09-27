@@ -51,6 +51,7 @@ public class Tableaus {
 		}
 		else {
 		
+			
 		return false;
 		}
 	}
@@ -93,15 +94,18 @@ public class Tableaus {
 	public int getCardSize() {
 		return cardStack.size();
 	}
+	
 	public void removeTest() {
 		cardStack.remove(0);
 	}
 	public void add(Card a) {
 		cardStack.add(a);
 	}
+	
 	public Card checkFirstIndex(){
 		return cardStack.get(0);
 	}
+	
 	public ArrayList<Card> getCardStack(){
 		return cardStack;
 	}

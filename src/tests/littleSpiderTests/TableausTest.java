@@ -129,10 +129,11 @@ class TableausTest {
 		Card test1 = new Card(Ranks.KING, Suits.SPADES);
 		group2.addCard(test1, group1, group2);
 		
+		
 		assertEquals(group2.getCardSize(), 13);
 		assertEquals("Check the index of the removed card to see if the net card is right",group1.index(0), a2);
 		assertEquals("Checks to see if the card added is in the first index", group2.index(0), test1);
-		assertEquals(group1.getCardSize(), 11);
+		assertEquals(group1.getCardSize(), 11);   
 		
 	}
 	@Test
