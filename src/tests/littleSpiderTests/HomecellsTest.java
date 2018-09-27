@@ -58,8 +58,8 @@ public class HomecellsTest {
 
 	@Test
 	public void testCheckFinished() {
-		h.addCard(c9);
-		h4.addCard(c7);
+		h.alwaysAddCard(c9);
+		h4.alwaysAddCard(c7);
 		assertTrue("Testing a homecell starting with Ace of Hearts", h.checkFinished());
 		assertTrue("Testing a homecell starting with King of Clubs", h4.checkFinished());
 		assertFalse("Testing that it correctly identifies an incomplete homecell", h2.checkFinished());
@@ -75,6 +75,18 @@ public class HomecellsTest {
 		h5.removeCard();
 		assertEquals("Testing that a card was removed", 1, h5.size());
 		assertEquals("Testing that the top card was the one removed", c, h5.getCard(0));
+	}
+	
+	@Test
+	public void testAddCard() {
+		Homecells h7 = new Homecells(c1);
+		Card c = new Card(Ranks.TWO, Suits.DIAMONDS);
+		Card cp = new Card(Ranks.THREE, Suits.HEARTS);
+		Card cq = new Card(Ranks.TWO, Suits.HEARTS);
+		assertFalse("Testing a the wrong suit", h7.addCard(c));
+		assertFalse("Testing a the wrong number", h7.addCard(cp));
+		assertTrue("Testing a correct card", h7.addCard(cq));
+		
 	}
 	
 	@Test

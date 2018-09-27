@@ -76,7 +76,17 @@ public class Homecells {
 		}
 	}
 	
-	public void addCard(Card c) {
+	public boolean addCard(Card c) {
+		if(checkNumber(c) && checkSuit(c)) {
+			cardStack.add(c);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void alwaysAddCard(Card c) {
 		cardStack.add(c);
 	}
 
