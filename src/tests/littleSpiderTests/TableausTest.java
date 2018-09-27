@@ -51,7 +51,6 @@ class TableausTest {
 		boolean k4 = group1.checkNumber(t4);
 		assertEquals("check to see if it is legal to put a 2 on a ace",k4,true);
 	}
-
 	@Test
 	public void testCheckEmpty() {
 		Deck op =  new Deck();

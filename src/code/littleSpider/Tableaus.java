@@ -93,7 +93,6 @@ public class Tableaus {
 	public ArrayList<Card> getCardStack(){
 		return cardStack;
 	}
-
 }
 
 
