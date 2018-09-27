@@ -80,12 +80,15 @@ public class HomecellsTest {
 	@Test
 	public void testAddCard() {
 		Homecells h7 = new Homecells(c1);
+		
 		Card c = new Card(Ranks.TWO, Suits.DIAMONDS);
 		Card cp = new Card(Ranks.THREE, Suits.HEARTS);
 		Card cq = new Card(Ranks.TWO, Suits.HEARTS);
+		h7.alwaysAddCard(cq);
 		assertFalse("Testing a the wrong suit", h7.addCard(c));
 		assertFalse("Testing a the wrong number", h7.addCard(cp));
 		assertTrue("Testing a correct card", h7.addCard(cq));
+		
 		
 	}
 	

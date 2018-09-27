@@ -1,6 +1,7 @@
 package tests.littleSpiderTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -14,17 +15,17 @@ import code.Deck.Deck;
 import code.littleSpider.Tableaus;
 
 class TableausTest {
-
+	Deck op =  new Deck();
+	Card a1 = new Card(Ranks.ACE, Suits.CLUBS);
+	Card a2 = new Card(Ranks.FIVE, Suits.CLUBS);
+	Card a3 = new Card(Ranks.KING, Suits.DIAMONDS);
+	Card a4 = new Card(Ranks.TWO, Suits.CLUBS);
+	Card a5 = new Card(Ranks.FIVE, Suits.DIAMONDS);
+	Card a6 = new Card(Ranks.ACE, Suits.SPADES);
 	
 	@Test
 	public void testCheckNumber() {
-		Deck op =  new Deck();
-		Card a1 = new Card(Ranks.ACE, Suits.CLUBS);
-		Card a2 = new Card(Ranks.FIVE, Suits.CLUBS);
-		Card a3 = new Card(Ranks.KING, Suits.DIAMONDS);
-		Card a4 = new Card(Ranks.TWO, Suits.CLUBS);
-		Card a5 = new Card(Ranks.FIVE, Suits.DIAMONDS);
-		Card a6 = new Card(Ranks.ACE, Suits.SPADES);
+		
 		ArrayList<Card> lol = new ArrayList<>();
 		lol.add(a1);
 		lol.add(a2);
@@ -81,13 +82,7 @@ class TableausTest {
 	@Test
 	public void testRemoveCard() {
 		//since lol has 6 random cards I couldn't test it so I just added 6 cards to test so if it removes it will have a total of 11 cards
-		Deck op =  new Deck();
-		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
-		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
-		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
-		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
-		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
-		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
+		
 		ArrayList<Card> lol = new ArrayList<>();
 		lol.add(a1);
 		lol.add(a2);
@@ -114,13 +109,7 @@ class TableausTest {
 	@Test
 	public void testAddCard() {
 //since lol has 6 random cards I couldn't test it so I just added 6 cards to test so if it adds it will have a total of 13 cards
-		Deck op =  new Deck();
-		Card a1 = new Card( Ranks.ACE, Suits.CLUBS);
-		Card a2 = new Card( Ranks.FIVE, Suits.CLUBS);
-		Card a3 = new Card( Ranks.KING, Suits.DIAMONDS);
-		Card a4 = new Card( Ranks.TWO, Suits.CLUBS);
-		Card a5 = new Card( Ranks.FIVE, Suits.DIAMONDS);
-		Card a6 = new Card( Ranks.ACE, Suits.SPADES);
+		
 		ArrayList<Card> lol = new ArrayList<>();
 		ArrayList<Card> lol1 = new ArrayList<>();
 		lol1.add(a1);
@@ -137,11 +126,12 @@ class TableausTest {
 		lol.add(a6);
 		Tableaus group1 = new Tableaus(lol, op);
 		Tableaus group2 = new Tableaus(lol1, op);
-		
 		Card test1 = new Card(Ranks.KING, Suits.SPADES);
-		group1.addCard(test1, group1, group2);
+		group2.addCard(test1, group1, group2);
 		
 		assertEquals(group2.getCardSize(), 13);
+		assertEquals("Check the index of the removed card to see if the net card is right",group1.index(0), a2);
+		assertEquals("Checks to see if the card added is in the first index", group2.index(0), test1);
 		assertEquals(group1.getCardSize(), 11);
 		
 	}
