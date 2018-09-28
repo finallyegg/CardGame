@@ -35,7 +35,7 @@ public class Deck {
 	/*
 	 * This removes a given card from the deck.
 	 */
-	public void removeCard(Card s) {
+	public Card removeCard(Card s) {
 		int z = 0;
 		for(int i = 0; i < deck.size(); i++) {
 			if(deck.get(i).getRank().equals(s.getRank())) {
@@ -44,7 +44,7 @@ public class Deck {
 				}
 			}
 		}
-		deck.remove(z);
+		return deck.get(z);
 	}
 	
 
