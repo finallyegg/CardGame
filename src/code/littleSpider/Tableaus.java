@@ -85,6 +85,9 @@ public class Tableaus {
 	public void add(Card a) {
 		cardStack.add(a);
 	}
+	public void add(Card a, int index) {
+		cardStack.add(index, a);
+	}
 	//getting the card of the first index
 	public Card checkFirstIndex(){
 		return cardStack.get(0);
@@ -92,6 +95,9 @@ public class Tableaus {
 	//getting the card stack of the Tableaus
 	public ArrayList<Card> getCardStack(){
 		return cardStack;
+	}
+	public Card cardAtIndex(int i) {
+		return cardStack.get(i);
 	}
 }
 

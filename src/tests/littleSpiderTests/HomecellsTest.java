@@ -38,22 +38,35 @@ public class HomecellsTest {
 	
 	@Test
 	public void testInitialSetup() {
-		assertEquals("Tests that a homecell starts with one card", 1, h.size());
+		assertEquals("Homecell should start with one card.", 1, h.size());
 	}
 	
 	@Test
 	public void testCheckSuit() {
-		assertTrue("Comparing the correct suit", h.checkSuit(c2));
-		assertFalse("Checking a different suit 1", h.checkSuit(c3));
-		assertFalse("Checking a different suit 2", h.checkSuit(c4));
-		assertFalse("Checking a different suit 3", h.checkSuit(c5));
+		assertTrue("Should accept the correct suit (Hearts).", h.checkSuit(c2));
+		assertFalse("Should reject the wrong suit (Diamonds)", h.checkSuit(c3));
+		assertFalse("Should reject the wrong suit (Spades)", h.checkSuit(c4));
+		assertFalse("Should reject the wrong suit (Clubs)", h.checkSuit(c5));
 	}
 
 	@Test
 	public void testCheckNumber() {
-		assertTrue("Comparing a working number", h.checkNumber(c2));
-		assertFalse("Comparing a wrong number", h.checkNumber(c3));
-		assertFalse("Comparing the same number", h.checkNumber(c7));
+		Homecells h10 = new Homecells(c1);
+		Homecells h11 = new Homecells(c11);
+		Card two = new Card(Ranks.TWO, Suits.SPADES);
+		assertTrue("Homecell should accept a number that is +1 to initial card.(Starting with an A)", h10.checkNumber(c2));
+		h10.addCard(c2);
+		assertTrue("Homecell should accept a number that is +1 to previous.(Starting with an A)", h10.checkNumber(c2));
+		assertFalse("Homecell shouldn't accept a number not +1.(Starting with an A)", h10.checkNumber(c3));
+		assertFalse("Homecell shouldn't accept a number that is the same.(Starting with an A)", h10.checkNumber(two));
+		
+		Card queen = new Card(Ranks.QUEEN, Suits.SPADES);
+		Card jack = new Card(Ranks.JACK, Suits.SPADES);
+		assertTrue("Homecell should accept a number that is -1 to initial card.(Starting with an K)", h11.checkNumber(queen));
+		h11.alwaysAddCard(queen);
+		assertTrue("Homecell should accept a number that is +1 to previous. (Starting with an K)", h11.checkNumber(jack));
+		assertFalse("Homecell shouldn't accept a number not +1/-1. (Starting with an K)", h11.checkNumber(c4));
+		assertFalse("Homecell shouldn't accept a number that is the same. (Starting with an K)", h11.checkNumber(c7));
 	}
 
 	@Test
@@ -80,33 +93,29 @@ public class HomecellsTest {
 	@Test
 	public void testAddCard() {
 		Homecells h7 = new Homecells(c1);
-		
 		Card c = new Card(Ranks.TWO, Suits.DIAMONDS);
 		Card cp = new Card(Ranks.THREE, Suits.HEARTS);
 		Card cq = new Card(Ranks.TWO, Suits.HEARTS);
-		h7.alwaysAddCard(cq);
 		assertFalse("Testing a the wrong suit", h7.addCard(c));
 		assertFalse("Testing a the wrong number", h7.addCard(cp));
 		assertTrue("Testing a correct card", h7.addCard(cq));
-		
-		
 	}
 	
 	@Test
 	public void testCheckMoveToTableau() {
 		Deck qwe = new Deck();
-		Card c = new Card(Ranks.SIX, Suits.DIAMONDS);
-		Card c2 = new Card(Ranks.SEVEN, Suits.DIAMONDS);
-		Card c3 = new Card(Ranks.SIX, Suits.CLUBS);
+		Card ca = new Card(Ranks.SIX, Suits.DIAMONDS);
+		Card cb = new Card(Ranks.SEVEN, Suits.DIAMONDS);
+		Card cc = new Card(Ranks.SIX, Suits.CLUBS);
 		ArrayList<Card> a = new ArrayList<Card>();
 		ArrayList<Card> a1 = new ArrayList<Card>();
-		a.add(c);
-		a1.add(c3);
-		Homecells h6 = new Homecells(c);
+		Homecells h6 = new Homecells(ca);
 		Tableaus t = new Tableaus(a,qwe);
 		Tableaus t1 = new Tableaus(a1,qwe);
+		a.add(0, ca);
+		a1.add(0, cc);
 		assertFalse("Testing that the bottom card can't be removed", h6.checkMoveToTableau(t));
-		h6.addCard(c2);
+		h6.alwaysAddCard(cb);
 		assertTrue("Testing that the card can move if valid (a lower number)", h6.checkMoveToTableau(t));
 		assertTrue("Testing that the card can move if valid (a higher number and different suit)", h6.checkMoveToTableau(t1));
 	}

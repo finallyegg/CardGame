@@ -34,14 +34,27 @@ public class Homecells {
 	//value is either a queen or a Ace and if it is it will return true
 	public boolean checkNumber(Card c) {
 		if(cardStack.get(0).value() == 14) {
-			if(c.value() == 2) {
+			if(c.value() == 2 && (cardStack.get(0).getSuit() == c.getSuit())) {
 				return true;
+			}
+			else if((cardStack.get(cardStack.size() - 1).value() + 1) == c.value()) {
+				return true;
+			}
+			else if(cardStack.get(cardStack.size() - 1).value() == 13) {
+				return false;
 			}
 			else
 				return false;
 		}
-		else if((cardStack.get(0).value() + 1) == c.value() || cardStack.get(0).value() -1 == c.value()) {
-			return true;
+		else if(cardStack.get(0).value() == 13) {
+			if(cardStack.get(cardStack.size() - 1).value() - 1 == c.value()) {
+				return true;
+			}
+			else if(cardStack.get(cardStack.size() - 1).value() == 14) {
+				return false;
+			}
+			else
+				return false;
 		}
 		else {
 			return false;
@@ -101,7 +114,7 @@ public class Homecells {
 	public boolean checkMoveToTableau(Tableaus t) {
 		if(cardStack.size() > 1)
 		{
-			if(t.checkNumber(cardStack.get(cardStack.size() - 1))) {
+			if(t.checkNumber(cardStack.get(cardStack.size() - 1)) || t.checkNumber(cardStack.get(cardStack.size() + 1))) {
 				return true;
 			}
 			else {
