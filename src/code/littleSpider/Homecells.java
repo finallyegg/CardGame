@@ -8,9 +8,21 @@ import code.littleSpider.Tableaus;
 
 public class Homecells {
 	
-	Card card = new Card(null, null);
+	/**
+	 * Create a new Card that needs to be initiated
+	 */
+	private Card card = new Card(null, null);
+	
+	/**
+	 * Creates a new empty ArrayList of Cards
+	 */
 	private ArrayList<Card> cardStack;
 	
+	/**
+	 * Initializes the HomeCells class
+	 * 
+	 * @param s Takes in a Card to add to the Homecell as the first card.
+	 */
 	public Homecells(Card s) {
 		cardStack = new ArrayList<Card>();
 		card = s;
@@ -19,7 +31,12 @@ public class Homecells {
 		
 	}
 	
-	//this gets the first card and checks to see if the suits match
+	/**
+	 * Checks if a card has the correct suit
+	 * 
+	 * @param c The card that needs to be checked against the Homecell's suit
+	 * @return Whether the card is the same suit or not
+	 */
 	public boolean checkSuit(Card c) {
 		
 		if(cardStack.get(0).getSuit() == c.getSuit() ) {
@@ -124,6 +141,10 @@ public class Homecells {
 		else {
 			return false;
 		}
+	}
+	
+	public ArrayList<Card> getHomecellStack(){
+		return cardStack;
 	}
 	
 	public static void main(String[] args) {

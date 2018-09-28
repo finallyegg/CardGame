@@ -11,6 +11,7 @@ import code.Deck.Card;
 import code.Deck.Card.Ranks;
 import code.Deck.Card.Suits;
 import code.Deck.Deck;
+import code.littleSpider.Homecells;
 import code.littleSpider.Tableaus;
 
 class TableausTest {
@@ -131,11 +132,28 @@ class TableausTest {
 	}
 	@Test
 	public void testRemoveTest() {
-		Deck op =  new Deck();
-		ArrayList<Card> lol = new ArrayList<>();
+		lol.add(a1);
+		lol.add(a2);
+		lol.add(a3);
+		lol.add(a4);
+		lol.add(a5);
+		lol.add(a6);
+		
 		Tableaus t1 = new Tableaus(lol, op);
 		t1.removeTest();
-		assertEquals(t1.getCardSize(), 5);
+		assertEquals("Test that the next card becomes the first index", t1.checkFirstIndex(), a2);
+		assertEquals("Test size after removal", t1.getCardSize(), 11);
+	}
+	
+	@Test
+	public void testMoveToHomecell() {
+		Card c1 = new Card(Ranks.ACE, Suits.HEARTS);
+		Homecells c = new Homecells(c1);
+		Card c2 = new Card(Ranks.TWO, Suits.HEARTS);
+		lol.add(c2);
+		Tableaus a = new Tableaus(lol, op);
+		a.addToHomecell(c2, a, c);
+		assertEquals("Check the first index after checking it", c.getCard(0), c2);
 	}
 
 }

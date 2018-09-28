@@ -66,15 +66,15 @@ public class HomecellsTest {
 		h11.alwaysAddCard(queen);
 		assertTrue("Homecell should accept a number that is +1 to previous. (Starting with an K)", h11.checkNumber(jack));
 		assertFalse("Homecell shouldn't accept a number not +1/-1. (Starting with an K)", h11.checkNumber(c4));
-		assertFalse("Homecell shouldn't accept a number that is the same. (Starting with an K)", h11.checkNumber(c7));
+		assertFalse("Homecell shouldn't accept a number that is the same. (Starting with an K)", h11.checkNumber(c2));
 	}
 
 	@Test
 	public void testCheckFinished() {
 		h.alwaysAddCard(c9);
 		h4.alwaysAddCard(c7);
-		assertTrue("Testing a homecell starting with Ace of Hearts", h.checkFinished());
-		assertTrue("Testing a homecell starting with King of Clubs", h4.checkFinished());
+		assertTrue("Should return true if game starts with an Ace of 'Suit' and ends with King of same 'Suit'", h.checkFinished());
+		assertTrue("Should return true if game starts with an King of 'Suit' and ends with Ace of same 'Suit'", h4.checkFinished());
 		assertFalse("Testing that it correctly identifies an incomplete homecell", h2.checkFinished());
 	}
 
@@ -82,12 +82,12 @@ public class HomecellsTest {
 	public void testRemoveCard() {
 		Homecells h5 = new Homecells(c1);
 		h5.removeCard();
-		assertEquals("Testing that the first card can't be removed", 1, h5.size());
+		assertEquals("First card should stay", 1, h5.size());
 		h5.addCard(c2);
 		Card c = h5.getCard(0);
 		h5.removeCard();
-		assertEquals("Testing that a card was removed", 1, h5.size());
-		assertEquals("Testing that the top card was the one removed", c, h5.getCard(0));
+		assertEquals("Size should decrease by one", 1, h5.size());
+		assertEquals("The previous card should now be the first one", c, h5.getCard(0));
 	}
 	
 	@Test
@@ -99,6 +99,8 @@ public class HomecellsTest {
 		assertFalse("Testing a the wrong suit", h7.addCard(c));
 		assertFalse("Testing a the wrong number", h7.addCard(cp));
 		assertTrue("Testing a correct card", h7.addCard(cq));
+		assertEquals("The top card should now be the newly added one", cq, h7.getCard(h7.size() - 1));
+		assertEquals("Homecell should increase in size by 1", 2, h7.size());
 	}
 	
 	@Test
@@ -116,7 +118,7 @@ public class HomecellsTest {
 		a1.add(0, cc);
 		assertFalse("Testing that the bottom card can't be removed", h6.checkMoveToTableau(t));
 		h6.alwaysAddCard(cb);
-		assertTrue("Testing that the card can move if valid (a lower number)", h6.checkMoveToTableau(t));
+		assertTrue("Testing that the card can move if valid (a lower number and same suit)", h6.checkMoveToTableau(t));
 		assertTrue("Testing that the card can move if valid (a higher number and different suit)", h6.checkMoveToTableau(t1));
 	}
 

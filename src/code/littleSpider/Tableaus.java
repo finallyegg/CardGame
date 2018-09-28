@@ -69,6 +69,15 @@ public class Tableaus {
 		}
 	}	
 	
+	public void addToHomecell(Card a, Tableaus b, Homecells c) {
+		if(c.checkNumber(a) == true) {
+			Collections.reverse(c.getHomecellStack());
+			c.addCard(a);
+			Collections.reverse(c.getHomecellStack());
+			b.removeCard(a);
+		}
+	}
+	
 		 //returns the amount of cards in the Tableaus
 	public Card index(int a) {
 		return cardStack.get(a);
