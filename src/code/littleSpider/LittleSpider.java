@@ -28,15 +28,16 @@ public class LittleSpider {
 	
 	/**
 	 * Creates the 8 Tableaus needed for a LittleSpider game
+	 * Initialized later on
 	 */
-	private Tableaus t1 = new Tableaus(null,null);
-	private Tableaus t2 = new Tableaus(null, null);
-	private Tableaus t3 = new Tableaus(null,null);
-	private Tableaus t4 = new Tableaus(null,null);
-	private Tableaus t5 = new Tableaus(null,null);
-	private Tableaus t6 = new Tableaus(null,null);
-	private Tableaus t7 = new Tableaus(null,null);
-	private Tableaus t8 = new Tableaus(null,null);
+	private Tableaus t1;
+	private Tableaus t2;
+	private Tableaus t3;
+	private Tableaus t4;
+	private Tableaus t5;
+	private Tableaus t6;
+	private Tableaus t7;
+	private Tableaus t8;
 	
 	/**
 	 * Creates the 4 Homecells needed for a LittleSpider game
@@ -61,31 +62,58 @@ public class LittleSpider {
 	 * h2 has the Ace of Diamonds
 	 * h3 has the King of Spades
 	 * h4 has the King of Clubs
+	 * 
+	 * The Deck should now have 48 cards left
 	 */
 	public LittleSpider() {
 		h1.alwaysAddCard(d.removeCard(ah));
+		h2.alwaysAddCard(d.removeCard(ad));
+		h3.alwaysAddCard(d.removeCard(ks));
+		h4.alwaysAddCard(d.removeCard(kc));
 	}
 	
+	/**
+	 * Deals out the remaining 48 cards, 6 each, to the 8 tableaus
+	 * and initializes them
+	 */
 	public void dealGame() {
-		  t1 = new Tableaus(a1,d);
-		  t2 = new Tableaus(b2, d);
-		  t3 = new Tableaus(c3,d);
-		  t4 = new Tableaus(d4,d);
-		  t5 = new Tableaus(e5,d);
-		  t6 = new Tableaus(f6,d);
-		  t7 = new Tableaus(g7,d);
-		  t8 = new Tableaus(h8,d);
-		
+		t1 = new Tableaus(a1, d);
+		t2 = new Tableaus(b2, d);
+		t3 = new Tableaus(c3, d);
+		t4 = new Tableaus(d4, d);
+		t5 = new Tableaus(e5, d);
+		t6 = new Tableaus(f6, d);
+		t7 = new Tableaus(g7, d);
+		t8 = new Tableaus(h8, d);
 	}
 	
-	//move a card from one tableaus to another
+	/**
+	 * Moves a card based on whether or not the move is legal
+	 * 
+	 * @param s The card that is trying to move
+	 * @param t The tableau that the card is being removed from
+	 * @param v The tableau that the card is being put on
+	 */
 	public void moveCard(Card s, Tableaus t, Tableaus v) {
 		v.addCard(s, t, v);
 	}
-	public void moveToHomecell(Card s) {
-		
+	
+	/**
+	 * Moves a card from the tableau to a homecell if legal
+	 * 
+	 * @param s The card that is trying to move
+	 */
+	public void moveToHomecell(Card s, Homecells h) {
+		if(h.addCard(s)) {
+			h.addCard(s);
+		}
 	}
-	//check to see if homecells are done
+
+	/**
+	 * Checks whether the game has been won or not
+	 * 
+	 * @return Whether or not the game has been won
+	 */
 	public boolean checkWin() {
 		int a = 0;
 		if(h1.checkFinished() == true) {
@@ -107,11 +135,13 @@ public class LittleSpider {
 			return false;
 		}
 	}
-		
+	
+	/**
+	 * Restarts the game
+	 */
 	public void restart() {
 		if(checkWin() == true) {
-			dealGame();
+			new LittleSpider();
 		}
 	}
-
 }

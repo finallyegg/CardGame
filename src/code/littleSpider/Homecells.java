@@ -47,8 +47,13 @@ public class Homecells {
 		}
 		
 	}
-	//this checks to see if the first card is either 1 or -1 off of the original card. for ex if the index was King it would check if the new card's
-	//value is either a queen or a Ace and if it is it will return true
+	
+	/**
+	 * Checks if a card is able to be placed on a card on the Homecell
+	 * 
+	 * @param c The card that needs to be checked against another card already in the Homecell
+	 * @return Whether the card is valid to be placed on top of another
+	 */
 	public boolean checkNumber(Card c) {
 		if(cardStack.get(0).value() == 14) {
 			if(c.value() == 2 && (cardStack.get(0).getSuit() == c.getSuit())) {
@@ -78,6 +83,11 @@ public class Homecells {
 		}
 	}
 	
+	/**
+	 * Checks if a Homecell is complete based on the starting card
+	 * 
+	 * @return Whether or not a Homecell is completed
+	 */
 	public boolean checkFinished() {
 		if(cardStack.get(0).value() == 14) {
 			if((cardStack.get(cardStack.size() - 1).value() == 13) && (cardStack.get(0).getSuit() == cardStack.get(cardStack.size() - 1).getSuit())) {
@@ -100,12 +110,22 @@ public class Homecells {
 		}
 	}
 	
+	/**
+	 * Removes a card if there is at least one card in the Homecell
+	 */
 	public void removeCard() {
 		if(cardStack.size() > 1) {
 			cardStack.remove(cardStack.size() - 1);
 		}
 	}
 	
+	/**
+	 * Checks whether or not a card can be added to the Homecell
+	 * Can add the card if it passes both checkNumber and checkSuit
+	 * 
+	 * @param c The card that needs to be checked if it can be added
+	 * @return Whether or not the card can be added to the Homecell
+	 */
 	public boolean addCard(Card c) {
 		if(checkNumber(c) && checkSuit(c)) {
 			cardStack.add(c);
@@ -116,18 +136,42 @@ public class Homecells {
 		}
 	}
 	
+	/**
+	 * Forces a card to be added to a Homecell
+	 * Primarily used to initialize the Homecell with the right card
+	 * Can be used for testing purposes
+	 * 
+	 * @param c The card that is being forced to the Homecell
+	 */
 	public void alwaysAddCard(Card c) {
 		cardStack.add(c);
 	}
 
+	/**
+	 * Returns the number of cards in the Homecell
+	 * @return The number of cards in a homecell
+	 */
 	public int size() {
 		return cardStack.size();
 	}
 	
+	/**
+	 * Get a card at a specified index
+	 * 
+	 * @param index The index requested
+	 * @return The Card located at the specified index
+	 */
 	public Card getCard(int index) {
 		return cardStack.get(index);
 	}
 	
+	/**
+	 * Checks whether or not a Card from the Homecell is able to be moved to 
+	 * a Tableau
+	 * 
+	 * @param t The Tableau that the Card is trying to move onto
+	 * @return Whether or not the move is legal
+	 */
 	public boolean checkMoveToTableau(Tableaus t) {
 		if(cardStack.size() > 1)
 		{
@@ -143,6 +187,11 @@ public class Homecells {
 		}
 	}
 	
+	/**
+	 * Returns the ArrayList<Card> cardStack
+	 * 
+	 * @return cardStack the current list of Cards
+	 */
 	public ArrayList<Card> getHomecellStack(){
 		return cardStack;
 	}
