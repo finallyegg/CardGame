@@ -154,6 +154,6 @@ public class Homecells {
 		Homecells h = new Homecells(c);
 		System.out.println(h.checkNumber(c2));
 		System.out.println(h.checkNumber(c3));
-
+	}
 }
 
