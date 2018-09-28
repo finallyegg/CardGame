@@ -1,0 +1,19 @@
+Golf:
+ - test.golfTest
+	- GolfHomeCellTest
+		test_inital_HomeC -> Test the Homecell pile in Golf initially holds 0 cards [4 points]
+		golf_addCard_test -> Test Golf homecell pile correctly determines if adding a card is legal or illegal
+		golf_remove_test  -> Golf homecell pile correctly returns if removing top card is legal or illegal (e.g., always false) [4 points]
+		golf_addCardIncreaseNumber -> Adding card to Golf homecell pile increases its number of cards and results in that card being the homecell pile's new top card [4 points]
+	
+	- GolfTableauTest
+		Golf_InitialHoldTest -> Test the Tableau piles in Golf initially hold 5 cards [4 points]
+		Golf_AddCardTest     -> Test the Golf tableau pile correctly determines if adding a specific card is legal or illegal (e.g., the method should always return false) [4 points]
+		Golf_RemoveCardTest  -> Golf tableau pile correctly returns if removing top card is legal or illegal (e.g., if the tableau pile is NOT empty) [4 points]
+		Golf_RemoveCardDecreaseTest -> Removing card from Golf tableau pile decreases its number of cards and results in following card being the new top card [4 points]
+	
+	- GolfStockTest
+		Golf_Test_Inital -> Test the Golf stock initially holds 17 cards [2 points];
+		Golf_Test_addCard -> Golf stock pile correctly returns if adding a specific card is legal or illegal (e.g., the method should always return false) [2 points]
+		Golf_Test_RemoveCard -> Golf stock pile correctly returns if removing top card is legal or illegal (e.g., if the stock pile is NOT empty) [2 points]
+		Golf_Test_RemoveCard_Size -> Removing card from Golf's stock pile decreases its number of cards and results in following card being the new top card [2 points]

@@ -38,6 +38,7 @@ public class GolfTableauTest {
 			d.getCards().remove(topCard);
 			topCard = Golf_Main.getTableaus(i).getTablestack().get(0);
 			assertTrue(Golf_Main.getTableaus(i).RemoveCard(topCard));
+			assertEquals(4,Golf_Main.getTableaus(i).getTablestack().size(),0.01);
 			notTopCard = d.deal();
 			assertFalse(Golf_Main.getTableaus(i).RemoveCard(notTopCard));
 		}
@@ -53,5 +54,20 @@ public class GolfTableauTest {
 		assertFalse(Golf_Main.getTableaus(i).RemoveCard(d.getCards().get(0)));
 		}
 		
+	}
+	
+	@Test
+	public void Golf_RemoveCardDecreaseTest() {
+		new Golf_Main();
+		Card topCard;
+		Card secondCard;
+		
+		for (int i = 0; i < 7; i++) {
+			topCard = Golf_Main.getTableaus(i).getTablestack().get(0);
+			secondCard = Golf_Main.getTableaus(i).getTablestack().get(1);
+			Golf_Main.getTableaus(i).RemoveCard(topCard);
+			assertEquals(4,Golf_Main.getTableaus(i).getTablestack().size(),0.01);
+			assertTrue(Golf_Main.getTableaus(i).getTablestack().get(0).equals(secondCard));
+		}
 	}
 }
