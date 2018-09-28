@@ -44,7 +44,7 @@ public class Deck {
 				}
 			}
 		}
-		return deck.get(z);
+		return deck.remove(z);
 	}
 	
 

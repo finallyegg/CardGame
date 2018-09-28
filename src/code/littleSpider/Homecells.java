@@ -196,13 +196,5 @@ public class Homecells {
 		return cardStack;
 	}
 	
-	public static void main(String[] args) {
-		Card c = new Card(Ranks.ACE, Suits.HEARTS);
-		Card c2 = new Card(Ranks.TWO, Suits.HEARTS);
-		Card c3 = new Card(Ranks.KING, Suits.CLUBS);
-		Homecells h = new Homecells(c);
-		System.out.println(h.checkNumber(c2));
-		System.out.println(h.checkNumber(c3));
-	}
 }
 
