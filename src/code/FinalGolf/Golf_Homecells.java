@@ -6,7 +6,7 @@ import code.Deck.Card;
 
 public class Golf_Homecells{
 	
-	
+//	HomeCell Card List
 	private ArrayList<Card> Homecellstack;
 	
 	
@@ -29,7 +29,7 @@ public class Golf_Homecells{
 	 * @return
 	 */
 	public boolean addCard (Card x) {
-//		some container that have card from other piles
+//		some container that have card from other piles as the possible choice to meet the Homecell critira. 
 		ArrayList<Card> optionalChoice = new ArrayList<Card>();
 		ArrayList<Card> TableausTopCardlist = new ArrayList<>();
 		if (!Golf_Main.getStockPile().getStockStack().isEmpty()) {
@@ -47,6 +47,7 @@ public class Golf_Homecells{
 			if (this.Homecellstack.isEmpty()) {
 				break;
 			}
+//			Because of the round Ranking properties of Golf, 2 is bigger than Ace, so the different between two and Ace is 12
 			else if (Math.abs(i.value() - this.Homecellstack.get(0).value()) == 1 || Math.abs(i.value() - this.Homecellstack.get(0).value()) == 12) {
 				optionalChoice.add(i);
 			}
@@ -65,9 +66,4 @@ public class Golf_Homecells{
 	public ArrayList<Card> getHomecellstack() {
 		return Homecellstack;
 	}
-	
-
-//	public void setHomecellstack(ArrayList<Card> homecellstack) {
-//		Homecellstack = homecellstack;
-//	}
 }

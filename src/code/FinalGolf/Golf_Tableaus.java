@@ -14,15 +14,7 @@ public class Golf_Tableaus {
 	public Golf_Tableaus () {
 		Tablestack = new ArrayList<Card>();
 	}
-	
-//	public Golf_Tableaus (Card a, Card b, Card c, Card d, Card e) {
-//		Tablestack = new ArrayList<Card>();
-//		Tablestack.add(a);
-//		Tablestack.add(b);
-//		Tablestack.add(c);
-//		Tablestack.add(d);
-//		Tablestack.add(e);
-//	}
+
 	
 	/**
 	 * @param i
@@ -47,12 +39,7 @@ public class Golf_Tableaus {
 		return false;
 	}
 
-//	public boolean addCard (Card c) {
-//		// need to deal with logic regarding not being
-//		// allowed to add a card once game is setup
-//		return Tablestack.add(c);
-//	}
-	
+
 	/**
 	 * @return current list
 	 */

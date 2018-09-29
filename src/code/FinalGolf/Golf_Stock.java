@@ -25,9 +25,6 @@ public class Golf_Stock {
 		return StockStack;
 	}
 
-//	public void setStockStack(ArrayList<Card> stockStack) {
-//		StockStack = stockStack;
-//	}
 	
 	/**
 	 * @param x
