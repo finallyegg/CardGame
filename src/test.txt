@@ -21,14 +21,12 @@ Golf:
 LittleSpider:
  - test.littleSpiderTests
  	- HomecellsTests 
- 		testInitialSuit -> Tests if a Homecell is correctly set-up with one card
- 		testCheckSuit -> Tests all suits and checks that only the correct one is allowed
- 		testCheckNumber -> Tests that only valid numbers can pass based on the starting card
-		testCheckFinished -> Tests if a Homecell is correctly completed, based on the starting card
-		testRemoveCard -> Tests if the correct card is successfully removed and Homecell decreases in size by 1
-		testAddCard -> Tests if a card can legally move on top of a Homecell and if Homecell size increases by 1
-		testCheckMoveToTableau -> Tests if both "Card checkers" in Homecell and Tableau work together and if the card is allowed to move from the homecell to a tableau
- 		
+ 		testInitialSetup -> Tests if a Homecell is correctly set-up with one card [4 points]
+ 		testLegalToAdd -> Tests that a card is able to be added to a Homecell [4 points]
+ 		testRemoveCard -> Tests that the first card always stays and that a legal card can be removed. [4 points]
+ 		testAddCard -> Tests that homecell increases by 1 and that the newly added card is the top one now [4 points]
+		testHomecellRemove -> Tests that removing a card decreases the number of cards and that the following card is the new top card [4 points]
+		
  	- LittleSpiderTest
  		No tests made yet for LittleSpider
  	
