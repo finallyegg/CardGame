@@ -28,7 +28,7 @@ public class Tableaus {
 			return true;
 		}
 		
-		else if(cardStack.get(0).value() + 1 == a.value() || cardStack.get(0).value() -1 == a.value()) {
+		else if(cardStack.get(0).value() + 1 == a.value() || cardStack.get(0).value() -1 == a.value() && (cardStack.isEmpty() == false)) {
 			return true;
 		}
 		else {
@@ -63,7 +63,7 @@ public class Tableaus {
 	public void addCard(Card a, Tableaus b, Tableaus c) {
 		if(b.checkNumber(a) == true) {
 			Collections.reverse(c.getCardStack());
-			c.add(a);
+			c.addTest(a);
 			Collections.reverse(c.getCardStack());
 			b.removeCard(a);
 		}
@@ -91,7 +91,7 @@ public class Tableaus {
 		cardStack.remove(0);
 	}
 	//add card without checking
-	public void add(Card a) {
+	public void addTest(Card a) {
 		cardStack.add(a);
 	}
 	public void add(Card a, int index) {

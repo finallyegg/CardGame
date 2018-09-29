@@ -30,4 +30,10 @@ LittleSpider:
  	- LittleSpiderTest
  		No tests made yet for LittleSpider
  	
- 	- TableausTest
+ 	- TableausTests
+ 		testInitialStart() -> test the starting size of the tablaeus[4 points]
+ 		testCheckIfLegal() -> checks if it correctly determines if adding a specific card is legal or illegal[4 points]
+		checkReturn() -> see if the Tableaus returns correctly if legal or illegal [4 points]
+		testRemoveCard() -> removing card from Little Spider's tableau pile decreases its number of cards and results in following card being the new top card[4 points]
+		testAddCard() -> check if adding a card to Little Spider's tableau pile increases its number of cards and results in that card being the tableau pile's new top card[4 points]
+		
