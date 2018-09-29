@@ -50,17 +50,8 @@ class TableausTest {
 		Card t2 = new Card(Ranks.KING, Suits.DIAMONDS);
 		Card t3 = new Card(Ranks.ACE, Suits.DIAMONDS);
 		Card t4 = new Card(Ranks.TWO, Suits.SPADES);
-		ArrayList<Card> lol3 = new ArrayList<>();
-		lol3.remove(0);
-		lol3.remove(0);
-		lol3.remove(0);
-		lol3.remove(0);
-		lol3.remove(0);
-		lol3.remove(0);
-		Tableaus group3 = new Tableaus(lol3,op);
 		
 		
-	
 		boolean k1 = group1.checkNumber(t1);
 		assertEquals("see if its legal to put a eight on a ace",k1, false);
 		
