@@ -9,7 +9,8 @@ import code.Deck.Deck;
 import code.FinalGolf.Golf_Main;
 
 public class GolfTableauTest {
-			
+	
+//	Test the inital hold 5 cards
 	@Test
 	public void Golf_InitialHoldTest() {
 		new Golf_Main();
@@ -18,6 +19,7 @@ public class GolfTableauTest {
 		}
 	}
 	
+//	nope, non of these card can be added after the initialization done
 	@Test 
 	public void Golf_AddCardTest() {
 		new Golf_Main();
@@ -26,6 +28,7 @@ public class GolfTableauTest {
 		}
 	}
 	
+//	Only topCard can be removed from each pile result to a dreasing in number
 	@Test
 	public void Golf_RemoveCardTest() {
 		new Golf_Main();
@@ -56,6 +59,8 @@ public class GolfTableauTest {
 		
 	}
 	
+//	Only topCard can be removed from each pile result to a dreasing in number
+//	The second Card become the top
 	@Test
 	public void Golf_RemoveCardDecreaseTest() {
 		new Golf_Main();

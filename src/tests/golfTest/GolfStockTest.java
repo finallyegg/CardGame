@@ -19,8 +19,7 @@ public class GolfStockTest {
 		assertEquals(17, Golf_Main.getStockPile().getStockStack().size());
 	}
 	
-	// Adding card to Golf homecell pile increases its number of cards and results in that card being the homecell pile's new top card [4 points]
-
+//	Cannot add Card to Stock pile once the inizized is finished
 	@Test
 	public void Golf_Test_addCard() {
 		Deck d = new Deck();
@@ -29,12 +28,14 @@ public class GolfStockTest {
 		assertFalse(Golf_Main.getStockPile().AddCard(x));
 	}
 
+//	only top card can be removed
 	@Test
 	public void Golf_Test_RemoveCard() {
 		new Golf_Main();
 		Card topCard = Golf_Main.getStockPile().getStockStack().get(0);
 		Deck d = new Deck();
 		d.removeCard(topCard);
+//		looped all other card, should be all false
 		for (Card i : d.getCards()) {
 			assertFalse(Golf_Main.getStockPile().RemoveCard(i));
 		}

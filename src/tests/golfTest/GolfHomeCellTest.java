@@ -18,28 +18,37 @@ public class GolfHomeCellTest {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void golf_addCard_test() {
+//		Create four card
 		Card King = new Card(Card.Ranks.KING,Card.Suits.HEARTS);
 		Card Ace = new Card(Card.Ranks.ACE,Card.Suits.CLUBS);
 		Card Queen = new Card(Card.Ranks.QUEEN,Card.Suits.SPADES);
 		Card Two = new Card(Card.Ranks.TWO,Card.Suits.DIAMONDS);
 		
+//		initialize new Golf Game, find the top card of stock, and test if it legal to add to the homecell pile 
 		new Golf_Main();
 		Card topCardofStock = Golf_Main.getStockPile().getStockStack().get(0);
 		assertTrue(Golf_Main.getHomeCell().addCard(topCardofStock));
 		
+//		lets do some cheating and put Ace at top of Homcecell, according to Homecell rule: Two or King should be add legally from Tableaus pile
 		new Golf_Main();
 		Golf_Main.getHomeCell().getHomecellstack().add(Ace);
 		Golf_Main.getTableaus(1).getTablestack().add(0, Two);;
 		assertTrue("Fail555",Golf_Main.getHomeCell().addCard(Two));
 		assertFalse("Fail555",Golf_Main.getHomeCell().addCard(Queen));
 		
+//		lets do some cheating and put Ace at top of Homcecell, according to Homecell rule: Two or King should be add legally from Tableaus pile
 		new Golf_Main();
 		Golf_Main.getHomeCell().getHomecellstack().add(Ace);
 		Golf_Main.getTableaus(1).getTablestack().add(0, King);
 		assertTrue("Fail555",Golf_Main.getHomeCell().addCard(King));
 	}
+	
+//	Can not remmove card from homecell once it finished initize
 	@Test
 	public void golf_remove_test() {
 		assertFalse(Golf_Main.getHomeCell().RemoveCard(null));
