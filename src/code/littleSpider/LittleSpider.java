@@ -145,4 +145,64 @@ public class LittleSpider {
 			new LittleSpider();
 		}
 	}
+	
+	/**
+	 * For access to the homecells for the GUI
+	 * 
+	 * @param which Which homecell you want to get
+	 * @return The requested homecell
+	 */
+	public Homecells getHomeCells(int which) {
+		if(which == 0) {
+			return h1;
+		}
+		else if(which == 1) {
+			return h2;
+		}
+		else if(which == 2) {
+			return h3;
+		}
+		else if(which == 3) {
+			return h4;
+		}
+		else {
+			throw new IndexOutOfBoundsException();
+		}
+	}
+	
+	/**
+	 * For access to the tableau for the GUI
+	 * 
+	 * @param which Which tableau you want to get
+	 * @return The requested tableau
+	 */
+	public Tableaus getTableaus(int which) {
+		if(which == 0) {
+			return t1;
+		}
+		else if(which == 1) {
+			return t2;
+		}
+		else if(which == 2) {
+			return t3;
+		}
+		else if(which == 3) {
+			return t4;
+		}
+		else if(which == 4) {
+			return t5;
+		}
+		else if(which == 5) {
+			return t6;
+		}
+		else if(which == 6) {
+			return t7;
+		}
+		else if(which == 7) {
+			return t8;
+		}
+		else {
+			throw new IndexOutOfBoundsException();
+		}
+	}
 }
