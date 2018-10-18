@@ -136,6 +136,7 @@ public class LittleSpider {
 		}
 	}
 	
+	
 	/**
 	 * Restarts the game
 	 */
