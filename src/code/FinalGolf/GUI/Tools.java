@@ -48,7 +48,7 @@ public class Tools {
 //		System.out.print(cardNameMap);
 		String filename = cardNameMap.get(x);
 //		Tools.createDisplayImage("/S18SemesterProject/src/IconPack/" + filename + ".gif");
-		return Tools.createDisplayImage("/src/IconPack/" + filename + ".gif");
+		return Tools.createDisplayImage("/IconPack/" + filename + ".gif");
 	}
 	
 	public static void main(String[] args) {
