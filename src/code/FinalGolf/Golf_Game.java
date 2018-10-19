@@ -9,18 +9,18 @@ import code.Deck.Deck;
  * Special Thanks to Jake for his much efficient constructor!!!
  *
  */
-public class Golf_Main {
+public class Golf_Game {
 	
 	/* 5 Field, Tableaus array, Homecell, Stock and Deck and a list for all Tableaus Card (since its an array of 7) */
 	private Deck d; 
 	
-	private static Golf_Tableaus t[]; 
-	private static Golf_Homecells h1;
-	private static Golf_Stock s1;
-	private static ArrayList<Card> allTableausCard;
+	private Golf_Tableaus t[]; 
+	private Golf_Homecells h1;
+	private Golf_Stock s1;
+	private ArrayList<Card> allTableausCard;
 	
 	/* constructor for initializing   */
-	public Golf_Main() {
+	public Golf_Game() {
 		this.d = new Deck();
 		d.shuffle();
 		allTableausCard = new ArrayList<>();
@@ -32,14 +32,14 @@ public class Golf_Main {
 			
 			for (int cardnumber = 0 ; cardnumber < 5; cardnumber++) {
 				Card tem = d.deal();
-				t[tablenum].getTablestack().add(tem);
+				t[tablenum].getTablestack().add(0,tem);
 				allTableausCard.add(tem);
 			}
 			
 		}
 
 		/* Homecells have no Cards initially */
-		h1 = new Golf_Homecells();
+		h1 = new Golf_Homecells(this);
 		
 		/* The rest Card goes to Stock   */
 		s1 = new Golf_Stock(d.getCards());
@@ -50,14 +50,14 @@ public class Golf_Main {
 	/**
 	 * @return Stock instance
 	 */
-	public static Golf_Stock getStockPile() {
+	public Golf_Stock getStockPile() {
 		return s1;
 	}
 	
 	/**
 	 * @return Homecell instance
 	 */
-	public static Golf_Homecells getHomeCell() {
+	public Golf_Homecells getHomeCell() {
 		return h1;
 	}
 	
@@ -65,13 +65,13 @@ public class Golf_Main {
 	 * @param i
 	 * @return which Tableaus you are looking for
 	 */
-	public static Golf_Tableaus getTableaus(int i) {
+	public Golf_Tableaus getTableaus(int i) {
 		return t[i];
 	}
 	/**
 	 * @return total inital Card for Tableaus, may prevent cheating in future
 	 */
-	public static ArrayList<Card> getallTableausCard(){
+	public ArrayList<Card> getallTableausCard(){
 		return allTableausCard;
 	}
 	

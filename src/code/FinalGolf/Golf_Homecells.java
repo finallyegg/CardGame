@@ -8,9 +8,10 @@ public class Golf_Homecells{
 	
 //	HomeCell Card List
 	private ArrayList<Card> Homecellstack;
+	private Golf_Game Golf_Main;
 	
-	
-	public Golf_Homecells () {
+	public Golf_Homecells (Golf_Game a) {
+		this.Golf_Main = a;
 		this.Homecellstack = new ArrayList<Card>();
 		
 		
@@ -55,7 +56,7 @@ public class Golf_Homecells{
 		}
 		
 		if (optionalChoice.contains(x)) {
-			this.Homecellstack.add(x);
+			this.Homecellstack.add(0,x);
 			return true;
 		}
 		optionalChoice.clear();
