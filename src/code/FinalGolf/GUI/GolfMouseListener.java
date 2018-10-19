@@ -32,18 +32,10 @@ public class GolfMouseListener implements MouseListener{
 	else {
 		System.out.println("Not a legal move");
 	}
-	
-	
-	
 		
 	}
 		
-		
-		
-		
-		
 	
-
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
