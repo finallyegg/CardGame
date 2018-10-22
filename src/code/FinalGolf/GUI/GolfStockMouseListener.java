@@ -22,7 +22,7 @@ public class GolfStockMouseListener implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		pane.setIcon(Tools.getMatthewIcon(1));
+//		pane.setIcon(Tools.getMatthewIcon(0));
 		
 	}
 
@@ -41,7 +41,7 @@ public class GolfStockMouseListener implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		pane.setIcon(Tools.getMatthewIcon(1));
+		pane.setIcon(Tools.getMatthewIcon(0));
 		boolean result = false;
 //		if (gameLogic.getStockPile().getStockStack().size()==0) {
 //			System.out.print("nope");
@@ -60,7 +60,7 @@ public class GolfStockMouseListener implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		pane.setIcon(Tools.getMatthewIcon(0));
+//		pane.setIcon(Tools.getMatthewIcon(0));
 		
 		
 	}
