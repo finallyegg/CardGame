@@ -74,5 +74,8 @@ public class Golf_Game {
 	public ArrayList<Card> getallTableausCard(){
 		return allTableausCard;
 	}
+	public int getTablueStackSize(int which_Tablue) {
+		return t[which_Tablue].getTablestack().size();
+	}
 	
 }

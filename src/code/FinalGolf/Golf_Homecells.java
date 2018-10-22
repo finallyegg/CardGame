@@ -8,10 +8,10 @@ public class Golf_Homecells{
 	
 //	HomeCell Card List
 	private ArrayList<Card> Homecellstack;
-	private Golf_Game Golf_Main;
+	private Golf_Game gameLogic;
 	
 	public Golf_Homecells (Golf_Game a) {
-		this.Golf_Main = a;
+		this.gameLogic = a;
 		this.Homecellstack = new ArrayList<Card>();
 		
 		
@@ -33,15 +33,15 @@ public class Golf_Homecells{
 //		some container that have card from other piles as the possible choice to meet the Homecell critira. 
 		ArrayList<Card> optionalChoice = new ArrayList<Card>();
 		ArrayList<Card> TableausTopCardlist = new ArrayList<>();
-		if (!Golf_Main.getStockPile().getStockStack().isEmpty()) {
-			optionalChoice.add(Golf_Main.getStockPile().getStockStack().get(0));
+		if (!gameLogic.getStockPile().getStockStack().isEmpty()) {
+			optionalChoice.add(gameLogic.getStockPile().getStockStack().get(0));
 		}
 		
 		
 		
 		for (int i = 0; i < 7; i++) {
-			if (!Golf_Main.getTableaus(i).getTablestack().isEmpty()) {
-				TableausTopCardlist.add(Golf_Main.getTableaus(i).getTablestack().get(0));
+			if (!gameLogic.getTableaus(i).getTablestack().isEmpty()) {
+				TableausTopCardlist.add(gameLogic.getTableaus(i).getTablestack().get(0));
 			}
 		}
 		for (Card i : TableausTopCardlist ) {

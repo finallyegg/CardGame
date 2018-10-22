@@ -1,6 +1,7 @@
 package code.FinalGolf.GUI;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.util.HashMap;
 import javax.swing.*;
 import code.Deck.Card;
@@ -14,7 +15,7 @@ public class Tools {
 	    }
 	    ImageIcon cardImage = new ImageIcon(imgURL);    
 	    retVal.setIcon(cardImage);
-	    Dimension d = new Dimension(cardImage.getIconWidth() + 10, cardImage.getIconHeight() + 10);
+	    Dimension d = new Dimension(cardImage.getIconWidth() , cardImage.getIconHeight());
 	    retVal.setSize(d);
 	    retVal.setPreferredSize(d);
 	    retVal.setMaximumSize(d);
@@ -41,15 +42,65 @@ public class Tools {
 			cardNameMap.put(new Card(Card.Ranks.KING,i), "k"+i.toString().toLowerCase().split("")[0]);
 		}
 		for (Card i :cardNameMap.keySet()) {
-			if(i.getRank().equals(x.getRank())&&i.getSuit().equals(x.getSuit())){
+			if(i.getRank()==(x.getRank())&&i.getSuit()==(x.getSuit())){
 				x=i;
 			}
 		}
+		
 //		System.out.print(cardNameMap);
 		String filename = cardNameMap.get(x);
 //		Tools.createDisplayImage("/S18SemesterProject/src/IconPack/" + filename + ".gif");
 		return Tools.createDisplayImage("/IconPack/" + filename + ".gif");
 	}
+	
+	public static JLabel getEmptyCardLabel (int x) {
+		if(x==0) {
+			return Tools.createDisplayImage("/IconPack/" + "green" + ".gif");
+		}
+		return Tools.createDisplayImage("/IconPack/" + "gold" + ".gif");
+	}
+	
+	public static JLabel getMatthewPhoto() {
+	    JLabel retVal = new JLabel();
+	    java.net.URL imgURL = Tools.class.getResource("/IconPack/" + "MatthewPhoto" + ".jpg");
+	    if (imgURL == null) {
+	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto" + ".jpg");
+	    }
+	    ImageIcon cardImage = new ImageIcon(imgURL);
+	    Image img = cardImage.getImage().getScaledInstance(73, 100, Image.SCALE_DEFAULT);
+	    ImageIcon newCard = new ImageIcon(img);
+	    retVal.setIcon(newCard);
+	    Dimension d = new Dimension(73 , 97);
+	    retVal.setSize(d);
+	    retVal.setPreferredSize(d);
+	    retVal.setMaximumSize(d);
+	    retVal.setMinimumSize(d);
+	    return retVal;
+	  }
+	
+	public static ImageIcon getMatthewIcon(int x) {
+	    JLabel retVal = new JLabel();
+	    java.net.URL imgURL;
+	    if (x==0) {
+	    	imgURL = Tools.class.getResource("/IconPack/" + "MatthewPhoto" + ".jpg");
+	    }
+	    else {
+	    	imgURL = Tools.class.getResource("/IconPack/" + "MatthewSimpson" + ".png");
+	    }
+	    if (imgURL == null) {
+	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto" + ".jpg");
+	    }
+	    ImageIcon cardImage = new ImageIcon(imgURL);
+	    Image img = cardImage.getImage().getScaledInstance(73, 97, Image.SCALE_FAST);
+	    ImageIcon newCard = new ImageIcon(img);
+	    retVal.setIcon(newCard);
+	    Dimension d = new Dimension(73 , 97);
+	    retVal.setSize(d);
+	    retVal.setPreferredSize(d);
+	    retVal.setMaximumSize(d);
+	    retVal.setMinimumSize(d);
+	    return newCard;
+	  }
 	
 	public static void main(String[] args) {
 		System.out.print(Tools.getCardLabel(new Card(Card.Ranks.TWO,Card.Suits.HEARTS)));

@@ -9,16 +9,17 @@ import code.FinalGolf.Golf_Game;
 
 public class GUI_Main {
 	public static void runGUI(){
-		JFrame frame = new JFrame("GUI");
-		Golf_Game golfGame = new Golf_Game();
-		GUI gui = new GUI(gamemodelinput);
-		frame.getContentPane().add(gui.getWordPanel(), BorderLayout.NORTH);
-		frame.getContentPane().add(gui.getChoicesPanel(), BorderLayout.CENTER);
-		frame.getContentPane().add(gui.getScorePanel(), BorderLayout.SOUTH);
-		frame.setSize(500,140);
-		frame.pack();
+		JFrame frame = new JFrame("Golf_Relaxed");
+		Golf_Game golfLogic = new Golf_Game();
+		Golf_GUI gui = new Golf_GUI(golfLogic);
+		frame.getContentPane().add(gui.getTabluePanel(), BorderLayout.NORTH);
+//		frame.getContentPane().add(gui.getChoicesPanel(), BorderLayout.CENTER);
+		frame.getContentPane().add(gui.getlowerPanel());
+		frame.setSize(800,700);
+		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.pack();
 	}
 	
 	public static void main(String[] args){
