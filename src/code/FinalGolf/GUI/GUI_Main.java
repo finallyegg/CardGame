@@ -12,7 +12,7 @@ public class GUI_Main {
 		JFrame frame = new JFrame("Golf_Relaxed");
 		Golf_Game golfLogic = new Golf_Game();
 		Golf_GUI gui = new Golf_GUI(golfLogic);
-		frame.getContentPane().add(gui.getTabluePanel(), BorderLayout.NORTH);
+		frame.getContentPane().add(gui.getUpperPanel(), BorderLayout.NORTH);
 //		frame.getContentPane().add(gui.getChoicesPanel(), BorderLayout.CENTER);
 		frame.getContentPane().add(gui.getlowerPanel());
 		frame.setSize(800,400);
