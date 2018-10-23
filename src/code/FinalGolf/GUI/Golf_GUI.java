@@ -102,7 +102,7 @@ public class Golf_GUI {
 				image.setBounds(inital.x, inital.y, image.getWidth(), image.getHeight());
 				inital.y = inital.y;
 				inital.x += 13;
-				image.addMouseListener(new GolfHomeCellMouseListener(gameLogic,this));
+//				image.addMouseListener(new GolfHomeCellMouseListener(gameLogic,this));
 				homeCellPile.add(image, 0);
 			}
 		} else {
