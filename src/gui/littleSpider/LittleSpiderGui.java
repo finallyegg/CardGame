@@ -21,9 +21,12 @@ import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
 public class LittleSpiderGui {
+	//Important
 	private LittleSpider ls;
 	private JPanel tab;
 	private JPanel home;
+	
+	//For Fun
 	private JButton spider = new JButton("Have Fun");
 	private JPanel test = new JPanel();
 	 private JButton gotem = new JButton("Gotem");
@@ -31,7 +34,7 @@ public class LittleSpiderGui {
 	 private JLabel joke = new JLabel();
 	 private JLabel ok = new JLabel();
 	 private JButton hah = new JButton("Alright I'll Stop");
-	 //for Tab cards
+	
 
 	
 	
@@ -45,7 +48,7 @@ public class LittleSpiderGui {
 		
 	}
 	
-		
+		//for meme
 	public JPanel getTest() {
 		gotem.setVisible(false);
 		hah.setVisible(false);
@@ -56,7 +59,7 @@ public class LittleSpiderGui {
 		test.setBackground(Color.green);
 		return test;
 	}
-	
+	//Set up tableaus
 	public JPanel getTableaus() {
 		JLayeredPane[] tabluepiles = new JLayeredPane[8];
 		for (int i = 0; i < 8; i++) {
@@ -79,7 +82,6 @@ public class LittleSpiderGui {
 					origin.y += 20;
 					
 					tabluepiles[i].add(image, 0);
-
 				}
 			}
 			tabluepiles[i].setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
@@ -91,10 +93,7 @@ public class LittleSpiderGui {
 		
 return tab;
 	}
-	
-	
-		
-	
+		//Setup Home
 	public JPanel getHome() {
 		JLayeredPane[] homecellpile = new JLayeredPane[4];
 		for(int i = 0; i< 4; i++) {
@@ -111,14 +110,10 @@ return tab;
 			home.add(homecellpile[i]);
 		}
 		home.setBackground(Color.DARK_GRAY);
-		
-
-return home;
+		return home;
 
 }
-	
-	
-
+	//Fun
 		public  JButton getSpider() {
 			 spider.addActionListener(new ActionListener(){
 			        @Override 
@@ -141,11 +136,10 @@ return home;
 			                e1.printStackTrace();
 			            }
 			        }
-			    });
-		   
-		   
+			    });		   
 		    return spider;
 		  }
+		//Fun
 	public JButton getGottem() {
 		gotem.addActionListener(new ActionListener(){
 	        @Override 
@@ -157,18 +151,13 @@ return home;
 	        		String lmao = "https://i.imgur.com/BW3KLWl.jpg";
 	               String lmao1 = "https://i.kym-cdn.com/photos/images/original/001/170/001/c44.png";
 	               URL url = new URL(lmao1);
-	        		
-	               
 	               URL url1 = new URL(lmao);
 	               pop = new ImageIcon(url1);
-	               pop1 = new ImageIcon(url);
-	               
-	               ok = new JLabel(pop1);
-	               
+	               pop1 = new ImageIcon(url);	               
+	               ok = new JLabel(pop1);               
 	               test.setBackground(Color.CYAN);
 	               home.setVisible(false);
-	               tab.setVisible(false);
-	                        
+	               tab.setVisible(false);                        
 	            joke = new JLabel(pop);
 	            test.add(ok);
 	            	test.remove(up);
@@ -176,39 +165,27 @@ return home;
 	               	test.add(joke);
 	               	gotem.setVisible(false);
 	               	spider.setVisible(false);
-  
 	        	}catch(MalformedURLException e1){
 	                e1.printStackTrace();
-	            }
-	        	
-	       
-	        
-	        	
+	        	}
 	        }
 	    });
    return gotem;
 	}
-	
+	//Turn Fun Back to Normal
 	public JButton getNormal() {
 		hah.addActionListener(new ActionListener(){
 	        @Override 
 	        public void actionPerformed(ActionEvent e){
-	        	
 	        	test.remove(ok);
 	        	test.remove(up);
 	        	test.remove(joke);
 	        test.setBackground(Color.LIGHT_GRAY);	
 	        tab.setVisible(true);
 	        home.setVisible(true);
-	        hah.setVisible(false);
-	        		
-  
-	        	
-	}
-		
+	        hah.setVisible(false);   	
+	}	
 		 });
-	
-	
 	return hah;
 	}
 	
