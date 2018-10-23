@@ -195,6 +195,9 @@ public class Homecells {
 	public ArrayList<Card> getHomecellStack(){
 		return cardStack;
 	}
+	public int getInitialSize() {
+		return 1;
+	}
 	
 }
 

@@ -51,6 +51,7 @@ public class LittleSpider {
 	 * Creates the Cards that need to be removed from deck to initialize
 	 * the homecells
 	 */
+	
 	private Card ah = new Card(Ranks.ACE, Suits.HEARTS);
 	private Card ad = new Card(Ranks.ACE, Suits.DIAMONDS);
 	private Card ks = new Card(Ranks.KING, Suits.SPADES);
@@ -66,10 +67,27 @@ public class LittleSpider {
 	 * The Deck should now have 48 cards left
 	 */
 	public LittleSpider() {
-		h1.alwaysAddCard(d.removeCard(ah));
-		h2.alwaysAddCard(d.removeCard(ad));
-		h3.alwaysAddCard(d.removeCard(ks));
-		h4.alwaysAddCard(d.removeCard(kc));
+		
+		h1 = new Homecells(ah);
+		h2 = new Homecells(ad);
+		h3 = new Homecells(ks);
+		h4 = new Homecells(kc);
+		d.removeCard(ah);
+		d.removeCard(ad);
+		d.removeCard(ks);
+		d.removeCard(kc);
+	//	h1.alwaysAddCard(d.removeCard(ah));
+	//	h2.alwaysAddCard(d.removeCard(ad));
+	//	h3.alwaysAddCard(d.removeCard(ks));
+	//	h4.alwaysAddCard(d.removeCard(kc));
+		t1 = new Tableaus(a1,d);
+		t2 = new Tableaus(b2,d);
+		t3 = new Tableaus(c3,d);
+		t4 = new Tableaus(d4,d);
+		t5 = new Tableaus(e5,d);
+		t6 = new Tableaus(f6,d);
+		t7 = new Tableaus(g7,d);
+		t8 = new Tableaus(h8,d);
 	}
 	
 	/**
@@ -77,14 +95,7 @@ public class LittleSpider {
 	 * and initializes them
 	 */
 	public void dealGame() {
-		t1 = new Tableaus(a1, d);
-		t2 = new Tableaus(b2, d);
-		t3 = new Tableaus(c3, d);
-		t4 = new Tableaus(d4, d);
-		t5 = new Tableaus(e5, d);
-		t6 = new Tableaus(f6, d);
-		t7 = new Tableaus(g7, d);
-		t8 = new Tableaus(h8, d);
+		
 	}
 	
 	/**
@@ -205,4 +216,5 @@ public class LittleSpider {
 			throw new IndexOutOfBoundsException();
 		}
 	}
+	
 }

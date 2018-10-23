@@ -1,30 +1,26 @@
 package gui.littleSpider;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
+import java.awt.Point;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+
+import javax.swing.BorderFactory;
+
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.tools.Tool;
+
 
 import code.Deck.Card;
 import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
-public class LittleSpiderGui implements MouseListener {
+public class LittleSpiderGui {
 	private LittleSpider ls;
 	private JPanel tab;
 	private JPanel home;
-	private static JFrame game;
-	private Card checker = new Card(null,null);
-	private int tabPressed;
-	private JLayeredPane[] la = new JLayeredPane[8]; //for Tab cards
+	 //for Tab cards
 
 	
 	
@@ -35,79 +31,66 @@ public class LittleSpiderGui implements MouseListener {
 		home = new JPanel();
 	
 		
-	   game.add(home);
-	   game.add(tab);
-		
 
-	}
-	
-	private JLabel createDisplayImage(String fileNameRelativeToClassFile) {
-	    JLabel retVal = new JLabel();
-	    java.net.URL imgURL = this.getClass().getResource(fileNameRelativeToClassFile);
-	    if (imgURL == null) {
-	      throw new IllegalArgumentException("Couldn't find file: " + "path");
-	    }
-	    ImageIcon cardImage = new ImageIcon(imgURL);    
-	    retVal.setIcon(cardImage);
-	    Dimension d = new Dimension(cardImage.getIconWidth() + 10, cardImage.getIconHeight() + 10);
-	    retVal.setSize(d);
-	    retVal.setPreferredSize(d);
-	    retVal.setMaximumSize(d);
-	    retVal.setMinimumSize(d);
-	    
-	       
-	    
-	    
-	    
-	    
-	    return retVal;
-	    
-	    
-	  }
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-	}
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 		
 	public void setTableaus() {
-		
 	}
 	
 	public JPanel getTableaus() {
-		return tab;
-		
+		JLayeredPane[] tabluepiles = new JLayeredPane[8];
+		for (int i = 0; i < 8; i++) {
+			tabluepiles[i] = new JLayeredPane();
+			Dimension layeredPaneSize = new Dimension(100,300);
+			tabluepiles[i].setPreferredSize(layeredPaneSize);
+
+			tabluepiles[i].setBorder(BorderFactory.createTitledBorder("Tablue Piles"));
+			Point origin = new Point(10, 0);
+
+			if (ls.getTableaus(i).getCardStack().isEmpty()) {
+				tabluepiles[i].add(Tools.getCardLabel(new Card(null, null)));
+			} else {
+				for (int a = ls.getTableaus(0).getCardSize() - 1; a >= 0; a--) {
+					Card card = ls.getTableaus(i).getCardStack().get(a);
+					JLabel image = Tools.getCardLabel(card);
+
+					image.setBounds(origin.x, origin.y, image.getWidth(), image.getHeight());
+					origin.x = origin.x;
+					origin.y += 20;
+					
+					tabluepiles[i].add(image, 0);
+
+				}
+			}
+			tabluepiles[i].setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+			tab.add(tabluepiles[i]);
+		}
+		tab.setBackground(Color.BLACK);
+return tab;
 	}
 	
-	public void setHome() {
+	
 		
-	}
+	
 	public JPanel getHome() {
-		return home;
-	}
-	
-	
-	
-	}
-	
+		JLayeredPane[] homecellpile = new JLayeredPane[4];
+		for(int i = 0; i< 4; i++) {
+			homecellpile[i] = new JLayeredPane();
+			Dimension layeredPaneSize = new Dimension(100,300);
+			homecellpile[i].setPreferredSize(layeredPaneSize);
+			Point origin = new Point(0,0);
+			JLabel image = Tools.getCardLabel(ls.getHomeCells(i).getHomecellStack().get(0));
+			image.setBounds(origin.x, origin.y, image.getWidth(), image.getHeight());
+			origin.x = origin.x;
+			origin.y += 20;
+			
+			homecellpile[i].add(image);
+			home.add(homecellpile[i]);
+		}
+		home.setBackground(Color.PINK);
+return home;
+
+}
+}
 	

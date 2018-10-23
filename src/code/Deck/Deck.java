@@ -29,6 +29,7 @@ public class Deck {
 	 * This removes one card from deck and returns it. 
 	 */
 	public Card deal() {
+		Collections.shuffle(deck);
 		Card c = deck.remove(0);
 		return c;
 	}

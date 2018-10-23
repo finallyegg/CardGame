@@ -10,8 +10,10 @@ public class Tableaus {
 	
 	private ArrayList<Card> cardStack;
 	Card pop = new Card(null,null);
+	Deck d = new Deck();
 	
-	public Tableaus(ArrayList<Card> lol, Deck d) {
+	public Tableaus(ArrayList<Card> lol, Deck q) {
+		d = q;
 		cardStack = lol;
 		cardStack.add(d.deal());
 		cardStack.add(d.deal());
@@ -107,6 +109,9 @@ public class Tableaus {
 	}
 	public Card cardAtIndex(int i) {
 		return cardStack.get(i);
+	}
+	public int getInitialStart() {
+		return 6;
 	}
 }
 

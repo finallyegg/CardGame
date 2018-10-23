@@ -32,7 +32,7 @@ class TableausTest {
 		ArrayList<Card> pop = new ArrayList<>();
 		
 
-		Tableaus t1 = new Tableaus(pop, op);
+		Tableaus t1 = new Tableaus(pop,op);
 		assertEquals("check the tableaus starting size",t1.getCardSize(), 6);
 		
 	}
@@ -110,7 +110,7 @@ class TableausTest {
 		lol1.add(a4);
 		lol1.add(a5);
 		lol1.add(a6);
-		Tableaus group1 = new Tableaus(lol1, op);
+		Tableaus group1 = new Tableaus(lol1,op);
 		
 		group1.removeTest();
 		
@@ -134,8 +134,8 @@ class TableausTest {
 		lol.add(a4);
 		lol.add(a5);
 		lol.add(a6);
-		Tableaus group1 = new Tableaus(lol, op);
-		Tableaus group2 = new Tableaus(lol1, op);
+		Tableaus group1 = new Tableaus(lol,op);
+		Tableaus group2 = new Tableaus(lol1,op);
 		Card test1 = new Card(Ranks.KING, Suits.SPADES);
 		group2.addCard(test1, group1, group2);
 		
@@ -157,7 +157,7 @@ class TableausTest {
 		Homecells c = new Homecells(c1);
 		Card c2 = new Card(Ranks.TWO, Suits.HEARTS);
 		lol.add(c2);
-		Tableaus a = new Tableaus(lol, op);
+		Tableaus a = new Tableaus(lol,op);
 		a.addToHomecell(c2, a, c);
 		assertEquals("Check the first index after checking it", c.getCard(0), c2);
 	}

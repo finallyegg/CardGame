@@ -11,14 +11,18 @@ public class runGui {
 
 		public static void runGUI(){
 			LittleSpider ls = new LittleSpider();
+			
         	JFrame frame = new JFrame("Little Spider");
         	LittleSpiderGui lol = new LittleSpiderGui(ls);
     	    frame.setSize(1000, 600);
-    	    frame.getContentPane().add(lol.getHome(),  BorderLayout.SOUTH);
-    	    frame.getContentPane().add(lol.getTableaus(),  BorderLayout.NORTH);
+    	   
     	    
+    	    frame.getContentPane().add(lol.getTableaus(),  BorderLayout.SOUTH);
+    	    frame.getContentPane().add(lol.getHome(),  BorderLayout.NORTH);
+    	  
+    	   
     	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	    frame.pack();
+    	    
     	    frame.setVisible(true);
     	   
 		}
