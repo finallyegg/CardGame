@@ -1,18 +1,13 @@
 package code.FinalGolf.GUI;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.LayoutManager;
+
 import java.awt.Point;
-import java.awt.event.MouseListener;
 
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
 
 import code.Deck.Card;
 import code.FinalGolf.*;
@@ -21,6 +16,9 @@ public class Golf_GUI {
 	private JPanel tabluesPanel;
 	private JPanel lowerPanel;
 	private Golf_Game gameLogic;
+	private boolean selected;
+	private JLayeredPane selectedPanel;
+	private int selectedAtTablue_index;
 
 	public Golf_GUI(Golf_Game GL) {
 		gameLogic = GL;
@@ -29,13 +27,12 @@ public class Golf_GUI {
 		Color backgroundCol = new Color(0, 128, 1);
 		tabluesPanel.setBackground(backgroundCol);
 		tabluesPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 0, 40));
-		Dimension tabluesPaneSize = new Dimension(100, 120);
-//		tabluesPanel.setSize(tabluesPaneSize);
 		lowerPanel = new JPanel();
-		lowerPanel.setBackground(Color.CYAN);
+		lowerPanel.setBackground(backgroundCol);
 		lowerPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 30, 40));
 		lowerPanel.setLayout(new FlowLayout(FlowLayout.LEADING, 25, 0));
-
+		setSelected(false);
+		selectedPanel=null;
 	}
 
 	public JPanel getTabluePanel() {
@@ -62,7 +59,7 @@ public class Golf_GUI {
 			if (gameLogic.getTableaus(i).getTablestack().isEmpty()) {
 				tabluepiles[i].add(Tools.getCardLabel(new Card(null, null)));
 			} else {
-				for (int a = gameLogic.getTablueStackSize(0) - 1; a >= 0; a--) {
+				for (int a = gameLogic.getTablueStackSize(i) - 1; a >= 0; a--) {
 					Card card = gameLogic.getTableaus(i).getTablestack().get(a);
 					JLabel image = Tools.getCardLabel(card);
 
@@ -81,11 +78,16 @@ public class Golf_GUI {
 			tabluepiles[i].setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 			tabluesPanel.add(tabluepiles[i]);
 		}
-
+		
+		int tablue_index = -1;
 		for (int i = 0; i < 7; i++) {
-			if (tabluepiles[i].getComponentCount() != 0) {
-				int compomentCount = tabluepiles[i].getComponentCount();
+			tablue_index +=1;
+			if (gameLogic.getTableaus(i).getTablestack().isEmpty()) {
+//				tabluepiles[i].addMouseListener(new GolfHomeCellMouseListener());
 //				tabluepiles[i].getComponent(compomentCount-1).addMouseListener(new GolfMouseListener(null, null, null));
+			}
+			else {
+				tabluepiles[i].addMouseListener(new GolfTablueauMouseListener(gameLogic,this,tabluepiles[i],tablue_index));
 			}
 		}
 		return tabluesPanel;
@@ -94,7 +96,6 @@ public class Golf_GUI {
 	public JPanel getlowerPanel() {
 		lowerPanel.removeAll();
 		JPanel stockpile = new JPanel();
-		stockpile.setBackground(Color.CYAN);
 		stockpile.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
 		stockpile.setMinimumSize(new Dimension(73, 97));
 		if (!gameLogic.getStockPile().getStockStack().isEmpty()) {
@@ -129,7 +130,7 @@ public class Golf_GUI {
 				image.setBounds(inital.x, inital.y, image.getWidth(), image.getHeight());
 				inital.y = inital.y;
 				inital.x += 13;
-				image.addMouseListener(new GolfHomeCellMouseListener());
+//				image.addMouseListener(new GolfHomeCellMouseListener(gameLogic,this));
 				homeCellPile.add(image, 0);
 			}
 		} else {
@@ -144,4 +145,30 @@ public class Golf_GUI {
 		SwingUtilities.updateComponentTreeUI(this.getTabluePanel());
 	}
 
+	
+	public Component getSelectedPanel() {
+		return selectedPanel;
+	}
+
+	public void setSelectedPanel(JLayeredPane selectedPanel) {
+		this.selectedPanel = selectedPanel;
+	}
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
+	public int getSelectedAtTablue_index() {
+		return selectedAtTablue_index;
+	}
+
+	public void setSelectedAtTablue_index(int selectedAtTablue_index) {
+		this.selectedAtTablue_index = selectedAtTablue_index;
+	}
+	
+	
 }

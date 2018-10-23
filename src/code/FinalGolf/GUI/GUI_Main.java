@@ -15,11 +15,11 @@ public class GUI_Main {
 		frame.getContentPane().add(gui.getTabluePanel(), BorderLayout.NORTH);
 //		frame.getContentPane().add(gui.getChoicesPanel(), BorderLayout.CENTER);
 		frame.getContentPane().add(gui.getlowerPanel());
-		frame.setSize(800,700);
+		frame.setSize(800,400);
 		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.pack();
+//        frame.pack();
 	}
 	
 	public static void main(String[] args){

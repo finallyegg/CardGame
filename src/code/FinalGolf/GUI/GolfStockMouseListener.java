@@ -52,9 +52,7 @@ public class GolfStockMouseListener implements MouseListener{
 		gameLogic.getStockPile().RemoveCard(card);
 //		}
 		gui.refresh();
-		System.out.print(gameLogic.getHomeCell().getHomecellstack().size());
-		System.out.print(result);
-		System.out.print(gameLogic.getStockPile().getStockStack().size());
+		
 	}
 
 	@Override
