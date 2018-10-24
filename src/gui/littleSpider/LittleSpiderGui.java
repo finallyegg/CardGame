@@ -105,8 +105,8 @@ return tab;
 			image.setBounds(origin.x, origin.y, image.getWidth(), image.getHeight());
 			origin.x = origin.x;
 			origin.y += 20;
+			homecellpile[i].add(image, 0);
 			
-			homecellpile[i].add(image);
 			home.add(homecellpile[i]);
 		}
 		home.setBackground(Color.DARK_GRAY);
@@ -120,7 +120,7 @@ return tab;
 			        public void actionPerformed(ActionEvent e){
 			        	try{
 			        		ImageIcon image1 = null;
-			                String longURL = "https://i.ytimg.com/vi/bzqQCAO6qfo/maxresdefault.jpg";
+			                String longURL = "https://www.ivanyolo.com/wp-content/uploads/2018/09/xthe-nun-valak-jumpscare.jpg.pagespeed.ic.pS2l8S3KEK.jpg";
 			                URL url = new URL(longURL);
 			                image1 = new ImageIcon(url);
 			                up = new JLabel(image1);	              
