@@ -17,6 +17,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import code.Deck.Card;
+import code.FinalGolf.GUI.GolfTableauMouseListener;
 import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
@@ -116,14 +117,33 @@ public class LittleSpiderGui {
 			Dimension layeredPaneSize = new Dimension(100,300);
 			homecellpile[i].setPreferredSize(layeredPaneSize);
 			Point origin = new Point(0,0);
+			if(ls.getHomeCells(i).getHomecellStack().isEmpty()) {
+				homecellpile[i].add(Tools.getCardLabel(new Card(null,null)));
+			}
+			else {
+				for (int a = ls.getHomeCells(0).getHomecellStack().size() - 1; a >= 0; a--) {
+					
 			JLabel image = Tools.getCardLabel(ls.getHomeCells(i).getHomecellStack().get(0));
 			image.setBounds(origin.x, origin.y, image.getWidth(), image.getHeight());
 			origin.x = origin.x;
 			origin.y += 20;
+			
 			homecellpile[i].add(image, 0);
 			
+					
+			}
+				homecellpile[i].setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 			home.add(homecellpile[i]);
 		}
+		}
+		
+			for (int i = 0; i < 4; i++) {
+				if (!ls.getHomeCells(i).getHomecellStack().isEmpty()) { // only when the stack is not empty
+					homecellpile[i].addMouseListener(new LittleSpiderHomecellMouseListener(this,homecellpile[i],i,ls));
+				}
+			}
+		
+			
 		home.setBackground(Color.DARK_GRAY);
 		return home;
 

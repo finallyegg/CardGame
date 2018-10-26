@@ -16,14 +16,18 @@ public class LittleSpiderHomecellMouseListener implements MouseListener{
 	
 	private LittleSpiderGui gui;
 	private JLayeredPane pane;
+	
 	private int index; 
+	
 	private LittleSpider gameLogic;
 
 	public LittleSpiderHomecellMouseListener(LittleSpiderGui gui, JLayeredPane Pane, int idx, LittleSpider game) {
 		this.gui = gui;
 		this.pane = Pane;
 		this.index = idx;
+	
 		this.gameLogic = game;
+	
 	}
 	
 	@Override
@@ -46,9 +50,11 @@ public class LittleSpiderHomecellMouseListener implements MouseListener{
 			gui.setSelectedAtHomecellIndex(-1);
 		}
 		
+		
+		
 		else if (gui.isSelected2() && gui.getSelectedPanel2() != pane) {
 			JOptionPane.showMessageDialog(null, "Invaild Entry - Cannot add card to Homecell");
-			gui.refresh();
+			
 		}
 		
 	}
@@ -67,7 +73,7 @@ public class LittleSpiderHomecellMouseListener implements MouseListener{
 		if(gameLogic.moveToHomecell(card, gameLogic.getHomeCells(gui.getSelectedAtHomecellIndex()))){
 			gameLogic.getTableaus(gui.getSelectedAtTablue_index());
 		}
-		gui.refresh();
+		
 
 
 	}
