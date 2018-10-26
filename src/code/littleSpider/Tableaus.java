@@ -42,7 +42,7 @@ public class Tableaus {
 	 * check to see if the Tableaus is empty or not
 	 */
 	public boolean checkEmpty() {
-		if(cardStack.size() == 0) {
+		if(cardStack == null || cardStack.size() == 0 || cardStack.isEmpty()) {
 			return true;
 		}
 		else {

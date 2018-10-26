@@ -38,14 +38,6 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 			gui.setSelectedAtTableauIndex(-1);
 		}
 		
-		else if (gui.isSelected() && gui.getSelectedPanel() != pane) { 
-			
-			JOptionPane.showMessageDialog(null, "Invaild Entry - Cannot add card to tabluepile");
-			
-			
-			gui.refresh();
-		}
-		
 	}
 
 	@Override

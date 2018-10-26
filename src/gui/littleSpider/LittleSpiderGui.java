@@ -34,6 +34,7 @@ public class LittleSpiderGui {
 	private JLabel joke = new JLabel();
 	private JLabel ok = new JLabel();
 	private JButton hah = new JButton("Alright I'll Stop");
+	private LittleSpider gameLogic;
 	private boolean selected;
 	private JLayeredPane selectedPanel;
 	private int selectedAtTableauIndex;
@@ -97,8 +98,14 @@ public class LittleSpiderGui {
 		
 		tab.setBackground(Color.PINK);
 		
+		for(int i = 0; i < 8; i++) {
+			if(!gameLogic.getTableaus(i).getCardStack().isEmpty()) {
+				tabluepiles[i].addMouseListener(new LittleSpiderTableauMouseListener(this, tabluepiles[i], i));
+			}
+		}
 		
-return tab;
+		
+		return tab;
 	}
 		//Setup Home
 	public JPanel getHome() {
