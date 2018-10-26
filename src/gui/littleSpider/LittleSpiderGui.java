@@ -29,11 +29,14 @@ public class LittleSpiderGui {
 	//For Fun
 	private JButton spider = new JButton("Have Fun");
 	private JPanel test = new JPanel();
-	 private JButton gotem = new JButton("Gotem");
-	 private JLabel up = new JLabel();
-	 private JLabel joke = new JLabel();
-	 private JLabel ok = new JLabel();
-	 private JButton hah = new JButton("Alright I'll Stop");
+	private JButton gotem = new JButton("Gotem");
+	private JLabel up = new JLabel();
+	private JLabel joke = new JLabel();
+	private JLabel ok = new JLabel();
+	private JButton hah = new JButton("Alright I'll Stop");
+	private boolean selected;
+	private JLayeredPane selectedPanel;
+	private int selectedAtTableauIndex;
 	
 
 	
@@ -43,7 +46,8 @@ public class LittleSpiderGui {
 		ls = idk;
 		tab = new JPanel();
 		home = new JPanel();
-	
+		setSelected(false);
+		selectedPanel = null;
 		test.add(spider);
 		
 	}
@@ -187,6 +191,44 @@ return tab;
 	}	
 		 });
 	return hah;
+	}
+	
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean b) {
+		this.selected = b;
+		
+	}
+
+	public void setSelectedPanel(JLayeredPane pane) {
+		this.selectedPanel = pane;
+		
+	}
+
+	public void setSelectedAtTableauIndex(int index) {
+		this.selectedAtTableauIndex = index;
+		
+	}
+
+	public JLayeredPane getSelectedPanel() {
+		return selectedPanel;
+	}
+	
+	public int getSelectedAtTablue_index() {
+		return selectedAtTableauIndex;
+	}
+	
+	public void refresh() {
+		getHome().revalidate();
+		getHome().repaint();
+		getTableaus().revalidate();
+		getTableaus().repaint();
+		selected = false;
+		selectedAtTableauIndex = -1;
+		selectedPanel = null;
+		
 	}
 	
 	
