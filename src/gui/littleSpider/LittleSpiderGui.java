@@ -34,7 +34,7 @@ public class LittleSpiderGui {
 	private JLabel joke = new JLabel();
 	private JLabel ok = new JLabel();
 	private JButton hah = new JButton("Alright I'll Stop");
-	private LittleSpider gameLogic;
+	
 	private boolean selected;
 	private JLayeredPane selectedPanel;
 	private int selectedAtTableauIndex;
