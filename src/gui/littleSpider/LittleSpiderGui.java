@@ -90,6 +90,7 @@ public class LittleSpiderGui {
 					origin.y += 20;
 					
 					tabluepiles[i].add(image, 0);
+					
 				}
 			}
 			tabluepiles[i].setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
@@ -99,7 +100,7 @@ public class LittleSpiderGui {
 		tab.setBackground(Color.PINK);
 		
 		for(int i = 0; i < 8; i++) {
-			if(!gameLogic.getTableaus(i).getCardStack().isEmpty()) {
+			if(!ls.getTableaus(i).getCardStack().isEmpty()) {
 				tabluepiles[i].addMouseListener(new LittleSpiderTableauMouseListener(this, tabluepiles[i], i));
 			}
 		}
