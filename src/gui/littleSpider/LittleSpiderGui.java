@@ -37,6 +37,9 @@ public class LittleSpiderGui {
 	private boolean selected;
 	private JLayeredPane selectedPanel;
 	private int selectedAtTableauIndex;
+	private boolean selected2;
+	private JLayeredPane selectedPanel2;
+	private int selectedAtHomecellIndex;
 	
 
 	
@@ -220,6 +223,33 @@ return tab;
 		return selectedAtTableauIndex;
 	}
 	
+	public boolean isSelected2() {
+		return selected2;
+	}
+
+	public void setSelected2(boolean b) {
+		this.selected2 = b;
+		
+	}
+
+	public void setSelectedPanel2(JLayeredPane pane) {
+		this.selectedPanel2 = pane;
+		
+	}
+
+	public void setSelectedAtHomecellIndex(int index) {
+		this.selectedAtHomecellIndex = index;
+		
+	}
+
+	public JLayeredPane getSelectedPanel2() {
+		return selectedPanel2;
+	}
+	
+	public int getSelectedAtHomecellIndex() {
+		return selectedAtHomecellIndex;
+	}
+	
 	public void refresh() {
 		getHome().revalidate();
 		getHome().repaint();
@@ -228,6 +258,9 @@ return tab;
 		selected = false;
 		selectedAtTableauIndex = -1;
 		selectedPanel = null;
+		selected2 = false;
+		selectedAtHomecellIndex = -1;
+		selectedPanel2 = null;
 		
 	}
 	
