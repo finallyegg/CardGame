@@ -114,10 +114,13 @@ public class LittleSpider {
 	 * 
 	 * @param s The card that is trying to move
 	 */
-	public void moveToHomecell(Card s, Homecells h) {
-		if(h.addCard(s)) {
+	public boolean moveToHomecell(Card s, Homecells h) {
+		Homecells gs = h;
+		if(gs.addCard(s)) {
 			h.addCard(s);
+			return true;
 		}
+		return false;
 	}
 
 	/**
