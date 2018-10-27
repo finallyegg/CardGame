@@ -15,7 +15,7 @@ public class GUI_Main {
 		frame.getContentPane().add(gui.getUpperPanel(), BorderLayout.NORTH);
 //		frame.getContentPane().add(gui.getChoicesPanel(), BorderLayout.CENTER);
 		frame.getContentPane().add(gui.getlowerPanel());
-		frame.setSize(800,400);
+		frame.setSize(850,400);
 		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

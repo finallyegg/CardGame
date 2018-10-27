@@ -92,7 +92,7 @@ public class Golf_GUI {
 		
 		JLayeredPane homeCellPile = new JLayeredPane(); // Initialize HomeCellPile
 		
-		homeCellPile.setPreferredSize(new Dimension(550, 97));
+		homeCellPile.setPreferredSize(new Dimension(650, 97));
 		Point inital = new Point(0, 0); //inital coordinate
 		if (!gameLogic.getHomeCell().getHomecellstack().isEmpty()) {
 			homeCellPile.removeAll(); // refresh function

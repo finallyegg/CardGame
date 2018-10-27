@@ -59,20 +59,20 @@ public class Homecells {
 			if(c.value() == 2 && (cardStack.get(0).getSuit() == c.getSuit())) {
 				return true;
 			}
-			else if((cardStack.get(cardStack.size() - 1).value() + 1) == c.value()) {
+			else if((cardStack.get(0).value() + 1) == c.value()) {
 				return true;
 			}
-			else if(cardStack.get(cardStack.size() - 1).value() == 13) {
+			else if(cardStack.get(0).value() == 13) {
 				return false;
 			}
 			else
 				return false;
 		}
 		else if(cardStack.get(0).value() == 13) {
-			if(cardStack.get(cardStack.size() - 1).value() - 1 == c.value()) {
+			if(cardStack.get(0).value() - 1 == c.value()) {
 				return true;
 			}
-			else if(cardStack.get(cardStack.size() - 1).value() == 14) {
+			else if(cardStack.get(0).value() == 14) {
 				return false;
 			}
 			else
