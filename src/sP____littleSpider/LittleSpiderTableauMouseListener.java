@@ -78,13 +78,14 @@ public class LittleSpiderTableauMouseListener implements MouseListener {
 					gameLogic.getTableaus(this.SelectedIndex).add(previousSelectedCard, 0);
 					gameLogic.getHomeCells(previousSelectedIndex).getHomecellStack().remove(previousSelectedCard);
 					gui.refresh();
-				} 
-			}
-			else {// if it is illegal it prints this
-				JOptionPane.showMessageDialog(null, "Invaild Entry - Illegal Operation");// shows that it failed
-				gui.refresh();
-			}
+				}
+				else {// if it is illegal it prints this
+					JOptionPane.showMessageDialog(null, "Invaild Entry - Illegal Operation");// shows that it failed
+					gui.refresh();
+				}
 
+			}
+			
 		}
 
 	}
