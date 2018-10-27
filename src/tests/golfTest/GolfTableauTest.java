@@ -3,7 +3,9 @@ package tests.golfTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
+
 import code.Deck.Card;
 import code.Deck.Deck;
 import code.FinalGolf.Golf_Game;

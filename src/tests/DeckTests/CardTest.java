@@ -1,19 +1,19 @@
 package tests.DeckTests;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 import code.Deck.Card;
-import code.Deck.Card.Ranks;
-import code.Deck.Card.Suits;
 
-class CardTest {
+public class CardTest {
 
 
 	
 	@Test
-	void test_card() {
+	public void test_card() {
 		Card c = new Card(Card.Ranks.TWO, Card.Suits.CLUBS);
 		assertEquals(c.value() == 2, true);
 		assertEquals(c.getRank() == Card.Ranks.TWO, true);

@@ -3,18 +3,14 @@ package tests.littleSpiderTests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import code.Deck.Card;
 import code.Deck.Card.Ranks;
 import code.Deck.Card.Suits;
-import code.Deck.Deck;
 import code.littleSpider.Homecells;
-import code.littleSpider.Tableaus;
 
 public class HomecellsTest {
 
@@ -92,7 +88,6 @@ public class HomecellsTest {
 		h5.removeCard();
 		assertEquals("First card should stay", 1, h5.size());
 		h5.addCard(c2);
-		Card c = h5.getCard(0);
 		h5.removeCard();
 		assertEquals("Size should equal 1", 1, h5.size());
 	}

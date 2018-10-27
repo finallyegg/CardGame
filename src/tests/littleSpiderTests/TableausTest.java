@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import code.Deck.Card;
 import code.Deck.Card.Ranks;
@@ -14,7 +14,7 @@ import code.Deck.Deck;
 import code.littleSpider.Homecells;
 import code.littleSpider.Tableaus;
 
-class TableausTest {
+public class TableausTest {
 	Deck op =  new Deck();
 	Card a1 = new Card(Ranks.ACE, Suits.CLUBS);
 	Card a2 = new Card(Ranks.FIVE, Suits.CLUBS);
