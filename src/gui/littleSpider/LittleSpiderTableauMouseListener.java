@@ -20,7 +20,7 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 	private int index2;
 	private LittleSpider gameLogic = new LittleSpider();
 	private boolean mover = false;
-	
+	private JLabel lol = new JLabel();
 	
 	public LittleSpiderTableauMouseListener(LittleSpiderGui g, JLayeredPane p, int idx) {
 		this.gui = g;
@@ -33,21 +33,22 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		JLabel mod = (JLabel) pane.getComponent(0);
+		lol  = (JLabel) pane.getComponent(0);
 		mover = true;
 		if(!gui.isSelected()) {
-			java.awt.Rectangle uB = mod.getBounds();
-			mod.setBounds(uB.x + 10, uB.y - 10, uB.width, uB.height);
-			mod.repaint();
+			
+			java.awt.Rectangle uB = lol.getBounds();
+			lol.setBounds(uB.x + 10, uB.y - 10, uB.width, uB.height);
+			lol.repaint();
 			gui.setSelected(true);
 			gui.setSelectedPanel(pane);
 			gui.setSelectedAtTableauIndex(index);
 		} 
 		else if (gui.isSelected() && gui.getSelectedPanel() == pane) {
 			
-			java.awt.Rectangle selectedBound = mod.getBounds();
-			mod.setBounds(selectedBound.x - 10, selectedBound.y + 10, selectedBound.width, selectedBound.height);
-			mod.repaint();
+			java.awt.Rectangle selectedBound = lol.getBounds();
+			lol.setBounds(selectedBound.x - 10, selectedBound.y + 10, selectedBound.width, selectedBound.height);
+			lol.repaint();
 			gui.setSelected(false);
 			gui.setSelectedPanel(null);
 			gui.setSelectedAtTableauIndex(-1);
@@ -55,13 +56,17 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 		
 		//added check logic
 		else if(mover) { // if this runs it means that there is already something clicked
+			JLabel qwe = new JLabel();
+			qwe = lol;
 			index2 = gui.getSelectedAtTablue_index();	//since this passed it will mean that index2 is the index of the second tab selected
 			Card selectedCard = new Card(gameLogic.getTableaus(index).cardAtIndex(0).getRank(),gameLogic.getTableaus(index).cardAtIndex(0).getSuit());
 			//selectedCard is the card value of mod(for some reason this gives an error)
 			if(gameLogic.getTableaus(index2).checkNumber(selectedCard)) { // if this pass it means it is legal to move the card(idk why its not passing)
-				pane2.add(mod);// add the JLabel if its card value is legal to move
-				pane.remove(mod);// remove that JLabel from the first pane selected
+				pane2.add(lol);// add the JLabel if its card value is legal to move
+				pane2.remove(lol);// remove that JLabel from the first pane selected
+				gui.getTableaus().repaint();
 				JOptionPane.showMessageDialog(null, "Valid Entry - Pass"); // shows that it works
+				lol = new JLabel();
 				gui.getTableaus().repaint();
 			}
 			else {//if it is illegal it prints this
