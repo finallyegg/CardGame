@@ -68,6 +68,7 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 				JOptionPane.showMessageDialog(null, "Valid Entry - Pass"); // shows that it works
 				lol = new JLabel();
 				gui.getTableaus().repaint();
+				mover = false;
 			}
 			else {//if it is illegal it prints this
 				JOptionPane.showMessageDialog(null, "Invaild Entry - Failed");//shows that it failed
