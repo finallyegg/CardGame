@@ -60,8 +60,9 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 			//selectedCard is the card value of mod(for some reason this gives an error)
 			if(gameLogic.getTableaus(index2).checkNumber(selectedCard)) { // if this pass it means it is legal to move the card(idk why its not passing)
 				pane2.add(mod);// add the JLabel if its card value is legal to move
-				pane.remove(0);// remove that JLabel from the first pane selected
+				pane.remove(mod);// remove that JLabel from the first pane selected
 				JOptionPane.showMessageDialog(null, "Valid Entry - Pass"); // shows that it works
+				gui.getTableaus().repaint();
 			}
 			else {//if it is illegal it prints this
 				JOptionPane.showMessageDialog(null, "Invaild Entry - Failed");//shows that it failed

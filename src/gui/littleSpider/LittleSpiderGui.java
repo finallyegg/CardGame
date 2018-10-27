@@ -17,7 +17,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import code.Deck.Card;
-import code.FinalGolf.GUI.GolfTableauMouseListener;
+
 import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
@@ -35,6 +35,7 @@ public class LittleSpiderGui {
 	private JLabel joke = new JLabel();
 	private JLabel ok = new JLabel();
 	private JButton hah = new JButton("Alright I'll Stop");
+	private JButton restart = new JButton("Restart");
 	
 	private boolean selected;
 	private JLayeredPane selectedPanel;
@@ -54,6 +55,7 @@ public class LittleSpiderGui {
 		setSelected(false);
 		selectedPanel = null;
 		test.add(spider);
+		test.add(restart);
 		
 	}
 	
@@ -224,6 +226,16 @@ public class LittleSpiderGui {
 	return hah;
 	}
 	
+	public void getRestart() {
+		restart.addActionListener(new ActionListener(){
+	        @Override 
+	        public void actionPerformed(ActionEvent e){
+	        	LittleSpider newGame = new LittleSpider();
+	        	LittleSpiderGui rip = new LittleSpiderGui(newGame);
+	        	rip.refresh();
+	}	
+		 });
+	}
 	public boolean isSelected() {
 		return selected;
 	}
