@@ -25,7 +25,7 @@ public class LittleSpiderGui {
 	private LittleSpider ls;
 	private JPanel tab;
 	private JPanel home;
-	
+	private JLabel hallow = new JLabel("Happy Halloween");
 	//For Fun
 	private JButton spider = new JButton("Have Fun");
 	private JPanel test = new JPanel();
@@ -57,8 +57,9 @@ public class LittleSpiderGui {
 		restart = new JButton("Restart");
 		restart.addActionListener(new RestartActionListener(this));
 		test.add(spider);
+		spider.setVisible(false);
 		test.add(restart);
-		
+		hallow.setSize(100,100);
 		tab.setBackground(Color.PINK);
 		selectedtype = -1;
 	}
@@ -172,6 +173,8 @@ public class LittleSpiderGui {
 			               gotem.setVisible(true);
 			               test.add(gotem);
 			               	test.add(up);
+			               	test.add(hallow);
+			               	restart.setVisible(false);
 			               	spider.setVisible(false);
 			               		test.setBackground(Color.BLACK);
 			             hah.setVisible(false);
@@ -189,6 +192,9 @@ public class LittleSpiderGui {
 	        public void actionPerformed(ActionEvent e){
 	        	try{
 	        		hah.setVisible(true);
+	        		hallow.setSize(100,100);
+	        		test.add(hallow);
+	        		
 	        		ImageIcon pop = null;
 	        		ImageIcon pop1 = null;
 	        		String lmao = "https://i.imgur.com/BW3KLWl.jpg";
@@ -223,6 +229,9 @@ public class LittleSpiderGui {
 	        	test.remove(ok);
 	        	test.remove(up);
 	        	test.remove(joke);
+	        	test.remove(spider);
+	        	test.remove(hallow);
+	        	restart.setVisible(true);
 	        test.setBackground(Color.LIGHT_GRAY);	
 	        tab.setVisible(true);
 	        home.setVisible(true);
@@ -243,6 +252,9 @@ public class LittleSpiderGui {
 //		restart.addActionListener(new RestartActionListener(this));
 //		 
 //	}
+	public JButton getRestart() {
+		return restart;
+	}
 	public boolean isSelected() {
 		return selected;
 	}
@@ -269,6 +281,9 @@ public class LittleSpiderGui {
 	public int getSelectedAtIndex() {
 		return selectedAtIndex;
 	}
+	public JButton returnSpider() {
+		return spider;
+		}
 	
 //	public boolean isSelected2() {
 //		return selected2;

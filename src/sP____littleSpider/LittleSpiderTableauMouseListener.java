@@ -31,6 +31,7 @@ public class LittleSpiderTableauMouseListener implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		JLabel topCardLabel = (JLabel) pane.getComponent(0);
 		if (!gui.isSelected()) {
+			gui.returnSpider().setVisible(true);
 			java.awt.Rectangle uB = topCardLabel.getBounds();
 			topCardLabel.setBounds(uB.x + 10, uB.y - 10, uB.width, uB.height);
 			topCardLabel.repaint();
