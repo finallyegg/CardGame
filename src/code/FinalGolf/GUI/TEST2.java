@@ -5,11 +5,15 @@ import java.awt.event.MouseListener;
 
 import code.FinalGolf.Golf_Game;
 
-public class HomecellMouseLestner  implements MouseListener{
+/**
+ * @author 
+ * Just for Testing -- do not grade
+ */
+public class TEST2  implements MouseListener{
 	private Golf_Game gamelogic;
 	private Golf_GUI golfgui;
 	
-	public HomecellMouseLestner(Golf_Game logic, Golf_GUI golffgui ) {
+	public TEST2(Golf_Game logic, Golf_GUI golffgui ) {
 		gamelogic = logic;
 		golfgui = golffgui;
 		

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import code.FinalGolf.GUI.GUI_Main;
-import sP____littleSpider.runGui;
+import final_LittleSpider_GUI.runGui;
 
 public class TwoGame_Menu {
 	public static void runGUI() {

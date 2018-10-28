@@ -8,17 +8,27 @@ import javax.swing.JOptionPane;
 import code.Deck.Card;
 import code.FinalGolf.Golf_Game;
 
-public class TESTMouseListener implements MouseListener {
+/**
+ * @author 
+ * 
+ * GolfHomeCellListener
+ *
+ */
+public class GolfHomeCellListener implements MouseListener {
 	
 	private Golf_Game gameLogic;
 	private Golf_GUI gui;
 	
-	public TESTMouseListener(Golf_Game gameLogic, Golf_GUI gui) {
+	/**
+	 * @param gameLogic
+	 * @param gui
+	 */
+	public GolfHomeCellListener(Golf_Game gameLogic, Golf_GUI gui) {
 		this.gameLogic=gameLogic;
 		this.gui=gui;
 	}
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent arg0) { // SEE IT IT'S LEGAL TO MOVE FROM TABLEAU TO HOMECELL
 		// TODO Auto-generated method stub
 		if (!gui.isSelected()) {
 			JOptionPane.showMessageDialog(null, "Invaild Entry - Cannot select from HomeCell Pile");

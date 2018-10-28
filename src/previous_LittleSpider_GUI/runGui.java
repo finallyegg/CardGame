@@ -1,4 +1,4 @@
-package sP____littleSpider;
+package previous_LittleSpider_GUI;
 
 import java.awt.BorderLayout;
 
@@ -16,7 +16,7 @@ public class runGui {
 		frame.getContentPane().add(lol.getTest(),BorderLayout.CENTER );
 		frame.getContentPane().add(lol.getTableaus(),  BorderLayout.SOUTH);
 		frame.getContentPane().add(lol.getHome(),  BorderLayout.NORTH);
-		frame.setSize(1500, 900);
+		frame.setSize(1500, 1500);
  	   
     	
     	   

@@ -1,4 +1,4 @@
-package gui.littleSpider;
+package previous_LittleSpider_GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;

@@ -6,7 +6,16 @@ import java.util.HashMap;
 import javax.swing.*;
 import code.Deck.Card;
 
+/**
+ * @author TEAM
+ * 
+ * Some useful tools for GUI
+ */
 public class Tools {
+	/**
+	 * @param fileNameRelativeToClassFile
+	 * @return Java JLabel
+	 */
 	public static JLabel createDisplayImage(String fileNameRelativeToClassFile) {
 	    JLabel retVal = new JLabel();
 	    java.net.URL imgURL = Tools.class.getResource(fileNameRelativeToClassFile);
@@ -23,6 +32,10 @@ public class Tools {
 	    return retVal;
 	  }
 	
+	/**
+	 * @param Card instance
+	 * @return JLabel contains Card image
+	 */
 	public static JLabel getCardLabel (Card x) {
 		HashMap<Card,String> cardNameMap = new HashMap<>();
 
@@ -47,12 +60,14 @@ public class Tools {
 			}
 		}
 		
-//		System.out.print(cardNameMap);
 		String filename = cardNameMap.get(x);
-//		Tools.createDisplayImage("/S18SemesterProject/src/IconPack/" + filename + ".gif");
 		return Tools.createDisplayImage("/IconPack/" + filename + ".gif");
 	}
 	
+	/**
+	 * @param int 0/1
+	 * @return pure green or red image
+	 */
 	public static JLabel getEmptyCardLabel (int x) {
 		if(x==0) {
 			return Tools.createDisplayImage("/IconPack/" + "green" + ".gif");
@@ -60,6 +75,9 @@ public class Tools {
 		return Tools.createDisplayImage("/IconPack/" + "gold" + ".gif");
 	}
 	
+	/**
+	 * @return Hertz's photo
+	 */
 	public static JLabel getMatthewPhoto() {
 	    JLabel retVal = new JLabel();
 	    java.net.URL imgURL = Tools.class.getResource("/IconPack/" + "MatthewPhoto" + ".jpg");
@@ -78,6 +96,10 @@ public class Tools {
 	    return retVal;
 	  }
 	
+	/**
+	 * @param int 0/1
+	 * @return Hertz's icon
+	 */
 	public static ImageIcon getMatthewIcon(int x) {
 	    JLabel retVal = new JLabel();
 	    java.net.URL imgURL;
@@ -101,8 +123,4 @@ public class Tools {
 	    retVal.setMinimumSize(d);
 	    return newCard;
 	  }
-	
-	public static void main(String[] args) {
-		System.out.print(Tools.getCardLabel(new Card(Card.Ranks.TWO,Card.Suits.HEARTS)));
-	}
 }

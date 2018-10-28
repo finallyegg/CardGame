@@ -1,4 +1,4 @@
-package sP____littleSpider;
+package final_LittleSpider_GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

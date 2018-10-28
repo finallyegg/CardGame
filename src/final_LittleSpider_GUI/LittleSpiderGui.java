@@ -1,4 +1,4 @@
-package sP____littleSpider;
+package final_LittleSpider_GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,6 +20,12 @@ import code.Deck.Card;
 import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
+/**
+ * @author TEAM
+ * 
+ * Little SPider GUI
+ * 
+ */
 public class LittleSpiderGui {
 	//Important
 	private LittleSpider ls;
@@ -48,6 +54,9 @@ public class LittleSpiderGui {
 	
 	
 	
+	/**
+	 * Constructer
+	 */
 	public LittleSpiderGui(LittleSpider idk) {
 		ls = idk;
 		tab = new JPanel();
@@ -76,6 +85,9 @@ public class LittleSpiderGui {
 		return test;
 	}
 	//Set up tableaus
+	/**
+	 * @return get Tableaus Panel
+	 */
 	public JPanel getTableaus() {
 		tab.removeAll();
 		JLayeredPane[] tabluepiles = new JLayeredPane[8];
@@ -118,6 +130,9 @@ public class LittleSpiderGui {
 		return tab;
 	}
 		//Setup Home
+	/**
+	 * @return HomeCell Panel
+	 */
 	public JPanel getHome() {
 		home.removeAll();
 		JLayeredPane[] homecellpile = new JLayeredPane[4];
@@ -158,6 +173,9 @@ public class LittleSpiderGui {
 
 }
 	//Fun
+		/**
+		 * Easter EGG
+		 */
 		public  JButton getSpider() {
 			 spider.addActionListener(new ActionListener(){
 			        @Override 

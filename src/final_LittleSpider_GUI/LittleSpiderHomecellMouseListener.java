@@ -1,4 +1,4 @@
-package sP____littleSpider;
+package final_LittleSpider_GUI;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
 import code.Deck.Card;
 import code.littleSpider.LittleSpider;
 
+/**
+ * @author 
+ * @DO LittleSpiderHomeCell Listener
+ */
 public class LittleSpiderHomecellMouseListener implements MouseListener {
 
 	private LittleSpiderGui gui;
@@ -28,7 +32,7 @@ public class LittleSpiderHomecellMouseListener implements MouseListener {
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent arg0) { // check if the previous selected card is legal to add the current select panel
 		System.out.print(gui.isSelected());
 		JLabel modified = (JLabel) pane.getComponent(0);
 		if (!gui.isSelected()) {
