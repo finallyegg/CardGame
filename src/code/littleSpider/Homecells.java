@@ -3,8 +3,6 @@ package code.littleSpider;
 import java.util.ArrayList;
 
 import code.Deck.Card;
-import code.Deck.Card.Ranks;
-import code.Deck.Card.Suits;
 import code.littleSpider.Tableaus;
 
 public class Homecells {

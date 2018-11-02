@@ -11,9 +11,11 @@ import code.littleSpider.Tableaus;
 
 public class LittleSpiderMouseListener implements MouseListener{
 	
+	@SuppressWarnings("unused")
 	private JButton B1;
 	private Card topcard;
 	private Homecells lsHome;
+	@SuppressWarnings("unused")
 	private Tableaus lsTab;
 	
 	public LittleSpiderMouseListener(JButton x, Tableaus t, Homecells h) {

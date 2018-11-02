@@ -8,9 +8,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import code.Deck.Card;
-import code.littleSpider.Homecells;
 import code.littleSpider.LittleSpider;
-import code.littleSpider.Tableaus;
 
 public class LittleSpiderHomecellMouseListener implements MouseListener{
 	

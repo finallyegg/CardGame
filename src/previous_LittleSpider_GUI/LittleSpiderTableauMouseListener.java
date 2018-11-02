@@ -8,7 +8,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import code.Deck.Card;
-import code.FinalGolf.GUI.Tools;
 import code.littleSpider.LittleSpider;
 
 public class LittleSpiderTableauMouseListener implements MouseListener{
@@ -56,8 +55,8 @@ public class LittleSpiderTableauMouseListener implements MouseListener{
 		
 		//added check logic
 		else if(mover) { // if this runs it means that there is already something clicked
-			JLabel qwe = new JLabel();
-			qwe = lol;
+//			JLabel qwe = new JLabel();
+//			qwe = lol;
 			index2 = gui.getSelectedAtTablue_index();	//since this passed it will mean that index2 is the index of the second tab selected
 			Card selectedCard = new Card(gameLogic.getTableaus(index).cardAtIndex(0).getRank(),gameLogic.getTableaus(index).cardAtIndex(0).getSuit());
 			//selectedCard is the card value of mod(for some reason this gives an error)

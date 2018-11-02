@@ -54,7 +54,7 @@ public class HomecellsTest {
 		assertFalse("Homecell shouldn't accept a number that is the same.(Starting with an A)", h10.checkNumber(two));
 		
 		Card queen = new Card(Ranks.QUEEN, Suits.SPADES);
-		Card jack = new Card(Ranks.JACK, Suits.SPADES);
+//		Card jack = new Card(Ranks.JACK, Suits.SPADES);
 		assertTrue("Homecell should accept a number that is -1 to initial card.(Starting with an K)", h11.checkNumber(queen));
 		h11.alwaysAddCard(queen);
 //		assertTrue("Homecell should accept a number that is +1 to previous. (Starting with an K)", h11.checkNumber(jack));
