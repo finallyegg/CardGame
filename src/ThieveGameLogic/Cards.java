@@ -27,6 +27,7 @@ public class Cards {
 		myranks = r;
 		mysuits = s;
 	}
+	 
 	
 	/*
 	 *  gets rank

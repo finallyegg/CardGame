@@ -22,6 +22,7 @@ public class Tablaeus {
 	
 	}
 	
+	
 	/*Checks the card to see if its legal to move it
 	*/
 	public boolean checkNumber(Card  a) {

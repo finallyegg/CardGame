@@ -71,6 +71,7 @@ public class Decks {
 				deck.add(c);
 			}
 		}
+		
 	}
 	/*
 	 * Returns current size of deck. 
