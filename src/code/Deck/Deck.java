@@ -74,11 +74,12 @@ public class Deck {
 	 * Returns current size of deck. 
 	 */
 	public int size() {
-		int i = 0;
-		for(Card z: deck) {
-			i++;
-		}
-		return i;
+		return deck.size();
+//		int i = 0;
+//		for(Card z: deck) {
+//			i++;
+//		}
+//		return i;
 	}
 	
 	public ArrayList<Card> getCards(){

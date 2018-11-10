@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
