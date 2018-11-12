@@ -22,8 +22,9 @@ public thievePile(Decks a) {
 public TCards getCard(thievePile a) {
 	return stock.get(0);
 }
-public void putWaste(ArrayList<TCards> stok, ArrayList<TCards> wast) {
+public boolean putWaste(ArrayList<TCards> stok, ArrayList<TCards> wast) {
 	waste.add(stok.get(0));
+	return true;
 }
 public ArrayList<TCards> getStock(){
 	return stock;
