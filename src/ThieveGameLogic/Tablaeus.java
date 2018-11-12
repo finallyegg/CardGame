@@ -3,17 +3,15 @@ package ThieveGameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import code.Deck.Card;
-import code.Deck.Deck;
-import code.littleSpider.Homecells;
-import code.littleSpider.Tableaus;
+
+
 
 public class Tablaeus {
-	private ArrayList<Card> cardStack;
-	Card pop = new Card(null,null);
-	Deck d = new Deck();
+	private ArrayList<TCards> cardStack;
+	TCards pop = new TCards(null,null);
+	Decks d = new Decks();
 	
-	public Tablaeus(ArrayList<Card> lol, Deck q) {
+	public Tablaeus(ArrayList<TCards> lol, Decks q) {
 		d = q;
 		cardStack = lol;
 		cardStack.add(d.deal());
@@ -25,7 +23,7 @@ public class Tablaeus {
 	
 	/*Checks the card to see if its legal to move it
 	*/
-	public boolean checkNumber(Card  a) {
+	public boolean checkNumber(TCards  a) {
 		if(cardStack.get(0).value() == 14 && a.value() == 2) {
 			return true;
 		}
@@ -53,7 +51,7 @@ public class Tablaeus {
 	/* 
 	 * removes a card if it is legal to move it
 	 */
-	public void removeCard(Card a) {
+	public void removeCard(TCards a) {
 		if(checkNumber(a) == true && cardStack.size() >0) {
 		cardStack.remove(0);		
 	}
@@ -62,7 +60,7 @@ public class Tablaeus {
 	/*
 	 * adds a card if it is legal to move it
 	 */
-	public void addCard(Card a, Tableaus b, Tableaus c) {
+	public void addCard(TCards a, Tablaeus b, Tablaeus c) {
 		if(b.checkNumber(a) == true) {
 			Collections.reverse(c.getCardStack());
 			c.addTest(a);
@@ -71,7 +69,7 @@ public class Tablaeus {
 		}
 	}	
 	
-	public void addToHomecell(Card a, Tableaus b, Homecells c) {
+	public void addToHomecell(TCards a, Tablaeus b, thieveCells c) {
 		if(c.checkNumber(a) == true) {
 			Collections.reverse(c.getHomecellStack());
 			c.addCard(a);
@@ -81,7 +79,7 @@ public class Tablaeus {
 	}
 	
 		 //returns the amount of cards in the Tableaus
-	public Card index(int a) {
+	public TCards index(int a) {
 		return cardStack.get(a);
 		}
 		//returns the size of the Tableaus
@@ -93,21 +91,21 @@ public class Tablaeus {
 		cardStack.remove(0);
 	}
 	//add card without checking
-	public void addTest(Card a) {
+	public void addTest(TCards a) {
 		cardStack.add(a);
 	}
-	public void add(Card a, int index) {
+	public void add(TCards a, int index) {
 		cardStack.add(index, a);
 	}
 	//getting the card of the first index
-	public Card checkFirstIndex(){
+	public TCards checkFirstIndex(){
 		return cardStack.get(0);
 	}
 	//getting the card stack of the Tableaus
-	public ArrayList<Card> getCardStack(){
+	public ArrayList<TCards> getCardStack(){
 		return cardStack;
 	}
-	public Card cardAtIndex(int i) {
+	public TCards cardAtIndex(int i) {
 		return cardStack.get(i);
 	}
 	public int getInitialStart() {

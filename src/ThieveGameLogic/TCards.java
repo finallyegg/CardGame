@@ -5,40 +5,43 @@ package ThieveGameLogic;
 /*
  * Enum create card
  */
-public class Cards {
-	public enum Suits {
+public class TCards {
+	public enum TSuits {
 		SPADES,
 		CLUBS,
 		DIAMONDS,
 		HEARTS;
 	}
 	
-	public enum Ranks {
+	public enum TRanks {
 		TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,	
 		JACK, QUEEN, KING, ACE;
 	}
 		
-	private Ranks myranks;
-	private Suits mysuits;
+	private TRanks myranks;
+	private TSuits mysuits;
 	/*
 	 * constructor creates card for given rank/suite pass to constructor 
 	 */
-	public Cards(Ranks r, Suits s) {
-		myranks = r;
-		mysuits = s;
-	}
+	
 	 
 	
+	public TCards(TRanks ace, TSuits hearts) {
+		myranks = ace;
+		mysuits = hearts;
+	}
+
+
 	/*
 	 *  gets rank
 	 */
-	public Ranks getRank() {
+	public TRanks getRank() {
 		return myranks;
 	}
 	/*
 	 * gets suit 
 	 */
-	public Suits getSuit() {
+	public TSuits getSuit() {
 		return mysuits;
 	}
 	

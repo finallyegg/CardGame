@@ -3,8 +3,9 @@ package ThieveGameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import ThieveGameLogic.Cards.Ranks;
-import ThieveGameLogic.Cards.Suits;
+
+import ThieveGameLogic.TCards.TRanks;
+import ThieveGameLogic.TCards.TSuits;
 
 
 
@@ -12,16 +13,16 @@ import ThieveGameLogic.Cards.Suits;
 
 public class Decks {
 	
-	private ArrayList<Cards> deck;
+	private ArrayList<TCards> deck;
 	/*
-	 * This makes a new deck of cards.
+	 * This makes a new deck of cards. adds twice the amount of cards
 	 */
 	public Decks() { 
-		deck = new ArrayList<Cards>();
+		deck = new ArrayList<TCards>();
 		
-		for(Suits s : Suits.values()) {
-			for(Ranks r : Ranks.values()) { 
-				Cards c = new Cards(r, s);
+		for(TSuits s : TSuits.values()) {
+			for(TRanks r : TRanks.values()) { 
+				TCards c = new TCards(r, s);
 				deck.add(c);
 				deck.add(c);
 			}
@@ -30,15 +31,15 @@ public class Decks {
 	/*
 	 * This removes one card from deck and returns it. 
 	 */
-	public Cards deal() {
+	public TCards deal() {
 		Collections.shuffle(deck);
-		Cards c = deck.remove(0);
+		TCards c = deck.remove(0);
 		return c;
 	}
 	/*
 	 * This removes a given card from the deck.
 	 */
-	public Cards removeCard(Cards s) {
+	public TCards removeCard(TCards s) {
 		int z = 0;
 		for(int i = 0; i < deck.size(); i++) {
 			if(deck.get(i).getRank().equals(s.getRank())) {
@@ -61,13 +62,13 @@ public class Decks {
 	 * Resets Deck
 	 */
 	public void reset() {
-		deck = new ArrayList<Cards>();
+		deck = new ArrayList<TCards>();
 		/*
 		 * Creates card and suit and adds to deck.
 		 */
-		for(Suits s : Suits.values()) {
-			for(Ranks r : Ranks.values()) { 
-				Cards c = new Cards(r, s);
+		for(TSuits s : TSuits.values()) {
+			for(TRanks r : TRanks.values()) { 
+				TCards c = new TCards(r, s);
 				deck.add(c);
 			}
 		}
@@ -78,13 +79,13 @@ public class Decks {
 	 */
 	public int size() {
 		int i = 0;
-		for(Cards z: deck) {
+		for(TCards z: deck) {
 			i++;
 		}
 		return i;
 	}
 	
-	public ArrayList<Cards> getCards(){
+	public ArrayList<TCards> getCards(){
 		return this.deck;
 	}
 }
