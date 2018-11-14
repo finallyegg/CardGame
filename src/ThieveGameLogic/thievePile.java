@@ -23,9 +23,29 @@ public class thievePile {
 		return stock.get(0);
 	}
 	
-	public boolean putWaste(ArrayList<TCards> stok, ArrayList<TCards> wast) {
-		waste.add(stok.get(0));
-		return true;
+	public boolean removeStockCard(thievePile a) {
+		if(!stock.isEmpty()) {
+			TCards c = stock.remove(stock.size() - 1);
+			putWaste(waste, c);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean removeWasteCard(thievePile a) {
+		if(!waste.isEmpty()) {
+			waste.remove(waste.size() - 1);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void putWaste(ArrayList<TCards> wast, TCards c) {
+		waste.add(c);
 	}
 	
 	public boolean putWaste() {
@@ -34,6 +54,13 @@ public class thievePile {
 	
 	public boolean addStock() {
 		return false;
+	}
+	
+	/*
+	 * Only used for testing purposes
+	 */
+	public void forceAddStock(TCards c) {
+		stock.add(c);
 	}
 	
 	public ArrayList<TCards> getStock(){
@@ -47,6 +74,5 @@ public class thievePile {
 	public int getStockSize() {
 		return stock.size();
 	}
-
 
 }
