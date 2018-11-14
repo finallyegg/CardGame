@@ -7,8 +7,6 @@ import ThieveGameLogic.TCards;
 import ThieveGameLogic.TCards.TRanks;
 import ThieveGameLogic.TCards.TSuits;
 import ThieveGameLogic.thievePile;
-import code.Deck.Card.Ranks;
-import code.Deck.Card.Suits;
 
 import org.junit.Test;
 
