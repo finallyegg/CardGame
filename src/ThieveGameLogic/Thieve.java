@@ -122,7 +122,7 @@ public class Thieve {
 		d.removeCard(c);
 		d.removeCard(e);
 		
-		stock = new thievePile(d);
+		
 	
 	//dealing removes the card
 		t1 = new Tablaeus(a1,d);
@@ -138,6 +138,8 @@ public class Thieve {
 		t11 = new Tablaeus(k10,d);
 		t12 = new Tablaeus(l11, d);
 		t13 = new Tablaeus(m12, d);
+		
+		stock = new thievePile(d);
 	}
 	
 	

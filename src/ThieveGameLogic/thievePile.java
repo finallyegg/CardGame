@@ -10,12 +10,17 @@ import code.Deck.Card;
 
 public class thievePile {
 	ArrayList<Card> stock = new ArrayList<Card>();
-	Decks d = new Decks();
 	ArrayList<Card> waste = new ArrayList<Card>();
 
 	public thievePile(Decks a) {
+//		while (!a.getCards().isEmpty()) {
+//			stock.add(0,a.deal());
+//		}
+//		for (Card i : a.getCards()) {
+//			stock.add(0,a.removeCard(i));
+//		}
 		for(int i = 0; i< 57; i++) {
-			stock.add(0,d.deal());
+			stock.add(0,a.deal());
 		}
 	}
 	

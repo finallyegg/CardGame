@@ -163,6 +163,8 @@ public class ThieveGui {
 		} else { // if empty, add empty Icon
 			JLabel green = Tools.getEmptyCardLabel(0);
 			stockPanel.add(green);
+			this.getLowerTableauPanel().setVisible(true);
+			this.getHomcellPanel().setVisible(true);
 		}
 //		JLayeredPane s = getWastePile();
 //		s.setBounds(155, 127, 103, 107);

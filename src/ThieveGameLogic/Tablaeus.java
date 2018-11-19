@@ -10,15 +10,13 @@ import code.Deck.Card;
 
 public class Tablaeus {
 	private ArrayList<Card> cardStack;
-	Card pop = new Card(null,null);
-	Decks d = new Decks();
+//	Card pop = new Card(null,null);
 	
 	public Tablaeus(ArrayList<Card> lol, Decks q) {
-		d = q;
 		cardStack = lol;
-		cardStack.add(d.deal());
-		cardStack.add(d.deal());
-		cardStack.add(d.deal());
+		cardStack.add(q.deal());
+		cardStack.add(q.deal());
+		cardStack.add(q.deal());
 	
 	}
 	
