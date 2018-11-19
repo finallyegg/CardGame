@@ -156,12 +156,12 @@ public class ThieveGui {
 		stockPanel.setMinimumSize(new Dimension(73, 97));
 		if (!gameLogic.getThieve().getStock().isEmpty()) { // if stockPile is not empty, show icon
 			JLabel matthewIcon = new JLabel();
-			matthewIcon.setIcon(Tools.getEmptyCardIcon(1));
+			matthewIcon.setIcon(Tools.getEmptyCardIcon(2));
 			matthewIcon.addMouseListener(new ThieveStockListener(gameLogic, this, matthewIcon));
 			matthewIcon.setBounds(0, 0, matthewIcon.getWidth(), matthewIcon.getHeight());
 			stockPanel.add(matthewIcon);
 		} else { // if empty, add empty Icon
-			JLabel green = Tools.getEmptyCardLabel(0);
+			JLabel green = Tools.getEmptyCardLabel(1);
 			stockPanel.add(green);
 			this.getLowerTableauPanel().setVisible(true);
 			this.getHomcellPanel().setVisible(true);

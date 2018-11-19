@@ -72,7 +72,11 @@ public class Tools {
 		if(x==0) {
 			return Tools.createDisplayImage("/IconPack/" + "green" + ".gif");
 		}
+		if(x==2) {
+			return Tools.createDisplayImage("/IconPack/" + "green1" + ".gif");
+		}else {
 		return Tools.createDisplayImage("/IconPack/" + "gold" + ".gif");
+		}
 	}
 	public static Icon getEmptyCardIcon(int x) {
 		java.net.URL imgURL;

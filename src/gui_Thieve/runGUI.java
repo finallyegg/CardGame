@@ -14,8 +14,9 @@ import ThieveGameLogic.Thieve;
  * @author TEAM
  * Run GUI
  */
-public class runGui {
-	public static void runGUI(){
+public class runGUI {
+	
+	public static void runGame(){
 		JFrame frame = new JFrame("Thieve");
 		Thieve gameLogic = new Thieve();
 		ThieveGui gameGUI = new ThieveGui(gameLogic);
@@ -56,7 +57,7 @@ public class runGui {
 			@Override
 	        public void run() {
 	        	
-				runGUI();
+				runGame();
 	        
 			}
 		});
