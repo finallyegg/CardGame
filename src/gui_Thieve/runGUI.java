@@ -19,7 +19,7 @@ public class runGUI {
 	public static void runGame(){
 		JFrame frame = new JFrame("Thieve");
 		Thieve gameLogic = new Thieve();
-		ThieveGui gameGUI = new ThieveGui(gameLogic);
+		ThieveGUI gameGUI = new ThieveGUI(gameLogic);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().setBackground(new Color(0, 128, 1));
 		JPanel homcellpile = gameGUI.getHomcellPanel();
@@ -39,11 +39,16 @@ public class runGUI {
 		JPanel restart = gameGUI.getMiddle_S_W_Panel();
 		restart.setBounds(1400, 10, 70, 25);
 		
+		JPanel bigPhoto = gameGUI.getBigPhoto();
+		bigPhoto.setBounds(155,127,640,480);
+		bigPhoto.setVisible(false);
+		
 		frame.getContentPane().add(gameGUI.getLowerTableauPanel());
 		frame.getContentPane().add(stockpile);
 		frame.getContentPane().add(wastePanel);
 		frame.getContentPane().add(tableauPile);
 		frame.getContentPane().add(restart);
+		frame.getContentPane().add(bigPhoto);
 		frame.setSize(1500, 800);
  	   
     	

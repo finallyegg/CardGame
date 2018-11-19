@@ -21,7 +21,7 @@ import code.FinalGolf.GUI.Tools;
  *         Little SPider GUI
  * 
  */
-public class ThieveGui {
+public class ThieveGUI {
 	// Important
 	private Thieve gameLogic;
 	private JPanel stockPanel;
@@ -30,7 +30,7 @@ public class ThieveGui {
 	private JLayeredPane wastePile;
 	private JPanel homeCellPanel;
 	private boolean isSelected;
-	
+	private JPanel bigPhoto;
 	
 	public enum selectedType {
 		TABLEAU, WASTE, EMPTY
@@ -43,7 +43,7 @@ public class ThieveGui {
 	/**
 	 * Constructor
 	 */
-	public ThieveGui(Thieve ThieveGameLogic) {
+	public ThieveGUI(Thieve ThieveGameLogic) {
 		gameLogic = ThieveGameLogic;
 		stockPanel = new JPanel();
 		setMiddle_S_W_Panel(new JPanel());
@@ -55,9 +55,8 @@ public class ThieveGui {
 		setWhereSelected(selectedType.EMPTY);
 		backgroundCol = new Color(0, 128, 1);
 		selectedPanel = null;
-//		restart = new JButton("Restart");
-//		restart.addActionListener(new RestartActionListener(this));
-
+		bigPhoto = new JPanel();
+		
 	}
 
 	// Set up tableaus
@@ -115,7 +114,7 @@ public class ThieveGui {
 				image.addMouseListener(new wastePileListener(gameLogic, this,wastePile));
 			}
 		} else {
-			wastePile.add(Tools.getEmptyCardLabel(0)); // add empty Picture
+//			wastePile.add(Tools.getEmptyCardLabel(0)); // add empty Picture
 		}
 		return wastePile;
 	}
@@ -156,7 +155,7 @@ public class ThieveGui {
 		stockPanel.setMinimumSize(new Dimension(73, 97));
 		if (!gameLogic.getThieve().getStock().isEmpty()) { // if stockPile is not empty, show icon
 			JLabel matthewIcon = new JLabel();
-			matthewIcon.setIcon(Tools.getEmptyCardIcon(2));
+			matthewIcon= Tools.getEmptyCardLabel(2);
 			matthewIcon.addMouseListener(new ThieveStockListener(gameLogic, this, matthewIcon));
 			matthewIcon.setBounds(0, 0, matthewIcon.getWidth(), matthewIcon.getHeight());
 			stockPanel.add(matthewIcon);
@@ -166,29 +165,16 @@ public class ThieveGui {
 			this.getLowerTableauPanel().setVisible(true);
 			this.getHomcellPanel().setVisible(true);
 		}
-//		JLayeredPane s = getWastePile();
-//		s.setBounds(155, 127, 103, 107);
-//		s.setPreferredSize(new Dimension(83, 107));
-//		s.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 5));
-//		upperPanel.add(s);
-//		JPanel d = this.getHomcellPanel();
-//		upperPanel.add(d);
-//		upperPanel.setBackground(Color.DARK_GRAY);
 		return stockPanel;
 	}
-
-//		for (int i = 0; i < 8; i++) {
-//			if (!gameLogic.getHomeCells(i).getHomecellStack().isEmpty()) { // only when the stack is not empty
-//				homecellpile[i].addMouseListener(new LittleSpiderHomecellMouseListener(this, homecellpile[i], i, gameLogic));
-//			}
-//		}
-//		
-
-	
-//	public void getRestart() {
-//		restart.addActionListener(new RestartActionListener(this));
-//		 
-//	}
+	public JPanel getBigPhoto() {
+		bigPhoto.removeAll();
+		bigPhoto.setLayout(null);
+		JLabel photo = Tools.getMatthewBigPhoto();
+		photo.setBounds(0, 0, 640, 480);
+		bigPhoto.add(photo);
+		return bigPhoto;
+	}
 	public void refresh() {
 		this.getHomcellPanel().revalidate();
 		this.getHomcellPanel().repaint();

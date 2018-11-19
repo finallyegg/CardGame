@@ -8,16 +8,16 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import ThieveGameLogic.Thieve;
-import gui_Thieve.ThieveGui.selectedType;
+import gui_Thieve.ThieveGUI.selectedType;
 
 public class wastePileListener implements MouseListener {
 
-	private ThieveGui GUI;
+	private ThieveGUI GUI;
 	@SuppressWarnings("unused")
 	private Thieve gameLogic;
 	private JLayeredPane Pane;
 
-	public wastePileListener(Thieve gameLogic, ThieveGui gui, JLayeredPane Pane) {
+	public wastePileListener(Thieve gameLogic, ThieveGUI gui, JLayeredPane Pane) {
 		this.gameLogic = gameLogic;
 		this.GUI = gui;
 		this.Pane = Pane;

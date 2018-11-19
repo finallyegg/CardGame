@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import ThieveGameLogic.Thieve;
 import code.Deck.Card;
-import gui_Thieve.ThieveGui.selectedType;
+import gui_Thieve.ThieveGUI.selectedType;
 
 /**
  * @author
@@ -16,11 +16,11 @@ import gui_Thieve.ThieveGui.selectedType;
  */
 public class HomecellMouseListener implements MouseListener {
 
-	private ThieveGui gui;
+	private ThieveGUI gui;
 	private Thieve gameLogic;
 	private int SelectedIndex;
 
-	public HomecellMouseListener(Thieve gameLogic, ThieveGui gui, int i) {
+	public HomecellMouseListener(Thieve gameLogic, ThieveGUI gui, int i) {
 		this.gui = gui;
 		this.gameLogic = gameLogic;
 		this.SelectedIndex = i;

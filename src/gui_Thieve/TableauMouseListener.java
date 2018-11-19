@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 import ThieveGameLogic.Thieve;
 import code.Deck.Card;
-import gui_Thieve.ThieveGui.selectedType;
+import gui_Thieve.ThieveGUI.selectedType;
 
 /**
  * @author TableauMouseListner
@@ -17,13 +17,13 @@ import gui_Thieve.ThieveGui.selectedType;
  */
 public class TableauMouseListener implements MouseListener {
 
-	private ThieveGui gui;
+	private ThieveGUI gui;
 	private JLayeredPane pane;
 	private int SelectedIndex;
 	private int previousSelectedIndex;
 	private Thieve gameLogic;
 
-	public TableauMouseListener(Thieve GameLogic, ThieveGui g, JLayeredPane p,int i) {
+	public TableauMouseListener(Thieve GameLogic, ThieveGUI g, JLayeredPane p,int i) {
 		this.gameLogic = GameLogic;
 		this.gui = g;
 		this.pane = p;

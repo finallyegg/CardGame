@@ -84,7 +84,7 @@ public class Tools {
 	    	imgURL = Tools.class.getResource("/IconPack/" + "green" + ".gif");
 	    }
 	    else {
-	    	imgURL = Tools.class.getResource("/IconPack/" + "gold" + ".gif");
+	    	imgURL = Tools.class.getResource("/IconPack/" + "green1" + ".gif");
 	    }
 	    if (imgURL == null) {
 	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto" + ".jpg");
@@ -105,10 +105,28 @@ public class Tools {
 	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto" + ".jpg");
 	    }
 	    ImageIcon cardImage = new ImageIcon(imgURL);
-	    Image img = cardImage.getImage().getScaledInstance(73, 100, Image.SCALE_DEFAULT);
+	    Image img = cardImage.getImage().getScaledInstance(73, 97, Image.SCALE_DEFAULT);
 	    ImageIcon newCard = new ImageIcon(img);
 	    retVal.setIcon(newCard);
 	    Dimension d = new Dimension(73 , 97);
+	    retVal.setSize(d);
+	    retVal.setPreferredSize(d);
+	    retVal.setMaximumSize(d);
+	    retVal.setMinimumSize(d);
+	    return retVal;
+	  }
+	
+	public static JLabel getMatthewBigPhoto() {
+	    JLabel retVal = new JLabel();
+	    java.net.URL imgURL = Tools.class.getResource("/IconPack/" + "MatthewPhoto1" + ".jpg");
+	    if (imgURL == null) {
+	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto1" + ".jpg");
+	    }
+	    ImageIcon cardImage = new ImageIcon(imgURL);
+	    Image img = cardImage.getImage().getScaledInstance(640, 480, Image.SCALE_SMOOTH);
+	    ImageIcon newCard = new ImageIcon(img);
+	    retVal.setIcon(newCard);
+	    Dimension d = new Dimension(640 , 480);
 	    retVal.setSize(d);
 	    retVal.setPreferredSize(d);
 	    retVal.setMaximumSize(d);

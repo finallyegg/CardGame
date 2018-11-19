@@ -11,10 +11,10 @@ import code.FinalGolf.GUI.Tools;
 
 public class ThieveStockListener implements MouseListener{
 	private Thieve gameLogic;
-	private ThieveGui gui;
+	private ThieveGUI gui;
 	private JLabel Mathew;
 	
-	public ThieveStockListener(Thieve gameLogic, ThieveGui GUI,JLabel Mathew) {
+	public ThieveStockListener(Thieve gameLogic, ThieveGUI GUI,JLabel Mathew) {
 		this.gameLogic=gameLogic;
 		this.gui=GUI;
 		this.Mathew = Mathew;
@@ -53,7 +53,7 @@ public class ThieveStockListener implements MouseListener{
 		this.Mathew.setIcon(Tools.getMatthewIcon(0));
 		this.gui.getLowerTableauPanel().setVisible(false);
 		this.gui.getHomcellPanel().setVisible(false);
-		
+		this.gui.getBigPhoto().setVisible(true);
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class ThieveStockListener implements MouseListener{
 		this.Mathew.setIcon(Tools.getEmptyCardIcon(1));
 		this.gui.getLowerTableauPanel().setVisible(true);
 		this.gui.getHomcellPanel().setVisible(true);
-		
+		this.gui.getBigPhoto().setVisible(false);
 	}
 
 }

@@ -7,9 +7,9 @@ import ThieveGameLogic.Thieve;
 
 public class RestartActionListener implements ActionListener{
 	
-	ThieveGui gui;
+	ThieveGUI gui;
 	
-	public RestartActionListener(ThieveGui gui) {
+	public RestartActionListener(ThieveGUI gui) {
 		this.gui=gui;
 	}
 	@Override
