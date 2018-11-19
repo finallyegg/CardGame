@@ -2,10 +2,10 @@ package ThieveGameLogic;
 
 import java.util.ArrayList;
 
-import ThieveGameLogic.TCards.TRanks;
-import ThieveGameLogic.TCards.TSuits;
-import code.Deck.Card;
 
+import code.Deck.Card;
+import code.Deck.Card.Ranks;
+import code.Deck.Card.Suits;
 import code.littleSpider.LittleSpider;
 import code.littleSpider.Tableaus;
 
@@ -21,19 +21,19 @@ public class Thieve {
 	/**
 	 * ArrayLists of Card that will be put into the Tableaus
 	 */
-	private ArrayList<TCards> a1 = new ArrayList<TCards>();;
-	private ArrayList<TCards> b2 = new ArrayList<TCards>();;
-	private ArrayList<TCards> c3 = new ArrayList<TCards>();;
-	private ArrayList<TCards> d4 = new ArrayList<TCards>();;
-	private ArrayList<TCards> e5 = new ArrayList<TCards>();;
-	private ArrayList<TCards> f6 = new ArrayList<TCards>();;
-	private ArrayList<TCards> g7 = new ArrayList<TCards>();;
-	private ArrayList<TCards> h7 = new ArrayList<TCards>();;
-	private ArrayList<TCards> i8 = new ArrayList<TCards>();;
-	private ArrayList<TCards> j9 = new ArrayList<TCards>();;
-	private ArrayList<TCards> k10 = new ArrayList<TCards>();;
-	private ArrayList<TCards> l11= new ArrayList<TCards>();;
-	private ArrayList<TCards> m12= new ArrayList<TCards>();;
+	private ArrayList<Card> a1 = new ArrayList<Card>();;
+	private ArrayList<Card> b2 = new ArrayList<Card>();;
+	private ArrayList<Card> c3 = new ArrayList<Card>();;
+	private ArrayList<Card> d4 = new ArrayList<Card>();;
+	private ArrayList<Card> e5 = new ArrayList<Card>();;
+	private ArrayList<Card> f6 = new ArrayList<Card>();;
+	private ArrayList<Card> g7 = new ArrayList<Card>();;
+	private ArrayList<Card> h7 = new ArrayList<Card>();;
+	private ArrayList<Card> i8 = new ArrayList<Card>();;
+	private ArrayList<Card> j9 = new ArrayList<Card>();;
+	private ArrayList<Card> k10 = new ArrayList<Card>();;
+	private ArrayList<Card> l11= new ArrayList<Card>();;
+	private ArrayList<Card> m12= new ArrayList<Card>();;
 	
 	private thievePile stock;
 	
@@ -82,14 +82,14 @@ public class Thieve {
 	 * the homecells
 	 */
 	
-	private TCards ah = new TCards(TRanks.ACE, TSuits.HEARTS);
-	private TCards ad = new TCards(TRanks.ACE, TSuits.DIAMONDS);
-	private TCards ks = new TCards(TRanks.ACE, TSuits.SPADES);
-	private TCards kc = new TCards(TRanks.ACE, TSuits.CLUBS);
-	private TCards a = new TCards(TRanks.ACE, TSuits.HEARTS);
-	private TCards b = new TCards(TRanks.ACE, TSuits.DIAMONDS);
-	private TCards c = new TCards(TRanks.ACE, TSuits.SPADES);
-	private TCards e = new TCards(TRanks.ACE, TSuits.CLUBS);
+	private Card ah = new Card(Ranks.ACE, Suits.HEARTS);
+	private Card ad = new Card(Ranks.ACE, Suits.DIAMONDS);
+	private Card ks = new Card(Ranks.ACE, Suits.SPADES);
+	private Card kc = new Card(Ranks.ACE, Suits.CLUBS);
+	private Card a = new Card(Ranks.ACE, Suits.HEARTS);
+	private Card b = new Card(Ranks.ACE, Suits.DIAMONDS);
+	private Card c = new Card(Ranks.ACE, Suits.SPADES);
+	private Card e = new Card(Ranks.ACE, Suits.CLUBS);
 	
 	/**
 	 * Initializes all the Homecells with the appropriate starting card
@@ -158,7 +158,7 @@ public class Thieve {
 	 * 
 	 * @param s The card that is trying to move
 	 */
-	public boolean moveToHomecell(TCards s, thieveCells h) {
+	public boolean moveToHomecell(Card s, thieveCells h) {
 		thieveCells gs = h;
 		if(gs.addCard(s)) {
 			h.addCard(s);
@@ -235,6 +235,18 @@ public class Thieve {
 		else if(which == 3) {
 			return h4;
 		}
+		else if(which == 4) {
+			return h5;
+		}
+		else if(which == 5) {
+			return h6;
+		}
+		else if(which == 6) {
+			return p7;
+		}
+		else if(which == 7) {
+			return p8;
+		}
 		else {
 			throw new IndexOutOfBoundsException();
 		}
@@ -293,7 +305,7 @@ public class Thieve {
 	public thievePile getThieve() {
 		return stock;
 	}
-	public ArrayList<TCards> getWaste(){
+	public ArrayList<Card> getWaste(){
 		return stock.getWaste();
 	}
 }

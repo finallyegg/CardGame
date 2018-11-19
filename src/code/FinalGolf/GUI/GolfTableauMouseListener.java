@@ -29,6 +29,7 @@ public class GolfTableauMouseListener implements MouseListener {
 			java.awt.Rectangle unselectedBound = modified.getBounds();
 			modified.setBounds(unselectedBound.x + 10, unselectedBound.y - 10, unselectedBound.width,
 					unselectedBound.height);
+			System.out.print(pane.getComponent(0).getBounds());
 			modified.repaint();
 			// set GUI fields property
 			gui.setSelected(true);
@@ -39,6 +40,7 @@ public class GolfTableauMouseListener implements MouseListener {
 			java.awt.Rectangle selectedBound = modified.getBounds();
 			modified.setBounds(selectedBound.x - 10, selectedBound.y + 10, selectedBound.width, selectedBound.height);
 			modified.repaint();
+			System.out.print(pane.getComponent(0).getBounds());
 			// set GUI fields property
 			gui.setSelected(false);
 			gui.setSelectedPanel(null);

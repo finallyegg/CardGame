@@ -4,28 +4,28 @@ package ThieveGameLogic;
 
 import java.util.ArrayList;
 
-import ThieveGameLogic.TCards;
 import ThieveGameLogic.Decks;
+import code.Deck.Card;
 
 
 public class thievePile {
-	ArrayList<TCards> stock = new ArrayList<TCards>();
+	ArrayList<Card> stock = new ArrayList<Card>();
 	Decks d = new Decks();
-	ArrayList<TCards> waste = new ArrayList<TCards>();
+	ArrayList<Card> waste = new ArrayList<Card>();
 
 	public thievePile(Decks a) {
 		for(int i = 0; i< 57; i++) {
-			stock.add(d.deal());
+			stock.add(0,d.deal());
 		}
 	}
 	
-	public TCards getCard(thievePile a) {
+	public Card getCard(thievePile a) {
 		return stock.get(0);
 	}
 	
 	public boolean removeStockCard(thievePile a) {
 		if(!stock.isEmpty()) {
-			TCards c = stock.remove(stock.size() - 1);
+			Card c = stock.remove(stock.size() - 1);
 			putWaste(waste, c);
 			return true;
 		}
@@ -44,8 +44,8 @@ public class thievePile {
 		}
 	}
 	
-	public void putWaste(ArrayList<TCards> wast, TCards c) {
-		waste.add(c);
+	public void putWaste(ArrayList<Card> wast, Card c) {
+		waste.add(0,c);
 	}
 	
 	public boolean putWaste() {
@@ -59,15 +59,15 @@ public class thievePile {
 	/*
 	 * Only used for testing purposes
 	 */
-	public void forceAddStock(TCards c) {
+	public void forceAddStock(Card c) {
 		stock.add(c);
 	}
 	
-	public ArrayList<TCards> getStock(){
+	public ArrayList<Card> getStock(){
 		return stock;
 	}
 	
-	public ArrayList<TCards> getWaste(){
+	public ArrayList<Card> getWaste(){
 		return waste;
 	}
 	

@@ -2,6 +2,8 @@ package ThieveGameLogic;
 
 import java.util.ArrayList;
 
+import code.Deck.Card;
+
 
 
 
@@ -10,20 +12,20 @@ public class thieveCells {
 	/**
 	 * Create a new Card that needs to be initiated
 	 */
-	private TCards card = new TCards(null, null);
+	private Card card = new Card(null, null);
 
 	/**
 	 * Creates a new empty ArrayList of Cards
 	 */
-	private ArrayList<TCards> cardStack;
+	private ArrayList<Card> cardStack;
 
 	/**
 	 * Initializes the HomeCells class
 	 * 
 	 * @param s Takes in a Card to add to the Homecell as the first card.
 	 */
-	public thieveCells(TCards s) {
-		cardStack = new ArrayList<TCards>();
+	public thieveCells(Card s) {
+		cardStack = new ArrayList<Card>();
 		card = s;
 
 		cardStack.add(card);
@@ -36,7 +38,7 @@ public class thieveCells {
 	 * @param c The card that needs to be checked against the Homecell's suit
 	 * @return Whether the card is the same suit or not
 	 */
-	public boolean checkSuit(TCards c) {
+	public boolean checkSuit(Card c) {
 
 		if (cardStack.get(0).getSuit() == c.getSuit()) {
 			return true;
@@ -53,7 +55,7 @@ public class thieveCells {
 	 *          the Homecell
 	 * @return Whether the card is valid to be placed on top of another
 	 */
-	public boolean checkNumber(TCards c) {
+	public boolean checkNumber(Card c) {
 		if (cardStack.get(0).value() == 14) {
 			if (c.value() == 2 && (cardStack.get(0).getSuit() == c.getSuit())) {
 				return true;
@@ -124,7 +126,7 @@ public class thieveCells {
 	 * @param c The card that needs to be checked if it can be added
 	 * @return Whether or not the card can be added to the Homecell
 	 */
-	public boolean addCard(TCards c) {
+	public boolean addCard(Card c) {
 		if (checkNumber(c) && checkSuit(c)) {
 			cardStack.add(c);
 			return true;
@@ -139,7 +141,7 @@ public class thieveCells {
 	 * 
 	 * @param c The card that is being forced to the Homecell
 	 */
-	public void alwaysAddCard(TCards c) {
+	public void alwaysAddCard(Card c) {
 		cardStack.add(c);
 	}
 
@@ -158,7 +160,7 @@ public class thieveCells {
 	 * @param index The index requested
 	 * @return The Card located at the specified index
 	 */
-	public TCards getCard(int index) {
+	public Card getCard(int index) {
 		return cardStack.get(index);
 	}
 
@@ -187,7 +189,7 @@ public class thieveCells {
 	 * 
 	 * @return cardStack the current list of Cards
 	 */
-	public ArrayList<TCards> getHomecellStack() {
+	public ArrayList<Card> getHomecellStack() {
 		return cardStack;
 	}
 

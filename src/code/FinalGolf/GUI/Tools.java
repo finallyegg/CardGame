@@ -74,6 +74,22 @@ public class Tools {
 		}
 		return Tools.createDisplayImage("/IconPack/" + "gold" + ".gif");
 	}
+	public static Icon getEmptyCardIcon(int x) {
+		java.net.URL imgURL;
+		if (x==0) {
+	    	imgURL = Tools.class.getResource("/IconPack/" + "green" + ".gif");
+	    }
+	    else {
+	    	imgURL = Tools.class.getResource("/IconPack/" + "gold" + ".gif");
+	    }
+	    if (imgURL == null) {
+	      throw new IllegalArgumentException("Couldn't find file: " + "/IconPack/" + "MatthewPhoto" + ".jpg");
+	    }
+	    ImageIcon cardImage = new ImageIcon(imgURL);
+	    Image img = cardImage.getImage().getScaledInstance(73, 97, Image.SCALE_FAST);
+	    ImageIcon icon = new ImageIcon(img);
+	    return icon;
+	}
 	
 	/**
 	 * @return Hertz's photo

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-import ThieveGameLogic.TCards.TRanks;
-import ThieveGameLogic.TCards.TSuits;
+import code.Deck.Card;
+import code.Deck.Card.Ranks;
+import code.Deck.Card.Suits;
 
 
 
@@ -13,16 +14,16 @@ import ThieveGameLogic.TCards.TSuits;
 
 public class Decks {
 	
-	private ArrayList<TCards> deck;
+	private ArrayList<Card> deck;
 	/*
 	 * This makes a new deck of cards. adds twice the amount of cards
 	 */
 	public Decks() { 
-		deck = new ArrayList<TCards>();
+		deck = new ArrayList<Card>();
 		
-		for(TSuits s : TSuits.values()) {
-			for(TRanks r : TRanks.values()) { 
-				TCards c = new TCards(r, s);
+		for(Suits s : Suits.values()) {
+			for(Ranks r : Ranks.values()) { 
+				Card c = new Card(r, s);
 				deck.add(c);
 				deck.add(c);
 			}
@@ -31,15 +32,15 @@ public class Decks {
 	/*
 	 * This removes one card from deck and returns it. 
 	 */
-	public TCards deal() {
+	public Card deal() {
 		Collections.shuffle(deck);
-		TCards c = deck.remove(0);
+		Card c = deck.remove(0);
 		return c;
 	}
 	/*
 	 * This removes a given card from the deck.
 	 */
-	public TCards removeCard(TCards s) {
+	public Card removeCard(Card s) {
 		int z = 0;
 		for(int i = 0; i < deck.size(); i++) {
 			if(deck.get(i).getRank().equals(s.getRank())) {
@@ -62,13 +63,13 @@ public class Decks {
 	 * Resets Deck
 	 */
 	public void reset() {
-		deck = new ArrayList<TCards>();
+		deck = new ArrayList<Card>();
 		/*
 		 * Creates card and suit and adds to deck.
 		 */
-		for(TSuits s : TSuits.values()) {
-			for(TRanks r : TRanks.values()) { 
-				TCards c = new TCards(r, s);
+		for(Suits s : Suits.values()) {
+			for(Ranks r : Ranks.values()) { 
+				Card c = new Card(r, s);
 				deck.add(c);
 			}
 		}
@@ -78,14 +79,14 @@ public class Decks {
 	 * Returns current size of deck. 
 	 */
 	public int size() {
-		int i = 0;
-		for(TCards z: deck) {
-			i++;
-		}
-		return i;
+//		int i = 0;
+//		for(TCards z: deck) {
+//			i++;
+//		}
+		return deck.size();
 	}
 	
-	public ArrayList<TCards> getCards(){
+	public ArrayList<Card> getCards(){
 		return this.deck;
 	}
 }

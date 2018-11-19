@@ -3,15 +3,17 @@ package ThieveGameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import code.Deck.Card;
+
 
 
 
 public class Tablaeus {
-	private ArrayList<TCards> cardStack;
-	TCards pop = new TCards(null,null);
+	private ArrayList<Card> cardStack;
+	Card pop = new Card(null,null);
 	Decks d = new Decks();
 	
-	public Tablaeus(ArrayList<TCards> lol, Decks q) {
+	public Tablaeus(ArrayList<Card> lol, Decks q) {
 		d = q;
 		cardStack = lol;
 		cardStack.add(d.deal());
@@ -23,12 +25,12 @@ public class Tablaeus {
 	
 	/*Checks the card to see if its legal to move it
 	*/
-	public boolean checkNumber(TCards  a) {
-		if(cardStack.get(0).value() == 14 && a.value() == 2) {
+	public boolean checkNumber(Card  a) {
+		if(cardStack.get(0).value() == 2 && a.value() == 14&&cardStack.get(0).getSuit()==a.getSuit()) {
 			return true;
 		}
 		
-		else if(cardStack.get(0).value() + 1 == a.value() || cardStack.get(0).value() -1 == a.value() && (cardStack.isEmpty() == false)) {
+		else if(cardStack.get(0).value() -1 == a.value() && (cardStack.isEmpty() == false)&&cardStack.get(0).getSuit()==a.getSuit()) {
 			return true;
 		}
 		else {
@@ -51,7 +53,7 @@ public class Tablaeus {
 	/* 
 	 * removes a card if it is legal to move it
 	 */
-	public void removeCard(TCards a) {
+	public void removeCard(Card a) {
 		if(checkNumber(a) == true && cardStack.size() >0) {
 		cardStack.remove(0);		
 	}
@@ -60,7 +62,7 @@ public class Tablaeus {
 	/*
 	 * adds a card if it is legal to move it
 	 */
-	public void addCard(TCards a, Tablaeus b, Tablaeus c) {
+	public void addCard(Card a, Tablaeus b, Tablaeus c) {
 		if(b.checkNumber(a) == true) {
 			Collections.reverse(c.getCardStack());
 			c.addTest(a);
@@ -69,7 +71,7 @@ public class Tablaeus {
 		}
 	}	
 	
-	public void addToHomecell(TCards a, Tablaeus b, thieveCells c) {
+	public void addToHomecell(Card a, Tablaeus b, thieveCells c) {
 		if(c.checkNumber(a) == true) {
 			Collections.reverse(c.getHomecellStack());
 			c.addCard(a);
@@ -79,7 +81,7 @@ public class Tablaeus {
 	}
 	
 		 //returns the amount of cards in the Tableaus
-	public TCards index(int a) {
+	public Card index(int a) {
 		return cardStack.get(a);
 		}
 		//returns the size of the Tableaus
@@ -91,21 +93,21 @@ public class Tablaeus {
 		cardStack.remove(0);
 	}
 	//add card without checking
-	public void addTest(TCards a) {
+	public void addTest(Card a) {
 		cardStack.add(a);
 	}
-	public void add(TCards a, int index) {
+	public void add(Card a, int index) {
 		cardStack.add(index, a);
 	}
 	//getting the card of the first index
-	public TCards checkFirstIndex(){
+	public Card checkFirstIndex(){
 		return cardStack.get(0);
 	}
 	//getting the card stack of the Tableaus
-	public ArrayList<TCards> getCardStack(){
+	public ArrayList<Card> getCardStack(){
 		return cardStack;
 	}
-	public TCards cardAtIndex(int i) {
+	public Card cardAtIndex(int i) {
 		return cardStack.get(i);
 	}
 	public int getInitialStart() {
