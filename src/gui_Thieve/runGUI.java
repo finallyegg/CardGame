@@ -6,7 +6,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import ThieveGameLogic.Thieve;
 
@@ -30,7 +29,7 @@ public class runGUI {
 		stockpile.setBounds(155, 10, 73, 97);
 		
 		JLayeredPane wastePanel = gameGUI.getWastePile();
-		wastePanel.setBounds(155, 127, 103, 107);
+		wastePanel.setBounds(195, 207, 103, 107);
 		wastePanel.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 5));
 		
 		JPanel tableauPile = gameGUI.getLowerTableauPanel();
@@ -58,14 +57,16 @@ public class runGUI {
     	   
 	}
 	public static void main(String[] args){
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-	        public void run() {
-	        	
-				runGame();
-	        
-			}
-		});
+		runGame();
+		
+//		SwingUtilities.invokeLater(new Runnable() {
+//			@Override
+//	        public void run() {
+//	        	
+//				
+//	        
+//			}
+//		});
 	}
 }
 

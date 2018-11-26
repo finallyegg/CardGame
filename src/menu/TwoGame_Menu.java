@@ -34,6 +34,13 @@ public class TwoGame_Menu {
 				runGui.runGUI();
 			}
 		});
+		JButton forty = new JButton("Forty Theives");
+		forty.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui_Thieve.runGUI.runGame();
+			}
+		});
 		JButton button3 = new JButton("Exit");
 		button3.addActionListener(new ActionListener() {
 			@Override
@@ -43,10 +50,11 @@ public class TwoGame_Menu {
 		});
 		panel.add(button);
 		panel.add(button2);
+		panel.add(forty);
 		panel.add(button3);
 		frame.add(panel);
 		frame.setSize(400, 200);
-
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 //        frame.pack();
