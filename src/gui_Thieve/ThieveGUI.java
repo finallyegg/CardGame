@@ -18,7 +18,7 @@ import code.FinalGolf.GUI.Tools;
 /**
  * @author TEAM
  * 
- *         Little SPider GUI
+ *          GUI
  * 
  */
 public class ThieveGUI {
@@ -97,9 +97,8 @@ public class ThieveGUI {
 		return lowerTableauPanel;
 	}
 
-	// Setup Home
 	/**
-	 * @return HomeCell Panel
+	 * @return WastePile Panel
 	 */
 	public JLayeredPane getWastePile() {
 
@@ -119,6 +118,9 @@ public class ThieveGUI {
 		return wastePile;
 	}
 
+	/**
+	 * @return HomeCelll Panel
+	 */
 	public JPanel getHomcellPanel() {
 		homeCellPanel.removeAll();
 		homeCellPanel.setBackground(backgroundCol);
@@ -149,6 +151,9 @@ public class ThieveGUI {
 		return homeCellPanel;
 	}
 
+	/**
+	 * @return StockPanel
+	 */
 	public JPanel getstockpile() {
 		stockPanel.removeAll();
 		stockPanel.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
@@ -167,6 +172,9 @@ public class ThieveGUI {
 		}
 		return stockPanel;
 	}
+	/**
+	 * @return Cool easter egg
+	 */
 	public JPanel getBigPhoto() {
 		bigPhoto.removeAll();
 		bigPhoto.setLayout(null);
@@ -175,6 +183,9 @@ public class ThieveGUI {
 		bigPhoto.add(photo);
 		return bigPhoto;
 	}
+	/**
+	 * refresh the whole GUI
+	 */
 	public void refresh() {
 		this.getHomcellPanel().revalidate();
 		this.getHomcellPanel().repaint();
@@ -188,6 +199,9 @@ public class ThieveGUI {
 		setWhereSelected(selectedType.EMPTY);
 	}
 
+	/**
+	 * @return Boolean.True / Boolean.False
+	 */
 	public boolean isSelected() {
 		return isSelected;
 	}
@@ -220,6 +234,9 @@ public class ThieveGUI {
 		this.selectedPanel = selectedPanel;
 	}
 
+	/**
+	 * @return Restart button
+	 */
 	public JPanel getMiddle_S_W_Panel() {
 		this.middle_S_W_Panel.removeAll();
 		this.middle_S_W_Panel.setLayout(null);

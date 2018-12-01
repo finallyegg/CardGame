@@ -9,9 +9,11 @@ import javax.swing.JPanel;
 
 import ThieveGameLogic.Thieve;
 
+
 /**
- * @author TEAM
- * Run GUI
+ * @author Carl
+ * Set Boundry of every compoments
+ *
  */
 public class runGUI {
 	

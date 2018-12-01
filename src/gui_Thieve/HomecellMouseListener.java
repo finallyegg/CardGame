@@ -20,6 +20,11 @@ public class HomecellMouseListener implements MouseListener {
 	private Thieve gameLogic;
 	private int SelectedIndex;
 
+	/**
+	 * @param gameLogic
+	 * @param gui
+	 * @param i
+	 */
 	public HomecellMouseListener(Thieve gameLogic, ThieveGUI gui, int i) {
 		this.gui = gui;
 		this.gameLogic = gameLogic;

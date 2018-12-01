@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 
 import ThieveGameLogic.Thieve;
 
+/**
+ * @author Carl
+ * @ you know what to do
+ * 
+ */
 public class RestartActionListener implements ActionListener{
 	
 	ThieveGUI gui;

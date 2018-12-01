@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
 import ThieveGameLogic.Thieve;
 import gui_Thieve.ThieveGUI.selectedType;
 
+/**
+ * @author Team
+ *
+ */
 public class wastePileListener implements MouseListener {
 
 	private ThieveGUI GUI;
@@ -23,6 +27,9 @@ public class wastePileListener implements MouseListener {
 		this.Pane = Pane;
 	}
 
+	/* (non-Javadoc)
+	 * Move out the waste pile
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

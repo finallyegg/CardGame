@@ -12,9 +12,9 @@ import javax.swing.SwingUtilities;
 import code.FinalGolf.GUI.GUI_Main;
 import final_LittleSpider_GUI.runGui;
 
-public class TwoGame_Menu {
+public class Game_Main_Menu {
 	public static void runGUI() {
-		JFrame frame = new JFrame("Two Game");
+		JFrame frame = new JFrame("Three Games");
 
 		JLabel label = new JLabel("Hello");
 		JPanel panel = new JPanel();
