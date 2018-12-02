@@ -56,30 +56,46 @@ public class TablaeusTest {
 	}
 	
 	@Test
-	public void testTableauAdd() {
-		assertTrue("Should add card if same suit and +1 rank.", t3.addCard(t2.cardAtIndex(0), t2, t3));
+	public void testTableauAddandRemove() {
+		Card SpadeThree = new Card(Card.Ranks.THREE,Card.Suits.SPADES);
+		Card SpadeFour = new Card(Card.Ranks.FOUR,Card.Suits.SPADES);
+		t2.add(SpadeThree, 0);
+		t3.add(SpadeFour, 0);
+		assertTrue("Should add card if same suit and +1 rank.", t3.addCard(SpadeThree, t2, t3));
 		t2.add(c, 0);
 		t3.removeTest();
-		assertFalse("Should not add card if not same suit.", t3.addCard(t2.cardAtIndex(1), t2, t3));
+		assertFalse("Should not add card if not same suit.", t3.addCard(t2.cardAtIndex(3), t2, t3));
 		assertFalse("Should not add card if not +1 rank.", t3.addCard(t2.cardAtIndex(2), t2, t3));
 	}
 
-	@Test
-	public void testTableauRemove() {
-		
-	}
 	
 	@Test
 	public void testTableauAddLogic() {
-		t3.addCard(t2.cardAtIndex(0), t2, t3);
-		assertEquals("The size of the tableau should increase.", 4, t3.getCardSize());
-		assertEquals("The added card should now be on top.", c, t3.cardAtIndex(0));
+		Card SpadeThree = new Card(Card.Ranks.THREE,Card.Suits.SPADES);
+		Card SpadeFour = new Card(Card.Ranks.FOUR,Card.Suits.SPADES);
+		t2.add(SpadeThree, 0);
+		t3.add(SpadeFour, 0);
+		t3.addCard(SpadeThree, t2, t3);
+		assertEquals("The size of the tableau should increase.", 5, t3.getCardSize());
+		assertEquals("The added card should now be on top.", SpadeThree, t3.cardAtIndex(0));
 		t2.add(c, 0);
 		t3.removeTest();
 	}
 	
 	@Test
 	public void testTableauRemoveLogic() {
-		
+		Card SpadeThree = new Card(Card.Ranks.THREE,Card.Suits.SPADES);
+		Card SpadeFour = new Card(Card.Ranks.FOUR,Card.Suits.SPADES);
+		t2.add(SpadeThree, 0);
+		t3.add(SpadeFour, 0);
+		t3.addCard(SpadeThree, t2, t3);
+		Card a = t2.getCardStack().get(3);
+		assertEquals("The size of the tableau should increase.", 5, t3.getCardSize());
+		assertEquals("The size of the tableau should increase.", 4, t2.getCardSize());
+		assertEquals("The added card should now be on top.", a, t2.cardAtIndex(3));
+		t2.add(c, 0);
+		t3.removeTest();
+		System.out.println("Hello CSE 116 Teaching Team");
+		System.out.println("Thank you for your effort!");
 	}
 }

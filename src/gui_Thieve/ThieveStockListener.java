@@ -40,7 +40,6 @@ public class ThieveStockListener implements MouseListener{
 		
 		gui.getstockpile().repaint();
 		gui.getstockpile().revalidate();
-		System.out.println(gameLogic.getThieve().getStock().size());
 		
 		
 	}

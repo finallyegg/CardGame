@@ -73,7 +73,7 @@ public class Tablaeus {
 	 * adds a card if it is legal to move it
 	 */
 	public boolean addCard(Card a, Tablaeus b, Tablaeus c) {
-		if(b.checkNumber(a) == true) {
+		if(c.checkNumber(a) == true) {
 			Collections.reverse(c.getCardStack());
 			c.addTest(a);
 			Collections.reverse(c.getCardStack());
