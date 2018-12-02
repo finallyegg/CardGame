@@ -111,12 +111,10 @@ public class thieveCells {
 	}
 
 	/**
-	 * Removes a card if there is at least one card in the Homecell
+	 * Always false, cannot remove from homecell
 	 */
-	public void removeCard() {
-		if (cardStack.size() > 1) {
-			cardStack.remove(cardStack.size() - 1);
-		}
+	public boolean removeCard() {
+		return false;
 	}
 
 	/**

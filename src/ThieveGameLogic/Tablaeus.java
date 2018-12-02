@@ -36,6 +36,16 @@ public class Tablaeus {
 		}
 	}
 	
+	public boolean checkSuit(Card c) {
+
+		if (cardStack.get(0).getSuit() == c.getSuit()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
 	/*
 	 * check to see if the Tableaus is empty or not
 	 */
@@ -51,22 +61,26 @@ public class Tablaeus {
 	/* 
 	 * removes a card if it is legal to move it
 	 */
-	public void removeCard(Card a) {
-		if(checkNumber(a) == true && cardStack.size() >0) {
-		cardStack.remove(0);		
-	}
+	public boolean removeCard(Card a) {
+		if((checkNumber(a) && checkSuit(a) == true) && cardStack.size() >0) {
+			cardStack.remove(0);	
+			return true;
+		}
+		return false;
 	}
 	
 	/*
 	 * adds a card if it is legal to move it
 	 */
-	public void addCard(Card a, Tablaeus b, Tablaeus c) {
+	public boolean addCard(Card a, Tablaeus b, Tablaeus c) {
 		if(b.checkNumber(a) == true) {
 			Collections.reverse(c.getCardStack());
 			c.addTest(a);
 			Collections.reverse(c.getCardStack());
 			b.removeCard(a);
+			return true;
 		}
+		return false;
 	}	
 	
 	public void addToHomecell(Card a, Tablaeus b, thieveCells c) {
