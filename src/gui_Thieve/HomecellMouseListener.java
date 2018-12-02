@@ -46,7 +46,6 @@ public class HomecellMouseListener implements MouseListener {
 				}
 			}else if (gui.isSelected()&&gui.getWhereSelected()==selectedType.WASTE){// if it is illegal it prints this
 				Card previousSelectedCard = gameLogic.getWaste().get(0);
-				System.out.println(this.SelectedIndex);
 				if(gameLogic.getHomeCells(SelectedIndex).checkNumber(previousSelectedCard)) { 
 					gameLogic.getHomeCells(this.SelectedIndex).getHomecellStack().add(0, previousSelectedCard);
 					gameLogic.getWaste().remove(previousSelectedCard);
